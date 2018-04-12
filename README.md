@@ -1,6 +1,6 @@
-# FULiveDemo_Mac
+# FULiveDemoMac
 
-FULiveDemo_Mac是集成了 Faceunity 面部跟踪和虚拟道具及手势识别功能的 Mac 版 Demo。
+FULiveDemoMac是集成了 Faceunity 面部跟踪和虚拟道具及手势识别功能的 Mac 版 Demo。
 
 ## 软件需求
 

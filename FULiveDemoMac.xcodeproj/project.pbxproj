@@ -86,7 +86,7 @@
 		CD48F6FB204FADCE00D945DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD48F6FD204FADCE00D945DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD48F6FE204FADCE00D945DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CD48F700204FADCE00D945DA /* FULiveDemo_MAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FULiveDemo_MAC.entitlements; sourceTree = "<group>"; };
+		CD48F700204FADCE00D945DA /* FULiveDemoMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FULiveDemoMAC.entitlements; sourceTree = "<group>"; };
 		CD48F707204FADF300D945DA /* FUCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUCamera.h; sourceTree = "<group>"; };
 		CD48F708204FADF300D945DA /* FUCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUCamera.m; sourceTree = "<group>"; };
 		CD48F70E204FC1A900D945DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -283,7 +283,7 @@
 				CD48F6FA204FADCE00D945DA /* Main.storyboard */,
 				CD48F6FD204FADCE00D945DA /* Info.plist */,
 				CD48F6FE204FADCE00D945DA /* main.m */,
-				CD48F700204FADCE00D945DA /* FULiveDemo_MAC.entitlements */,
+				CD48F700204FADCE00D945DA /* FULiveDemoMAC.entitlements */,
 			);
 			path = FULiveDemoMac;
 			sourceTree = "<group>";
