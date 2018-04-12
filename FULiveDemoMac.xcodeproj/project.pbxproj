@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		085788DC2055332800CCB0F4 /* FUBeautyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 085788DB2055332800CCB0F4 /* FUBeautyController.m */; };
+		CD1272B720527560002EA732 /* FUSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1272B620527560002EA732 /* FUSplitViewController.m */; };
+		CD1272C520528575002EA732 /* FUItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1272C420528575002EA732 /* FUItemsController.m */; };
+		CD1272CE2053BC07002EA732 /* FUFiltersItemsController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1272CD2053BC07002EA732 /* FUFiltersItemsController.m */; };
+		CD1272D32053C0FF002EA732 /* FUFilterItemsViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1272D12053C0FF002EA732 /* FUFilterItemsViewItem.m */; };
+		CD1272D42053C0FF002EA732 /* FUFilterItemsViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD1272D22053C0FF002EA732 /* FUFilterItemsViewItem.xib */; };
+		CD1F3299207CCCE3007CA49C /* libnama.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD1F3291207CCCE3007CA49C /* libnama.a */; };
+		CD1F329A207CCCE3007CA49C /* release_note.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD1F3292207CCCE3007CA49C /* release_note.txt */; };
+		CD1F329B207CCCE3007CA49C /* anim_model.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD1F3294207CCCE3007CA49C /* anim_model.bundle */; };
+		CD1F329C207CCCE3007CA49C /* ardata_ex.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD1F3295207CCCE3007CA49C /* ardata_ex.bundle */; };
+		CD1F329D207CCCE3007CA49C /* face_beautification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD1F3296207CCCE3007CA49C /* face_beautification.bundle */; };
+		CD1F329E207CCCE3007CA49C /* fxaa.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD1F3297207CCCE3007CA49C /* fxaa.bundle */; };
+		CD1F329F207CCCE3007CA49C /* v3.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD1F3298207CCCE3007CA49C /* v3.bundle */; };
+		CD2C1351207DA97E006F0A47 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2C1350207DA97E006F0A47 /* OpenGL.framework */; };
+		CD2C1353207DA989006F0A47 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2C1352207DA989006F0A47 /* CoreMedia.framework */; };
+		CD2C1356207DD94C006F0A47 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2C1354207DD49A006F0A47 /* libc++.tbd */; };
+		CD48F6F4204FADCE00D945DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD48F6F3204FADCE00D945DA /* AppDelegate.m */; };
+		CD48F6F7204FADCE00D945DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD48F6F6204FADCE00D945DA /* ViewController.m */; };
+		CD48F6F9204FADCE00D945DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD48F6F8204FADCE00D945DA /* Assets.xcassets */; };
+		CD48F6FC204FADCE00D945DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD48F6FA204FADCE00D945DA /* Main.storyboard */; };
+		CD48F6FF204FADCE00D945DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD48F6FE204FADCE00D945DA /* main.m */; };
+		CD48F70A204FADF300D945DA /* FUCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = CD48F708204FADF300D945DA /* FUCamera.m */; };
+		CD48F70F204FC1A900D945DA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD48F70E204FC1A900D945DA /* AVFoundation.framework */; };
+		CD48F737204FCE0900D945DA /* FUMetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD48F736204FCE0900D945DA /* FUMetalView.m */; };
+		CD48F739204FE3F200D945DA /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = CD48F738204FE3F200D945DA /* Shaders.metal */; };
+		CD4F1CD7205771E00010E582 /* FUHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4F1CD5205771E00010E582 /* FUHeaderView.xib */; };
+		CD4F1CD8205771E00010E582 /* FUHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4F1CD6205771E00010E582 /* FUHeaderView.m */; };
+		CD4F1CDB205772DB0010E582 /* FUFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4F1CDA205772DB0010E582 /* FUFooterView.m */; };
+		CD4F1CDD205773020010E582 /* FUFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4F1CDC205773020010E582 /* FUFooterView.xib */; };
+		CD5AF86B2056408D0050B3D9 /* FUWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5AF86A2056408D0050B3D9 /* FUWindowController.m */; };
+		CD5AF86E205670310050B3D9 /* FUClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5AF86D205670310050B3D9 /* FUClipView.m */; };
+		CDDF99892050CD9C00E6ECD2 /* bg_seg.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99742050CD9C00E6ECD2 /* bg_seg.bundle */; };
+		CDDF998A2050CD9C00E6ECD2 /* EatRabbi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99752050CD9C00E6ECD2 /* EatRabbi.bundle */; };
+		CDDF998B2050CD9C00E6ECD2 /* fu_zh_duzui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99762050CD9C00E6ECD2 /* fu_zh_duzui.bundle */; };
+		CDDF998C2050CD9C00E6ECD2 /* gradient.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99772050CD9C00E6ECD2 /* gradient.bundle */; };
+		CDDF998D2050CD9C00E6ECD2 /* houzi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99782050CD9C00E6ECD2 /* houzi.bundle */; };
+		CDDF998E2050CD9C00E6ECD2 /* mask_matianyu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99792050CD9C00E6ECD2 /* mask_matianyu.bundle */; };
+		CDDF998F2050CD9C00E6ECD2 /* Mood.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF997A2050CD9C00E6ECD2 /* Mood.bundle */; };
+		CDDF99902050CD9C00E6ECD2 /* yazui.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF997B2050CD9C00E6ECD2 /* yazui.bundle */; };
+		CDDF99912050CD9C00E6ECD2 /* yuguan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CDDF997C2050CD9C00E6ECD2 /* yuguan.bundle */; };
+		CDDF99942050CDF800E6ECD2 /* FUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDF99932050CDF800E6ECD2 /* FUManager.m */; };
+		CDDF99982050D13400E6ECD2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDF99972050D13400E6ECD2 /* Accelerate.framework */; };
+		CDDF99BA205145C700E6ECD2 /* FUItemsViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDF99B8205145C700E6ECD2 /* FUItemsViewItem.m */; };
+		CDDF99BB205145C700E6ECD2 /* FUItemsViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDDF99B9205145C700E6ECD2 /* FUItemsViewItem.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		085788DA2055332800CCB0F4 /* FUBeautyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUBeautyController.h; sourceTree = "<group>"; };
+		085788DB2055332800CCB0F4 /* FUBeautyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUBeautyController.m; sourceTree = "<group>"; };
+		CD1272B520527560002EA732 /* FUSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUSplitViewController.h; sourceTree = "<group>"; };
+		CD1272B620527560002EA732 /* FUSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUSplitViewController.m; sourceTree = "<group>"; };
+		CD1272C320528575002EA732 /* FUItemsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUItemsController.h; sourceTree = "<group>"; };
+		CD1272C420528575002EA732 /* FUItemsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUItemsController.m; sourceTree = "<group>"; };
+		CD1272CC2053BC07002EA732 /* FUFiltersItemsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUFiltersItemsController.h; sourceTree = "<group>"; };
+		CD1272CD2053BC07002EA732 /* FUFiltersItemsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUFiltersItemsController.m; sourceTree = "<group>"; };
+		CD1272D02053C0FF002EA732 /* FUFilterItemsViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUFilterItemsViewItem.h; sourceTree = "<group>"; };
+		CD1272D12053C0FF002EA732 /* FUFilterItemsViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUFilterItemsViewItem.m; sourceTree = "<group>"; };
+		CD1272D22053C0FF002EA732 /* FUFilterItemsViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FUFilterItemsViewItem.xib; sourceTree = "<group>"; };
+		CD1F328F207CCCE3007CA49C /* funama.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = funama.h; sourceTree = "<group>"; };
+		CD1F3290207CCCE3007CA49C /* FURenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FURenderer.h; sourceTree = "<group>"; };
+		CD1F3291207CCCE3007CA49C /* libnama.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnama.a; sourceTree = "<group>"; };
+		CD1F3292207CCCE3007CA49C /* release_note.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_note.txt; sourceTree = "<group>"; };
+		CD1F3294207CCCE3007CA49C /* anim_model.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = anim_model.bundle; sourceTree = "<group>"; };
+		CD1F3295207CCCE3007CA49C /* ardata_ex.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = ardata_ex.bundle; sourceTree = "<group>"; };
+		CD1F3296207CCCE3007CA49C /* face_beautification.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = face_beautification.bundle; sourceTree = "<group>"; };
+		CD1F3297207CCCE3007CA49C /* fxaa.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = fxaa.bundle; sourceTree = "<group>"; };
+		CD1F3298207CCCE3007CA49C /* v3.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = v3.bundle; sourceTree = "<group>"; };
+		CD2C1350207DA97E006F0A47 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		CD2C1352207DA989006F0A47 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		CD2C1354207DD49A006F0A47 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CD48F6EF204FADCE00D945DA /* FULiveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FULiveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD48F6F2204FADCE00D945DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD48F6F3204FADCE00D945DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD48F6F5204FADCE00D945DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD48F6F6204FADCE00D945DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD48F6F8204FADCE00D945DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD48F6FB204FADCE00D945DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD48F6FD204FADCE00D945DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD48F6FE204FADCE00D945DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD48F700204FADCE00D945DA /* FULiveDemo_MAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FULiveDemo_MAC.entitlements; sourceTree = "<group>"; };
+		CD48F707204FADF300D945DA /* FUCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUCamera.h; sourceTree = "<group>"; };
+		CD48F708204FADF300D945DA /* FUCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUCamera.m; sourceTree = "<group>"; };
+		CD48F70E204FC1A900D945DA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CD48F735204FCE0900D945DA /* FUMetalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUMetalView.h; sourceTree = "<group>"; };
+		CD48F736204FCE0900D945DA /* FUMetalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUMetalView.m; sourceTree = "<group>"; };
+		CD48F738204FE3F200D945DA /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		CD4F1CD4205771E00010E582 /* FUHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUHeaderView.h; sourceTree = "<group>"; };
+		CD4F1CD5205771E00010E582 /* FUHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FUHeaderView.xib; sourceTree = "<group>"; };
+		CD4F1CD6205771E00010E582 /* FUHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUHeaderView.m; sourceTree = "<group>"; };
+		CD4F1CD9205772DB0010E582 /* FUFooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUFooterView.h; sourceTree = "<group>"; };
+		CD4F1CDA205772DB0010E582 /* FUFooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUFooterView.m; sourceTree = "<group>"; };
+		CD4F1CDC205773020010E582 /* FUFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FUFooterView.xib; sourceTree = "<group>"; };
+		CD5AF8692056408D0050B3D9 /* FUWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUWindowController.h; sourceTree = "<group>"; };
+		CD5AF86A2056408D0050B3D9 /* FUWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUWindowController.m; sourceTree = "<group>"; };
+		CD5AF86C205670310050B3D9 /* FUClipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUClipView.h; sourceTree = "<group>"; };
+		CD5AF86D205670310050B3D9 /* FUClipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUClipView.m; sourceTree = "<group>"; };
+		CDDF995B2050CD9C00E6ECD2 /* authpack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = authpack.h; sourceTree = "<group>"; };
+		CDDF99742050CD9C00E6ECD2 /* bg_seg.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = bg_seg.bundle; sourceTree = "<group>"; };
+		CDDF99752050CD9C00E6ECD2 /* EatRabbi.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = EatRabbi.bundle; sourceTree = "<group>"; };
+		CDDF99762050CD9C00E6ECD2 /* fu_zh_duzui.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = fu_zh_duzui.bundle; sourceTree = "<group>"; };
+		CDDF99772050CD9C00E6ECD2 /* gradient.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = gradient.bundle; sourceTree = "<group>"; };
+		CDDF99782050CD9C00E6ECD2 /* houzi.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = houzi.bundle; sourceTree = "<group>"; };
+		CDDF99792050CD9C00E6ECD2 /* mask_matianyu.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = mask_matianyu.bundle; sourceTree = "<group>"; };
+		CDDF997A2050CD9C00E6ECD2 /* Mood.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mood.bundle; sourceTree = "<group>"; };
+		CDDF997B2050CD9C00E6ECD2 /* yazui.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = yazui.bundle; sourceTree = "<group>"; };
+		CDDF997C2050CD9C00E6ECD2 /* yuguan.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = yuguan.bundle; sourceTree = "<group>"; };
+		CDDF99922050CDF800E6ECD2 /* FUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUManager.h; sourceTree = "<group>"; };
+		CDDF99932050CDF800E6ECD2 /* FUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUManager.m; sourceTree = "<group>"; };
+		CDDF99952050D12F00E6ECD2 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		CDDF99972050D13400E6ECD2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		CDDF99B7205145C700E6ECD2 /* FUItemsViewItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUItemsViewItem.h; sourceTree = "<group>"; };
+		CDDF99B8205145C700E6ECD2 /* FUItemsViewItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUItemsViewItem.m; sourceTree = "<group>"; };
+		CDDF99B9205145C700E6ECD2 /* FUItemsViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FUItemsViewItem.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD48F6EC204FADCE00D945DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD2C1353207DA989006F0A47 /* CoreMedia.framework in Frameworks */,
+				CD2C1351207DA97E006F0A47 /* OpenGL.framework in Frameworks */,
+				CDDF99982050D13400E6ECD2 /* Accelerate.framework in Frameworks */,
+				CD48F70F204FC1A900D945DA /* AVFoundation.framework in Frameworks */,
+				CD2C1356207DD94C006F0A47 /* libc++.tbd in Frameworks */,
+				CD1F3299207CCCE3007CA49C /* libnama.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD1272B420527531002EA732 /* FUControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CD1272C220527FF5002EA732 /* beauty */,
+				CD1272C120527FEB002EA732 /* filters */,
+				CD1272C020527FE1002EA732 /* items */,
+				CD1272B520527560002EA732 /* FUSplitViewController.h */,
+				CD1272B620527560002EA732 /* FUSplitViewController.m */,
+				CD48F6F5204FADCE00D945DA /* ViewController.h */,
+				CD48F6F6204FADCE00D945DA /* ViewController.m */,
+			);
+			path = FUControllers;
+			sourceTree = "<group>";
+		};
+		CD1272BD20527F7B002EA732 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CDDF99922050CDF800E6ECD2 /* FUManager.h */,
+				CDDF99932050CDF800E6ECD2 /* FUManager.m */,
+				CD48F707204FADF300D945DA /* FUCamera.h */,
+				CD48F708204FADF300D945DA /* FUCamera.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CD1272BE20527F99002EA732 /* metalView */ = {
+			isa = PBXGroup;
+			children = (
+				CD48F738204FE3F200D945DA /* Shaders.metal */,
+				CD48F735204FCE0900D945DA /* FUMetalView.h */,
+				CD48F736204FCE0900D945DA /* FUMetalView.m */,
+			);
+			path = metalView;
+			sourceTree = "<group>";
+		};
+		CD1272BF20527FB1002EA732 /* itemsView */ = {
+			isa = PBXGroup;
+			children = (
+				CDDF99B7205145C700E6ECD2 /* FUItemsViewItem.h */,
+				CDDF99B8205145C700E6ECD2 /* FUItemsViewItem.m */,
+				CDDF99B9205145C700E6ECD2 /* FUItemsViewItem.xib */,
+			);
+			path = itemsView;
+			sourceTree = "<group>";
+		};
+		CD1272C020527FE1002EA732 /* items */ = {
+			isa = PBXGroup;
+			children = (
+				CD1272C320528575002EA732 /* FUItemsController.h */,
+				CD1272C420528575002EA732 /* FUItemsController.m */,
+			);
+			path = items;
+			sourceTree = "<group>";
+		};
+		CD1272C120527FEB002EA732 /* filters */ = {
+			isa = PBXGroup;
+			children = (
+				CD1272CC2053BC07002EA732 /* FUFiltersItemsController.h */,
+				CD1272CD2053BC07002EA732 /* FUFiltersItemsController.m */,
+			);
+			path = filters;
+			sourceTree = "<group>";
+		};
+		CD1272C220527FF5002EA732 /* beauty */ = {
+			isa = PBXGroup;
+			children = (
+				085788DA2055332800CCB0F4 /* FUBeautyController.h */,
+				085788DB2055332800CCB0F4 /* FUBeautyController.m */,
+			);
+			path = beauty;
+			sourceTree = "<group>";
+		};
+		CD1272CF2053C0D0002EA732 /* filterView */ = {
+			isa = PBXGroup;
+			children = (
+				CD1272D02053C0FF002EA732 /* FUFilterItemsViewItem.h */,
+				CD1272D12053C0FF002EA732 /* FUFilterItemsViewItem.m */,
+				CD1272D22053C0FF002EA732 /* FUFilterItemsViewItem.xib */,
+			);
+			path = filterView;
+			sourceTree = "<group>";
+		};
+		CD1F328D207CCCE3007CA49C /* FaceUnity-SDK-Mac */ = {
+			isa = PBXGroup;
+			children = (
+				CD1F328E207CCCE3007CA49C /* Headers */,
+				CD1F3291207CCCE3007CA49C /* libnama.a */,
+				CD1F3292207CCCE3007CA49C /* release_note.txt */,
+				CD1F3293207CCCE3007CA49C /* Resources */,
+			);
+			path = "FaceUnity-SDK-Mac";
+			sourceTree = "<group>";
+		};
+		CD1F328E207CCCE3007CA49C /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				CD1F328F207CCCE3007CA49C /* funama.h */,
+				CD1F3290207CCCE3007CA49C /* FURenderer.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		CD1F3293207CCCE3007CA49C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD1F3294207CCCE3007CA49C /* anim_model.bundle */,
+				CD1F3295207CCCE3007CA49C /* ardata_ex.bundle */,
+				CD1F3296207CCCE3007CA49C /* face_beautification.bundle */,
+				CD1F3297207CCCE3007CA49C /* fxaa.bundle */,
+				CD1F3298207CCCE3007CA49C /* v3.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CD48F6E6204FADCD00D945DA = {
+			isa = PBXGroup;
+			children = (
+				CD48F6F1204FADCE00D945DA /* FULiveDemoMac */,
+				CD48F6F0204FADCE00D945DA /* Products */,
+				CD48F70D204FC1A900D945DA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CD48F6F0204FADCE00D945DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD48F6EF204FADCE00D945DA /* FULiveDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD48F6F1204FADCE00D945DA /* FULiveDemoMac */ = {
+			isa = PBXGroup;
+			children = (
+				CDDF995A2050CD9C00E6ECD2 /* Faceunity */,
+				CD1272BD20527F7B002EA732 /* Source */,
+				CD1272B420527531002EA732 /* FUControllers */,
+				CDDF99AF2051431D00E6ECD2 /* Views */,
+				CD48F6F2204FADCE00D945DA /* AppDelegate.h */,
+				CD48F6F3204FADCE00D945DA /* AppDelegate.m */,
+				CD48F6F8204FADCE00D945DA /* Assets.xcassets */,
+				CD48F6FA204FADCE00D945DA /* Main.storyboard */,
+				CD48F6FD204FADCE00D945DA /* Info.plist */,
+				CD48F6FE204FADCE00D945DA /* main.m */,
+				CD48F700204FADCE00D945DA /* FULiveDemo_MAC.entitlements */,
+			);
+			path = FULiveDemoMac;
+			sourceTree = "<group>";
+		};
+		CD48F70D204FC1A900D945DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD2C1354207DD49A006F0A47 /* libc++.tbd */,
+				CD2C1352207DA989006F0A47 /* CoreMedia.framework */,
+				CD2C1350207DA97E006F0A47 /* OpenGL.framework */,
+				CDDF99972050D13400E6ECD2 /* Accelerate.framework */,
+				CDDF99952050D12F00E6ECD2 /* libstdc++.tbd */,
+				CD48F70E204FC1A900D945DA /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDDF995A2050CD9C00E6ECD2 /* Faceunity */ = {
+			isa = PBXGroup;
+			children = (
+				CDDF995B2050CD9C00E6ECD2 /* authpack.h */,
+				CD1F328D207CCCE3007CA49C /* FaceUnity-SDK-Mac */,
+				CDDF99722050CD9C00E6ECD2 /* items */,
+			);
+			path = Faceunity;
+			sourceTree = "<group>";
+		};
+		CDDF99722050CD9C00E6ECD2 /* items */ = {
+			isa = PBXGroup;
+			children = (
+				CDDF99742050CD9C00E6ECD2 /* bg_seg.bundle */,
+				CDDF99752050CD9C00E6ECD2 /* EatRabbi.bundle */,
+				CDDF99762050CD9C00E6ECD2 /* fu_zh_duzui.bundle */,
+				CDDF99772050CD9C00E6ECD2 /* gradient.bundle */,
+				CDDF99782050CD9C00E6ECD2 /* houzi.bundle */,
+				CDDF99792050CD9C00E6ECD2 /* mask_matianyu.bundle */,
+				CDDF997A2050CD9C00E6ECD2 /* Mood.bundle */,
+				CDDF997B2050CD9C00E6ECD2 /* yazui.bundle */,
+				CDDF997C2050CD9C00E6ECD2 /* yuguan.bundle */,
+			);
+			path = items;
+			sourceTree = "<group>";
+		};
+		CDDF99AF2051431D00E6ECD2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD1272CF2053C0D0002EA732 /* filterView */,
+				CD1272BF20527FB1002EA732 /* itemsView */,
+				CD1272BE20527F99002EA732 /* metalView */,
+				CD4F1CD4205771E00010E582 /* FUHeaderView.h */,
+				CD4F1CD6205771E00010E582 /* FUHeaderView.m */,
+				CD4F1CD5205771E00010E582 /* FUHeaderView.xib */,
+				CD4F1CD9205772DB0010E582 /* FUFooterView.h */,
+				CD4F1CDA205772DB0010E582 /* FUFooterView.m */,
+				CD4F1CDC205773020010E582 /* FUFooterView.xib */,
+				CD5AF8692056408D0050B3D9 /* FUWindowController.h */,
+				CD5AF86A2056408D0050B3D9 /* FUWindowController.m */,
+				CD5AF86C205670310050B3D9 /* FUClipView.h */,
+				CD5AF86D205670310050B3D9 /* FUClipView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD48F6EE204FADCE00D945DA /* FULiveDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD48F703204FADCE00D945DA /* Build configuration list for PBXNativeTarget "FULiveDemo" */;
+			buildPhases = (
+				CD48F6EB204FADCE00D945DA /* Sources */,
+				CD48F6EC204FADCE00D945DA /* Frameworks */,
+				CD48F6ED204FADCE00D945DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FULiveDemo;
+			productName = FULiveDemo_MAC;
+			productReference = CD48F6EF204FADCE00D945DA /* FULiveDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD48F6E7204FADCD00D945DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = faceunity;
+				TargetAttributes = {
+					CD48F6EE204FADCE00D945DA = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CD48F6EA204FADCD00D945DA /* Build configuration list for PBXProject "FULiveDemoMac" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD48F6E6204FADCD00D945DA;
+			productRefGroup = CD48F6F0204FADCE00D945DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD48F6EE204FADCE00D945DA /* FULiveDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD48F6ED204FADCE00D945DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDDF998E2050CD9C00E6ECD2 /* mask_matianyu.bundle in Resources */,
+				CD1F329B207CCCE3007CA49C /* anim_model.bundle in Resources */,
+				CD4F1CDD205773020010E582 /* FUFooterView.xib in Resources */,
+				CDDF99902050CD9C00E6ECD2 /* yazui.bundle in Resources */,
+				CDDF99912050CD9C00E6ECD2 /* yuguan.bundle in Resources */,
+				CD1F329A207CCCE3007CA49C /* release_note.txt in Resources */,
+				CD1272D42053C0FF002EA732 /* FUFilterItemsViewItem.xib in Resources */,
+				CD1F329E207CCCE3007CA49C /* fxaa.bundle in Resources */,
+				CD1F329F207CCCE3007CA49C /* v3.bundle in Resources */,
+				CD1F329C207CCCE3007CA49C /* ardata_ex.bundle in Resources */,
+				CDDF99892050CD9C00E6ECD2 /* bg_seg.bundle in Resources */,
+				CDDF998D2050CD9C00E6ECD2 /* houzi.bundle in Resources */,
+				CD1F329D207CCCE3007CA49C /* face_beautification.bundle in Resources */,
+				CD48F6F9204FADCE00D945DA /* Assets.xcassets in Resources */,
+				CDDF998C2050CD9C00E6ECD2 /* gradient.bundle in Resources */,
+				CDDF998B2050CD9C00E6ECD2 /* fu_zh_duzui.bundle in Resources */,
+				CD4F1CD7205771E00010E582 /* FUHeaderView.xib in Resources */,
+				CDDF998F2050CD9C00E6ECD2 /* Mood.bundle in Resources */,
+				CDDF998A2050CD9C00E6ECD2 /* EatRabbi.bundle in Resources */,
+				CDDF99BB205145C700E6ECD2 /* FUItemsViewItem.xib in Resources */,
+				CD48F6FC204FADCE00D945DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD48F6EB204FADCE00D945DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD48F6F7204FADCE00D945DA /* ViewController.m in Sources */,
+				CD1272CE2053BC07002EA732 /* FUFiltersItemsController.m in Sources */,
+				CD48F739204FE3F200D945DA /* Shaders.metal in Sources */,
+				CD1272B720527560002EA732 /* FUSplitViewController.m in Sources */,
+				CD5AF86E205670310050B3D9 /* FUClipView.m in Sources */,
+				CD48F70A204FADF300D945DA /* FUCamera.m in Sources */,
+				CD48F6FF204FADCE00D945DA /* main.m in Sources */,
+				CD4F1CD8205771E00010E582 /* FUHeaderView.m in Sources */,
+				085788DC2055332800CCB0F4 /* FUBeautyController.m in Sources */,
+				CD4F1CDB205772DB0010E582 /* FUFooterView.m in Sources */,
+				CDDF99942050CDF800E6ECD2 /* FUManager.m in Sources */,
+				CD48F6F4204FADCE00D945DA /* AppDelegate.m in Sources */,
+				CD5AF86B2056408D0050B3D9 /* FUWindowController.m in Sources */,
+				CD1272D32053C0FF002EA732 /* FUFilterItemsViewItem.m in Sources */,
+				CD48F737204FCE0900D945DA /* FUMetalView.m in Sources */,
+				CD1272C520528575002EA732 /* FUItemsController.m in Sources */,
+				CDDF99BA205145C700E6ECD2 /* FUItemsViewItem.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CD48F6FA204FADCE00D945DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD48F6FB204FADCE00D945DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD48F701204FADCE00D945DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CD48F702204FADCE00D945DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CD48F704204FADCE00D945DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 35A6KD62ZJ;
+				INFOPLIST_FILE = FULiveDemoMAC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FULiveDemoMac/Faceunity/FaceUnity-SDK-Mac",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faceunity.FULiveDemoMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		CD48F705204FADCE00D945DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 35A6KD62ZJ;
+				INFOPLIST_FILE = FULiveDemoMAC/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FULiveDemoMac/Faceunity/FaceUnity-SDK-Mac",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				OTHER_CFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.faceunity.FULiveDemoMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD48F6EA204FADCD00D945DA /* Build configuration list for PBXProject "FULiveDemoMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD48F701204FADCE00D945DA /* Debug */,
+				CD48F702204FADCE00D945DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD48F703204FADCE00D945DA /* Build configuration list for PBXNativeTarget "FULiveDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD48F704204FADCE00D945DA /* Debug */,
+				CD48F705204FADCE00D945DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD48F6E7204FADCD00D945DA /* Project object */;
+}

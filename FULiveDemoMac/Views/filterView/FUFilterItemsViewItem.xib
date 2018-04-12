@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FUFilterItemsViewItem">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xTI-u4-4Th">
+                    <rect key="frame" x="0.0" y="15" width="480" height="257"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="EatRabbi" id="1fj-Gz-NAY"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kk9-Q9-CIL">
+                    <rect key="frame" x="-2" y="0.0" width="484" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="IVU-YC-Dwy"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="6iH-uD-gGB">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="highlightColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="kk9-Q9-CIL" firstAttribute="top" secondItem="xTI-u4-4Th" secondAttribute="bottom" id="FLt-4O-SDg"/>
+                <constraint firstItem="xTI-u4-4Th" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="LiY-qf-WQj"/>
+                <constraint firstItem="kk9-Q9-CIL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="M8a-o4-eOk"/>
+                <constraint firstAttribute="bottom" secondItem="kk9-Q9-CIL" secondAttribute="bottom" id="RjM-MN-x7N"/>
+                <constraint firstAttribute="trailing" secondItem="xTI-u4-4Th" secondAttribute="trailing" id="Sl2-GJ-rVj"/>
+                <constraint firstAttribute="trailing" secondItem="kk9-Q9-CIL" secondAttribute="trailing" id="WqQ-Sf-Y3e"/>
+                <constraint firstItem="xTI-u4-4Th" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="jG1-cp-Wjb"/>
+            </constraints>
+            <point key="canvasLocation" x="-8" y="-59"/>
+        </customView>
+        <collectionViewItem id="0Oj-LV-lEi" customClass="FUFilterItemsViewItem">
+            <connections>
+                <outlet property="imageView" destination="xTI-u4-4Th" id="fiQ-Kk-Sag"/>
+                <outlet property="textField" destination="kk9-Q9-CIL" id="FI1-O2-Xzm"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="bR4-I8-UIv"/>
+            </connections>
+        </collectionViewItem>
+    </objects>
+    <resources>
+        <image name="EatRabbi" width="50" height="50"/>
+    </resources>
+</document>
