@@ -14,6 +14,14 @@ typedef struct{
     GLuint bgraTextureHandle;
 }FUOutput;
 
+typedef enum {
+    FUFormatBGRABuffer = FU_FORMAT_BGRA_BUFFER,
+    FUFormatRGBABuffer = FU_FORMAT_RGBA_BUFFER,
+    FUFormatNV12Buffer = FU_FORMAT_NV12_BUFFER,
+    FUFormatI420Buffer = FU_FORMAT_I420_BUFFER,
+    FUFormatRGBATexture = FU_FORMAT_RGBA_TEXTURE,
+} FUFormat;
+
 @interface FURenderer : NSObject
 
 /**
@@ -224,6 +232,8 @@ typedef struct{
  */
 - (CVPixelBufferRef)renderPixelBuffer:(CVPixelBufferRef)pixelBuffer withFrameId:(int)frameid items:(int*)items itemCount:(int)itemCount flipx:(BOOL)flip masks:(void*)masks;
 
+- (int)renderItems:(void *)inPtr inFormat:(FUFormat)inFormat outPtr:(void *)outPtr outFormat:(FUFormat)outFormat width:(int)width height:(int)height frameId:(int)frameid items:(int *)items itemCount:(int)itemCount flipx:(BOOL)flip;
+
 /**
  resize视频图像，目前仅支持BGRA格式的pixelBuffer
 
@@ -329,6 +339,10 @@ typedef struct{
  @return 参数值
  */
 + (NSString *)getStringParamFromItem:(int)item withName:(NSString *)name;
+
++ (int)itemSetParamu8v:(int)item withName:(NSString *)name buffer:(void *)buffer size:(int)size;
+
++ (int)itemGetParamu8v:(int)item withName:(NSString *)name buffer:(void *)buffer size:(int)size;
 
 /**
  判断是否检测到人脸：
@@ -456,4 +470,17 @@ typedef struct{
  */
 + (NSString *)getVersion;
 
++ (void)setExpressionCalibration:(int)expressionCalibration;
+
++ (void)setFocalLengthScale:(float)scale;
+
++ (int)loadExtendedARData:(void *)data size:(int)size;
+
++ (int)loadExtendedARDataWithDataPath:(NSString *)dataPath;
+
++ (int)loadAnimModel:(void *)model size:(int)size;
+
++ (int)loadAnimModelWithModelPath:(NSString *)modelPath;
+
++ (void)setDefaultRotationMode:(float)mode;
 @end

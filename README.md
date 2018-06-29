@@ -19,14 +19,14 @@ FULiveDemoMac是集成了 Faceunity 面部跟踪和虚拟道具及手势识别�
 含有深度学习的版本：
 
 ```
-pod 'Nama-macOS', '5.0' #注意此版本目前为dev版
+pod 'Nama-macOS', '5.2.0' #注意此版本目前为dev版
 ```
 
 不含深度学习的版本（lite版）：
 	
 
 ```
-pod 'Nama-macOS-lite', '5.0' #注意此版本目前为dev版
+pod 'Nama-macOS-lite', '5.2.0' #注意此版本目前为dev版
 ```
 
 接下来执行：
@@ -43,9 +43,9 @@ pod repo update 或 pod setup
 
 ### 二、通过 github 下载集成
 
-含有深度学习的版本：[FaceUnity-SDK-Mac-v5.0-dev.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.0-dev/FaceUnity-SDK-Mac-v5.0-dev.zip)
+含有深度学习的版本：[FaceUnity-SDK-Mac-v5.2.0-dev.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.2.0-dev/FaceUnity-SDK-Mac-v5.2.0-dev.zip)
 	
-不含深度学习的版本（lite版）：[FaceUnity-SDK-Mac-v5.0-dev-lite.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.0-dev/FaceUnity-SDK-Mac-v5.0-dev-lite.zip)
+不含深度学习的版本（lite版）：[FaceUnity-SDK-Mac-v5.2.0-dev-lite.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.2.0-dev/FaceUnity-SDK-Mac-v5.2.0-dev-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 

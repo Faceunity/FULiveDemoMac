@@ -56,7 +56,7 @@ static FUManager *shareManager = NULL;
         self.filtersCHName = @{@"ziran":@"自然", @"danya":@"淡雅", @"fennen":@"粉嫩", @"qingxin":@"清新", @"hongrun":@"红润"};
         [self setDefaultParameters];
         
-//        NSLog(@"faceunitySDK version:%@",[FURenderer getVersion]);
+        NSLog(@"faceunitySDK version:%@",[FURenderer getVersion]);
         
         hintDic = @{@"fu_zh_duzui":@"做嘟嘴动作",@"Mood":@"嘴角向上或嘴角向下"};
         
