@@ -95,7 +95,11 @@
 
 //返回前置摄像头
 - (AVCaptureDevice *)camera {
-    return [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    if (devices.count > 0) {
+        return devices.lastObject;
+    }
+    return nil;
 }
 
 - (AVCaptureVideoDataOutput *)videoOutput

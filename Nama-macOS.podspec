@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.platform     = :osx, "10.8"
   s.source   = { :git => 'https://github.com/Faceunity/FULiveDemoMac.git', :tag => 'v5.3.0-dev' }
   s.source_files = 'FULiveDemoMac/Faceunity/FaceUnity-SDK-Mac/**/*.{h,m}'
-  s.resources = 'FULiveDemoMac/Faceunity/FaceUnity-SDK-Mac/**/*.{bundle}'
+  s.resources = 'FULiveDemoMac/Faceunity/FaceUnity-SDK-Mac/**/*.{bundle,txt}'
   s.osx.vendored_library = 'FULiveDemoMac/Faceunity/FaceUnity-SDK-Mac/libnama.a'
   s.requires_arc = true
   s.osx.frameworks   = ['OpenGL', 'Accelerate', 'CoreMedia', 'AVFoundation']
