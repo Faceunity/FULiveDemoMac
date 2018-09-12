@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FUPropSubItem">
+            <connections>
+                <outlet property="mImageView" destination="Tfd-ru-Hyt" id="xvy-yI-hQf"/>
+                <outlet property="mMouseInBAGView" destination="GVo-Vm-TNq" id="szS-RX-abn"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="oNe-JR-qzW"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="91" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="GVo-Vm-TNq">
+                    <rect key="frame" x="12" y="10" width="68" height="68"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="68" id="Zzp-8Z-9tj"/>
+                        <constraint firstAttribute="height" constant="68" id="pDC-7T-8we"/>
+                    </constraints>
+                </customView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tfd-ru-Hyt">
+                    <rect key="frame" x="20" y="18" width="52" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="dSo-wl-L5H"/>
+                        <constraint firstAttribute="height" constant="52" id="omU-Cz-8PI"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="mask_matianyu" id="3YK-Xg-IjA"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="GVo-Vm-TNq" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="Mj6-02-VzR"/>
+                <constraint firstItem="Tfd-ru-Hyt" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="N0e-0o-dMp"/>
+                <constraint firstItem="Tfd-ru-Hyt" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="wa3-TC-LHQ"/>
+                <constraint firstItem="GVo-Vm-TNq" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="wpt-sM-y5v"/>
+            </constraints>
+            <point key="canvasLocation" x="-55.5" y="77"/>
+        </customView>
+        <collectionViewItem id="Bty-i5-0l8" customClass="FUPropSubItem"/>
+    </objects>
+    <resources>
+        <image name="mask_matianyu" width="150" height="150"/>
+    </resources>
+</document>

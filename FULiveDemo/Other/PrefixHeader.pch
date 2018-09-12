@@ -1,0 +1,41 @@
+//
+//  PrefixHeader.pch
+//  FULive
+//
+//  Created by 孙慕 on 2018/7/27.
+//  Copyright © 2018年 faceunity. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/*** 如果希望某些内容能拷贝到任何源代码文件(OC\C\C++等), 那么就不要写在#ifdef __OBJC__和#endif之间 ***/
+
+
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+#ifdef __OBJC__
+
+#import "FUConstManager.h"
+#import "NSButton+FUExtension.h"
+
+
+/*** 日志 ***/
+#ifdef DEBUG
+#define FULog(...) NSLog(__VA_ARGS__)
+#else
+#define FULog(...)
+#endif
+
+#define FULogFunc FULog(@"%s", __func__);
+#define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+
+/*** 颜色 ***/
+
+#define FUColorA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+#define FUColor(r, g, b) FUColorA((r), (g), (b), 255)
+#define FUColor_HEX(hexValue) [NSColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16)) / 255.0 green:((float)((hexValue & 0xFF00) >> 8)) / 255.0 blue:((float)(hexValue & 0xFF)) / 255.0 alpha:1.0f]
+
+
+#endif
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+#endif /* PrefixHeader_pch */

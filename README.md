@@ -4,12 +4,13 @@ FULiveDemo 是集成了 Faceunity 面部跟踪、美颜、Animoji、道具贴纸
 
 注：第一运行Demo会报缺少证书的 error ,如果您已拥有我司颁发的证书，将证书替换到工程中重新运行即可。如您还没有我司颁发的证书，可以查看[这里](#导入证书)获取证书
 
-## SDK v5.4.0 更新
+## SDK v5.5.0 更新
 
 更新内容
 
-- 绘制性能进一步优化提升
-- 新增美妆贴纸功能
+- 智能美肤性能优化提升
+- 表情跟踪针对细微表情优化
+- 修复MAC上rgb/bgr问题
 
 ## 软件需求
 
@@ -35,7 +36,7 @@ pod 'Nama-macOS', '5.4.0' #注意此版本目前为dev版
 	
 
 ```
-pod 'Nama-macOS-lite', '5.4.0' #注意此版本目前为dev版
+pod 'Nama-macOS-lite', '5.5.0' #注意此版本目前为dev版
 ```
 
 接下来执行：
@@ -52,9 +53,9 @@ pod repo update 或 pod setup
 
 ### 二、通过 github 下载集成
 
-含有深度学习的版本：[FaceUnity-SDK-Mac-v5.4.0-dev.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.4.0-dev/FaceUnity-SDK-Mac-v5.4.0-dev.zip)
+含有深度学习的版本：[FaceUnity-SDK-Mac-v5.5.0-dev.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.5.0-dev/FaceUnity-SDK-Mac-v5.5.0-dev.zip)
 	
-不含深度学习的版本（lite版）：[FaceUnity-SDK-Mac-v5.4.0-dev-lite.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.4.0-dev/FaceUnity-SDK-Mac-v5.4.0-dev-lite.zip)
+不含深度学习的版本（lite版）：[FaceUnity-SDK-Mac-v5.5.0-dev-lite.zip](https://github.com/Faceunity/FULiveDemoMac/releases/download/v5.5.0-dev/FaceUnity-SDK-Mac-v5.5.0-dev-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 
