@@ -33,18 +33,22 @@
     _model = model;
     _mImageView.image = [NSImage imageNamed:model.openImageStr];
     _mTitleLabel.stringValue = model.titleStr;
-    _mSlider.minValue = model.valueRect.minNum * 100;
-    _mSlider.maxValue = model.valueRect.maxNum * 100;
-    [_mSlider setIntValue:(model.currentValue.value + model.valueRect.minNum) * 100 ];
-    [_mTextField setStringValue:[NSString stringWithFormat:@"%.0f",(model.currentValue.value + model.valueRect.minNum) * 100 ]];
     
+    int type = (int)(model.valueRect.maxNum - model.valueRect.minNum);
     if (model.valueRect.minNum < 0) { //中间为0样式
         FUSliderCell *cell =  (FUSliderCell *)_mSlider.cell;
         [cell setCellType:FUSliderCellType101];
+        _mSlider.minValue = -50;
+        _mSlider.maxValue = 50;
     }else{
         FUSliderCell *cell =  (FUSliderCell *)_mSlider.cell;
         [cell setCellType:FUSliderCellType01];
+        _mSlider.minValue = 0;
+        _mSlider.maxValue = 100;
     }
+    
+    [_mSlider setIntValue:(model.currentValue.value + model.valueRect.minNum)/(model.valueRect.maxNum - model.valueRect.minNum) * 100];
+    [_mTextField setStringValue:[NSString stringWithFormat:@"%.0f",(model.currentValue.value + model.valueRect.minNum) * 100/type]];
     
     if (_model.currentValue.value + _model.valueRect.minNum == 0) {
         [_mImageView setImage:[NSImage imageNamed:_model.closeImageStr]];
@@ -80,8 +84,10 @@
 - (IBAction)sliderDidChange:(NSSlider *)sender {
     
     NSLog(@"slideValu ----- %ld",(long)sender.integerValue);
+    int type = (int)(_model.valueRect.maxNum - _model.valueRect.minNum);
+    
     [_mTextField setStringValue:[NSString stringWithFormat:@"%d",_mSlider.intValue]];
-    _model.currentValue.value = (_mSlider.intValue - _mSlider.minValue) * 1.0 / 100;
+    _model.currentValue.value = (_mSlider.intValue - _mSlider.minValue) * 1.0 / 100 * type;
     if (_model.currentValue.value + _model.valueRect.minNum == 0) {
         [_mImageView setImage:[NSImage imageNamed:_model.closeImageStr]];
     }else{
@@ -101,7 +107,8 @@
         if (sender.intValue == 0) {//防止出现输入框-00，00，0000 这中情况
             sender.intValue = 0;
         }
-        _model.currentValue.value = (_mSlider.intValue - _mSlider.minValue) * 1.0 / 100;
+            int type = (int)(_model.valueRect.maxNum - _model.valueRect.minNum);
+        _model.currentValue.value = (_mSlider.intValue - _mSlider.minValue) * 1.0 / 100 * type;
         if (_model.currentValue.value + _model.valueRect.minNum == 0) {
             [_mImageView setImage:[NSImage imageNamed:_model.closeImageStr]];
         }else{

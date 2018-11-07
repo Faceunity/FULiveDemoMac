@@ -54,11 +54,14 @@ static FUManager *shareManager = NULL;
         NSLog(@"fuLoadAnimModel %@",res0 == 0 ? @"failure":@"success" );
 //
         NSData *arModelData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ardata_ex.bundle" ofType:nil]];
-        
-        
         int res1 = fuLoadExtendedARData((void *)arModelData.bytes, (int)arModelData.length);
 //
         NSLog(@"fuLoadExtendedARData %@",res1 == 0 ? @"failure":@"success" );
+        
+        NSData *tongueData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tongue.bundle" ofType:nil]];
+        int ret2 = fuLoadTongueModel((void *)tongueData.bytes, (int)tongueData.length) ;
+        NSLog(@"fuLoadTongueModel %@",ret2 == 0 ? @"failure":@"success" );
+        
         NSLog(@"sdk-------%@",[FURenderer getVersion]);
         //
 //        

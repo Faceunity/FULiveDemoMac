@@ -40,13 +40,14 @@ static FUAppDataCenter *shareManager = NULL;
 /* 初始化美肤数据 */
 - (void)initializationSkinData{
     FUValueRect rect1 = {0,1};
+    FUValueRect rect2 = {0,6};
     NSMutableArray <FUBeautyModel *>*mutArray = [NSMutableArray array];
     /* 精准美肤 */
     [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"精准美肤" openImgStr:@"list_icon_skinbeauty_open" closeImgStr:@"list_icon_skinbeauty_Close" type:FUBeautyModelTypeSwitch sdkStr:@"skin_detect" defaultValue:1 rect:rect1 strArray:@[@"开启",@"关闭"]]];
     /* 美肤模式 */
     [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美肤模式" openImgStr:@"list_icon_BeautyMode_open" closeImgStr:@"list_icon_BeautyMode_Close" type:FUBeautyModelTypeSelect sdkStr:@"heavy_blur" defaultValue:0 rect:rect1 strArray:@[@"清晰磨皮",@"朦胧磨皮"]]];
     /* 磨皮 */
-    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"磨皮" openImgStr:@"list_icon_Grindingskin_open" closeImgStr:@"list_icon_Grindingskin_Close" type:FUBeautyModelTypeRange sdkStr:@"blur_level" defaultValue:0.7 rect:rect1 strArray:nil]];
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"磨皮" openImgStr:@"list_icon_Grindingskin_open" closeImgStr:@"list_icon_Grindingskin_Close" type:FUBeautyModelTypeRange sdkStr:@"blur_level" defaultValue:4.2 rect:rect2 strArray:nil]];
     /* 美白 */
     [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美白" openImgStr:@"list_icon_Skinwhitening_open" closeImgStr:@"list_icon_Skinwhitening_Close" type:FUBeautyModelTypeRange sdkStr:@"color_level" defaultValue:0.5 rect:rect1 strArray:nil]];
     /* 红润 */
@@ -115,14 +116,15 @@ static FUAppDataCenter *shareManager = NULL;
 -(void)initializationPropItemData{
     //Animoji
     NSArray <FUPropSubItemModel *>*subItems0 = @[
+                         [FUPropSubItemModel GetClassSubImageStr:@"baimao_Animoji" sdkStr:@"baimao_Animoji"],
                          [FUPropSubItemModel GetClassSubImageStr:@"douniuquan_Animoji" sdkStr:@"douniuquan_Animoji"],
+                         [FUPropSubItemModel GetClassSubImageStr:@"frog_Animoji" sdkStr:@"frog_Animoji"],
                          [FUPropSubItemModel GetClassSubImageStr:@"hashiqi_Animoji" sdkStr:@"hashiqi_Animoji"],
                          [FUPropSubItemModel GetClassSubImageStr:@"hetun_Animoji" sdkStr:@"hetun_Animoji"],
-                         [FUPropSubItemModel GetClassSubImageStr:@"baimao_Animoji" sdkStr:@"baimao_Animoji"],
-                         [FUPropSubItemModel GetClassSubImageStr:@"chaiquan_Animoji" sdkStr:@"chaiquan_Animoji"],
-                         [FUPropSubItemModel GetClassSubImageStr:@"kulutou_Animoji" sdkStr:@"kulutou_Animoji"],
-                         [FUPropSubItemModel GetClassSubImageStr:@"maotouying_Animoji" sdkStr:@"maotouying_Animoji"],
-                         [FUPropSubItemModel GetClassSubImageStr:@"huangya_Animoji" sdkStr:@"huangya_Animoji"]];
+                         [FUPropSubItemModel GetClassSubImageStr:@"huangya_Animoji" sdkStr:@"huangya_Animoji"],
+                         [FUPropSubItemModel GetClassSubImageStr:@"kulutou_Animoji" sdkStr:@"kulutou_Animoji"]];
+                        
+                         
     FUPropItemModel *model0 = [FUPropItemModel GetClassTitle:@"Animoji" hoverImageStr:@"list_icon_annimoji_hover" norImageStr:@"list_icon_annimoji_nor" subItems:subItems0 type:FULiveModelTypeAnimoji maxFace:1];
     //道具贴纸
     NSArray <FUPropSubItemModel *>*subItems1 = @[[FUPropSubItemModel GetClassSubImageStr:@"fengya_ztt_fu" sdkStr:@"fengya_ztt_fu"],
