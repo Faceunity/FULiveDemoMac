@@ -4,12 +4,16 @@ FULiveDemo 是集成了 Faceunity 面部跟踪、美颜、Animoji、道具贴纸
 
 注：第一运行Demo会报缺少证书的 error ,如果您已拥有我司颁发的证书，将证书替换到工程中重新运行即可。如您还没有我司颁发的证书，可以查看[这里](#导入证书)获取证书
 
-## SDK v5.7.0 更新
+## SDK v5.8.0 更新
 
 更新内容
 
-- 新增海报换脸功能
-- 优化头发分割效果
+- 支持ETC2压缩纹理，减少内存占用，提高绘制性能
+- 优化美妆唇部效果，更加贴合唇形
+- 新增支持多人物理动效
+- 新增两款艺术滤镜
+- 海报换脸功能优化，支持表情融合
+- 海报换脸性能优化
 
 ## 软件需求
 
@@ -28,14 +32,13 @@ FULiveDemo 是集成了 Faceunity 面部跟踪、美颜、Animoji、道具贴纸
 含有深度学习的版本：
 
 ```
-pod 'Nama-macOS', '5.7.0' #注意此版本目前为dev版
+pod 'Nama-macOS', '5.8.0' #注意此版本目前为dev版
 ```
 
-不含深度学习的版本（lite版）：
-​	
+不含机器学习以及物理引擎的版本（lite版）：
 
 ```
-pod 'Nama-macOS-lite', '5.7.0' #注意此版本目前为dev版
+pod 'Nama-macOS-lite', '5.8.0' #注意此版本目前为dev版
 ```
 
 接下来执行：
@@ -52,9 +55,9 @@ pod repo update 或 pod setup
 
 ### 二、通过 github 下载集成
 
-含有深度学习的版本：[FaceUnity-SDK-Mac-v5.7.0-dev.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v5.7.0-dev.zip)
+含有深度学习的版本：[FaceUnity-SDK-Mac-v5.8.0-dev.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v5.8.0-dev.zip)
 ​	
-不含深度学习的版本（lite版）：[FaceUnity-SDK-Mac-v5.7.0-dev-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v5.7.0-dev-lite.zip)
+不含机器学习以及物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v5.8.0-dev-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v5.8.0-dev-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 
@@ -80,12 +83,13 @@ pod repo update 或 pod setup
 
 ### 三、数据文件
 
-- v3.bundle 初始化必须的二进制文件 
-- face_beautification.bundle 我司美颜相关的二进制文件
-- anim_model.bundle 表情优化相关二进制文件
-- ardata_ex.bundle 高精度模型相关二进制文件
-- fxaa.bundle 3D道具去锯齿二进制文件
-- items/*.bundle 该文件夹位于 FULiveDemo 的字文件夹中，这些 .bundle 文件是我司制作的特效贴纸文件，自定义特效贴纸制作的文档和工具请联系我司获取。
+- v3.bundle 初始化必须的数据模型
+- face_beautification.bundle 我司美颜道具
+- anim_model.bundle 表情优化数据模型
+- ardata_ex.bundle 高精度数据模型
+- tongue.bundle 舌头驱动数据模型
+- fxaa.bundle 3D道具去锯齿道具
+- items/*.bundle 该文件夹位于 FULiveDemo 的子文件夹中，这些 .bundle 文件是我司制作的特效贴纸文件，自定义特效贴纸制作的文档和工具请联系我司获取。
 
 注：这些数据文件都是二进制数据，与扩展名无关。实际在app中使用时，打包在程序内或者从网络接口下载这些数据都是可行的，只要在相应的函数接口传入正确的文件路径即可。
 
@@ -290,7 +294,7 @@ for (int i = 0; i < sizeof(items) / sizeof(int); i++) {
 
 视频美颜配置方法与视频加特效道具类似，首先创建美颜道具句柄，并保存在上面提到的items数组的items[1]中,示例如下:
 
-```c
+```C
 - (void)loadFilter
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"face_beautification" ofType:@"bundle"];
@@ -300,7 +304,7 @@ for (int i = 0; i < sizeof(items) / sizeof(int); i++) {
 
 在处理视频时，将包含美颜道具句柄的items数组传入视频图像处理接口，同时传入需要被处理的图像，即可为图像添加美颜效果，示例如下：
 
-```c
+```C
 CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     
 [[FURenderer shareRenderer] renderPixelBuffer:pixelBuffer withFrameId:frameID items:items itemCount:sizeof(items)/sizeof(int) flipx:YES];
@@ -330,7 +334,7 @@ frameID += 1;
 
 其中 "origin" 为原图滤镜，其他滤镜属于风格化滤镜及美颜滤镜，美颜滤镜具有一定美颜、增白、亮唇等功能。滤镜由参数 filter_name 指定。切换滤镜时，通过 fuItemSetParams 设置美颜道具的参数，如下：
 
-```c
+```C
 //  Set item parameters - filter
 [FURenderer itemSetParam:items[1] withName:@"filter_name" value:@"origin"];
 ```
@@ -345,7 +349,7 @@ frameID += 1;
 
 设置参数的例子代码如下：
 
-```c
+```C
 //  Set item parameters - whiten
 [FURenderer itemSetParam:items[1] withName:@"color_level" value:@(0.5)];
 ```
@@ -365,7 +369,7 @@ frameID += 1;
 
 新版美颜中，控制磨皮的参数有五个：blur_level，skin_detect，nonshin_blur_scale，heavy_blur，blur_blend_ratio。
 
-`blur_level` 指定磨皮程度。该参数的推荐取值范围为[0, 6]，0为无效果，对应7个不同的磨皮程度。
+`blur_level` 指定磨皮程度。该参数的推荐取值范围为0.0~6.0，0.0为无效果，原则上不建议参数值大于6.0，不过如果超过6.0也将会继续加大磨皮效果。
 
 `skin_detect`  指定是否开启皮肤检测，开启后，将自动检测是否皮肤，是皮肤的区域将直接根据blur_level指定的磨皮程度进行磨皮，非皮肤区域将减轻磨皮导致模糊的效果。该参数的推荐取值为0-1，0为无效果，1为开启皮肤检测，默认不开启。
 
@@ -418,7 +422,7 @@ __新增朦胧美肤:__
 
 美型支持四种基本美型：女神、网红、自然、默认，一种高级美型：自定义。由参数 face_shape 指定：默认（3）、女神（0）、网红（1）、自然（2）、自定义（4）。
 
-```c
+```C
 //  Set item parameters - shaping
 [FURenderer itemSetParam:items[1] withName:@"face_shape" value:@(3.0)];
 ```
@@ -429,21 +433,21 @@ __新增朦胧美肤:__
 
 若要关闭美型，可将 face_shape_level 设置为0。
 
-```c
+```C
 //  Set item parameters - shaping level
 [FURenderer itemSetParam:items[1] withName:@"face_shape_level" value:@(1.0)];
 ```
 
 参数 eye_enlarging 用以控制眼睛大小。此参数受参数 face_shape_level 影响。该参数的推荐取值范围为[0, 1]。大于1为继续增强效果。
 
-```c
+```C
 //  Set item parameters - eye enlarging level
 [FURenderer itemSetParam:items[1] withName:@"eye_enlarging" value:@(1.0)];
 ```
 
 参数 cheek_thinning 用以控制脸大小。此参数受参数 face_shape_level 影响。该参数的推荐取值范围为[0, 1]。大于1为继续增强效果。
 
-```c
+```C
 //  Set item parameters - cheek thinning level
 [FURenderer itemSetParam:items[1] withName:@"cheek_thinning" value:@(1.0)];
 ```
@@ -547,8 +551,6 @@ __使用方法__：
 [FURenderer itemSetParam:items[1] withName:@"change_frames" value:@(10)];
 ```
 
-####  
-
 ### 八、平台相关
 
 PC及MAC端的美颜，使用前必须将参数 is_opengl_es 设置为 0，移动端无需此操作：
@@ -556,6 +558,34 @@ PC及MAC端的美颜，使用前必须将参数 is_opengl_es 设置为 0，移�
 ```objc
 //  Set item parameters
 [FURenderer itemSetParam:items[1] withName:@"is_opengl_es" value:@(0)];
+```
+
+## 动漫滤镜+Animoji的AR模式
+
+**动漫滤镜：**一款动漫风格的滤镜，使用方式与普通道具一致，只需要加载并保存在道具具柄数组中传入视频处理接口即可。Demo使用的场景是配合Animoji道具的AR模式一起使用，不过动漫滤镜并不局限于和Animoji的AR模式一起使用，你可以单独使用，也可以配合其他任何道具一起使用。需要注意的是，客户端需要根据当前OpenGL ES版本，设置动漫滤镜的"glVer"属性。当使用OpenGL ES 3.0版本才能较好的使用动漫滤镜效果，如果使用3.0以下版本的GL环境，效果会稍微差一些。设置方法如下：
+
+```objective-c
+if ( [EAGLContext currentContext].API >= 2) {
+    [FURenderer itemSetParam:items[2] withName:@"glVer" value:@(3)];
+}else{
+    [FURenderer itemSetParam:items[2] withName:@"glVer" value:@(2)];
+}
+```
+
+**Animoji的AR模式：**与Animoji普通模式不同，AR模式会显示真实的场景，且Animoji形象会跟随人脸移动，有了更多的互动性。如果配合动漫滤镜使用Animoji的AR模式，可以使Animoji形象与真实场景的风格更加一致，使融合更加自然。Animoji开启AR模式的方式如下：
+
+```objective-c
+[FURenderer itemSetParam:items[1] withName:@"{\"thing\":\"<global>\",\"param\":\"follow\"}" value:@(1)]; // value为1代表开启，value为0代表关闭。
+```
+
+## 舌头驱动
+
+Nama SDK 从5.6.0开始支持舌头驱动功能，使用具有舌头特效的道具时，需要先加载驱动舌头的数据模型，加载方式如下：
+
+```objective-c
+NSData *tongueData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tongue.bundle" ofType:nil]];
+        int ret2 = fuLoadTongueModel((void *)tongueData.bytes, (int)tongueData.length) ;
+        NSLog(@"fuLoadTongueModel %@",ret2 == 0 ? @"failure":@"success" );
 ```
 
 ## 手势识别
@@ -601,9 +631,61 @@ __使用方法__：
 - 直接加载对应的道具
 - 需要带有照片驱动权限的证书
 
-## 音乐节奏滤镜
+## 音乐滤镜
 
-效果详见FULiveDemo，道具可以通过FUEditor进行制作（v4.2.1及以上）。
+音乐滤镜是使用播放音乐的时间戳进行驱动的，在每次处理图像前，将音乐的播放进度传入音乐滤镜道具即可，方式如下：
+
+```objective-c
+[FURenderer itemSetParam:items[1] withName:@"music_time" value:@([FUMusicPlayer sharePlayer].currentTime * 1000 + 50)];//需要加50ms的延迟
+```
+
+如果没有音乐则可以模拟音乐播放进度，demo中提供的道具对应的音乐时长为28s，换算成ms为28000ms，在没有音乐的情况下，可以从加载音乐滤镜开始计时，每次处理图像前获取一下当前时间与开始加载音乐滤镜的时间差，转换成ms传入音乐滤镜即可，当时间差超过28000ms时归0重新开始计时即可。效果详见FULiveDemo，道具可以通过FUEditor进行制作（v4.2.1及以上）。
+
+
+
+## 海报换脸
+
+Nama SDK 从5.8.0开始支持新版海报换脸功能，该功能可实现将用户的脸完美的融合到海报中模特的脸上，实现换脸功能。
+
+首先需要加载change_face.bundle道具，然后参考参考[海报换脸接口文档](docs/海报换脸接口文档.md)，同时也可以参考我们Demo中的实际使用方法。
+
+## 人脸美妆
+
+Nama SDK 从5.8.0开始支持新版的人脸美妆功能，该功能可实现口红、腮红、眉毛、眼影、眼线、睫毛、美瞳等功能，同时支持精细调整。
+
+首先需要加载face_makeup.bundle道具，然后参考[美妆bundle参数说明](docs/美妆bundle参数说明.pdf)进行开发，同时也可以参考我们Demo中的实际使用方法。
+
+## 美发功能
+
+Nama SDK 从5.8.0开始支持美发功能，该功能可以改变人物头发颜色，目前支持8种普通发色及5种渐变色，同时调节美发程度。
+
+### 普通发色
+
+首先加载 hair_color.bundle，然后使用参数 Index 来切换发色，该参数的推荐取值范围为0~7。通过参数 Strength 可以调节发色的强度，该参数的推荐取值范围为0~1。示例：
+
+```objective-c
+/**设置美发参数**/
+- (void)setHairColor:(int)colorIndex {
+    [FURenderer itemSetParam:items[1] withName:@"Index" value:@(colorIndex)]; // 发色
+}
+- (void)setHairStrength:(float)strength {
+    [FURenderer itemSetParam:items[1] withName:@"Strength" value: @(strength)]; // 发色强度
+}
+```
+
+### 渐变色
+
+首先加载 hair_gradient.bundle，然后使用参数 Index 来切换发色，该参数的推荐取值范围为0~4。通过参数 Strength 可以调节发色的强度，该参数的推荐取值范围为0~1。示例：
+
+```objective-c
+/**设置美发参数**/
+- (void)setHairColor:(int)colorIndex {
+    [FURenderer itemSetParam:items[1] withName:@"Index" value:@(colorIndex)]; // 发色
+}
+- (void)setHairStrength:(float)strength {
+    [FURenderer itemSetParam:items[1] withName:@"Strength" value: @(strength)]; // 发色强度
+}
+```
 
 ## 优化表情校准功能
 
