@@ -8,9 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FUFilterModel.h"
-
+#import "FUMakeupModle.h"
 @interface FUFilterViewItem : NSCollectionViewItem
 
 @property (retain,nonatomic) FUFilterModel *model;
+
+@property (retain,nonatomic) FUMakeupModle *makeupModel;
 
 @end

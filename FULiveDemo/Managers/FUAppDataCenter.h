@@ -10,6 +10,7 @@
 #import "FUBeautyModel.h"
 #import "FUFilterModel.h"
 #import "FUPropItemModel.h"
+#import "FUMakeupModle.h"
 
 @interface FUAppDataCenter : NSObject
 
@@ -20,7 +21,7 @@
 /* 默认 女神 网红 自然 */
 @property (retain) NSMutableArray <FUBeautyModel *> *beautyModeldefaultArray;
 /* 风格 */
-@property (retain) NSMutableArray <FUFilterModel *> *styleModelArray;
+@property (retain) NSMutableArray <FUMakeupModle *> *makeupModelArray;
 /* 滤镜 */
 @property (retain) NSMutableArray <FUFilterModel *> *filterModelArray;
 /* 道具贴图 */

@@ -30,11 +30,11 @@
 /* 滤镜程度滑动 */
 @property (weak) IBOutlet NSSlider *mFilterSlider;
 /* 风格集合控制器 */
-@property (weak) IBOutlet NSCollectionView *mStyleCollectionView;
+@property (weak) IBOutlet NSCollectionView *mMakeupCollectionView;
 /* 风格程度滑动 */
-@property (weak) IBOutlet NSSlider *mStyleSlider;
+@property (weak) IBOutlet NSSlider *mMakeupSlider;
 /* 风格程度输入 */
-@property (weak) IBOutlet NSTextField *mStyleTxf;
+@property (weak) IBOutlet NSTextField *mMakeupTxf;
 
 /* 选中的索引 */
 @property (assign) NSInteger selectFilterIndex;
@@ -52,8 +52,8 @@
     _mFilterCollectionView.delegate = self;
     _mFilterCollectionView.dataSource = self;
     
-    _mStyleCollectionView.dataSource = self;
-    _mStyleCollectionView.delegate = self;
+    _mMakeupCollectionView.dataSource = self;
+    _mMakeupCollectionView.delegate = self;
     
     //初始状态
     NSUInteger indexes[2] = {0,0};
@@ -62,8 +62,8 @@
   //  [self.mStyleCollectionView selectItemsAtIndexPaths:[NSSet setWithObject:indexPath] scrollPosition:NSCollectionViewScrollPositionNone];
     _mFilterSlider.intValue = [FUAppDataCenter shareManager].filterModelArray[indexPath.item].value * 100;
     _mFilterTef.stringValue = [NSString stringWithFormat:@"%d",_mFilterSlider.intValue];
-    _mStyleSlider.intValue = [FUAppDataCenter shareManager].styleModelArray[indexPath.item].value * 100;
-    _mStyleTxf.stringValue = [NSString stringWithFormat:@"%d",_mStyleSlider.intValue];
+    _mMakeupSlider.intValue = [FUAppDataCenter shareManager].makeupModelArray[indexPath.item].value * 100;
+    _mMakeupSlider.stringValue = [NSString stringWithFormat:@"%d",_mMakeupSlider.intValue];
     
 }
 
@@ -79,8 +79,8 @@
     [self.mFilterCollectionView setWantsLayer:YES];
     self.mFilterCollectionView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
     
-    [self.mStyleCollectionView setWantsLayer:YES];
-    self.mStyleCollectionView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
+    [self.mMakeupCollectionView setWantsLayer:YES];
+    self.mMakeupCollectionView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
     
     [self.mSkinTableView setWantsLayer:YES];
     self.mSkinTableView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
@@ -143,7 +143,7 @@
     //调整sdk参数
 //    [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].value)];
 //    [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].sdkStr index:0 value:[[FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].styleStr lowercaseString]];
-    }else if(sender.tag - 101 == 3){//风格
+    }else if(sender.tag - 101 == 3){//质感美妆
       
     //调整sdk参数
 //    [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].styleModelArray[_selectStyleIndex].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].styleModelArray[_selectFilterIndex].value)];
@@ -192,11 +192,20 @@
         //调整sdk参数
         [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].value)];
         
-    }else if (sender == _mStyleSlider){
-        [_mStyleTxf setStringValue:[NSString stringWithFormat:@"%d",sender.intValue]];
-        [FUAppDataCenter shareManager].styleModelArray[_selectStyleIndex].value = sender.floatValue/100;
+    }else if (sender == _mMakeupSlider){
+        [_mMakeupTxf setStringValue:[NSString stringWithFormat:@"%d",sender.intValue]];
+        FUMakeupModle *model = [FUAppDataCenter shareManager].makeupModelArray[_selectStyleIndex];
+        
+        model.value = sender.floatValue/100;
+        model.selectedFilterLevel = sender.floatValue/100;
         //调整sdk参数
-        [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].styleModelArray[_selectStyleIndex].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].styleModelArray[_selectStyleIndex].value)];
+        for (int i = 0; i < model.makeups.count; i ++) {
+            if (!model.makeups[i].namaValueStr || [model.makeups[i].namaValueStr isEqualToString:@""]) {
+                return;
+            }
+            [[FUManager shareManager] setMakeupItemIntensity:model.value * model.makeups[i].value param:model.makeups[i].namaValueStr];
+        }
+        [[FUManager shareManager] changeParamsStr:@"filter_level" index:0 value:@(model.selectedFilterLevel)];
     }
 }
 
@@ -208,17 +217,27 @@
             [FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].value = sender.floatValue/100;
             //调整sdk参数
             [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].filterModelArray[_selectFilterIndex].value)];
-        }else if (sender == _mStyleTxf){
-            _mStyleSlider.intValue = sender.intValue;
-            [FUAppDataCenter shareManager].styleModelArray[_selectStyleIndex].value = sender.floatValue/100;
+        }else if (sender == _mMakeupTxf){
+            _mMakeupSlider.intValue = sender.intValue;
+            FUMakeupModle *model = [FUAppDataCenter shareManager].makeupModelArray[_selectStyleIndex];
+            
+            model.value = sender.floatValue/100;
+            model.selectedFilterLevel = sender.floatValue/100;
             //调整sdk参数
-            [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].styleModelArray[_selectStyleIndex].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].styleModelArray[_selectFilterIndex].value)];
+            for (int i = 0; i < model.makeups.count; i ++) {
+                if (!model.makeups[i].namaValueStr || [model.makeups[i].namaValueStr isEqualToString:@""]) {
+                    return;
+                }
+                [[FUManager shareManager] setMakeupItemIntensity:model.value * model.makeups[i].value param:model.makeups[i].namaValueStr];
+            }
+            [[FUManager shareManager] changeParamsStr:@"filter_level" index:0 value:@(model.selectedFilterLevel)];
+            
         }
     }else{
         if (sender == _mFilterTef) {
             [_mFilterTef setStringValue:[NSString stringWithFormat:@"%d",_mFilterSlider.intValue]];
-        }else if (sender == _mStyleTxf){
-            [_mStyleTxf setStringValue:[NSString stringWithFormat:@"%d",_mStyleSlider.intValue]];
+        }else if (sender == _mMakeupTxf){
+            [_mMakeupTxf setStringValue:[NSString stringWithFormat:@"%d",_mMakeupSlider.intValue]];
         }
     }
     //取消选中
@@ -239,8 +258,8 @@
 
 - (NSInteger)collectionView:(NSCollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    if (collectionView == _mStyleCollectionView) {
-        return [FUAppDataCenter shareManager].styleModelArray.count;
+    if (collectionView == _mMakeupCollectionView) {
+        return [FUAppDataCenter shareManager].makeupModelArray.count;
     }else{
          return [FUAppDataCenter shareManager].filterModelArray.count;
     }
@@ -249,8 +268,8 @@
 - (NSCollectionViewItem *)collectionView:(NSCollectionView *)collectionView itemForRepresentedObjectAtIndexPath:(NSIndexPath *)indexPath {
     
     FUFilterViewItem *item = [collectionView makeItemWithIdentifier:@"FUFilterViewItem" forIndexPath:indexPath];
-    if (collectionView == _mStyleCollectionView) {
-        item.model = [FUAppDataCenter shareManager].styleModelArray[indexPath.item];
+    if (collectionView == _mMakeupCollectionView) {
+        item.makeupModel = [FUAppDataCenter shareManager].makeupModelArray[indexPath.item];
     }else{
         item.model = [FUAppDataCenter shareManager].filterModelArray[indexPath.item];
     }
@@ -272,28 +291,48 @@
 
 - (void)collectionView:(NSCollectionView *)collectionView didSelectItemsAtIndexPaths:(NSSet<NSIndexPath *> *)indexPaths{
      NSIndexPath *indexPath = indexPaths.anyObject;
-    if (collectionView == _mStyleCollectionView) {
+    if (collectionView == _mMakeupCollectionView) {
         [_mFilterCollectionView deselectAll:nil];
         [_mFilterCollectionView reloadData];
         _selectStyleIndex = indexPath.item;
-        _mStyleSlider.intValue = [FUAppDataCenter shareManager].styleModelArray[indexPath.item].value * 100;
-         [_mStyleTxf setStringValue:[NSString stringWithFormat:@"%d",_mStyleSlider.intValue]];
+        
+        FUMakeupModle *modle = [FUAppDataCenter shareManager].makeupModelArray[indexPath.item];
+        _mMakeupSlider.intValue = modle.value * 100;
+         [_mMakeupTxf setStringValue:[NSString stringWithFormat:@"%d",_mMakeupSlider.intValue]];
         
         //原图不显示滑条
         if (indexPath.item == 0) {
-            _mStyleSlider.hidden = YES;
-            _mStyleTxf.hidden = YES;
+            _mMakeupSlider.hidden = YES;
+            _mMakeupTxf.hidden = YES;
         }else{
-            _mStyleSlider.hidden = NO;
-            _mStyleTxf.hidden = NO;
+            _mMakeupSlider.hidden = NO;
+            _mMakeupTxf.hidden = NO;
+            
+            [[FUManager shareManager] changeParamsStr:@"filter_name" index:0 value:modle.selectedFilter];
+            [[FUManager shareManager] changeParamsStr:@"filter_level" index:0 value:@(modle.selectedFilterLevel)];
         }
         
         //调整sdk参数
-        [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].styleModelArray[indexPath.item].sdkStr index:0 value:[[FUAppDataCenter shareManager].styleModelArray[indexPath.item].styleStr lowercaseString]];
-         [[FUManager shareManager] changeParamsStr:[FUAppDataCenter shareManager].styleModelArray[indexPath.item].valueSdkStr index:0 value:@([FUAppDataCenter shareManager].styleModelArray[indexPath.item].value)];
+        for (int i = 0; i < modle.makeups.count; i ++) {
+            FUSingleMakeupModel *sModel = modle.makeups[i];
+            
+            if (i == 0) {
+                NSArray *rgba = [self jsonToLipRgbaArrayResName:sModel.namaImgStr];
+                double lip[4] = {[rgba[0] doubleValue],[rgba[1] doubleValue],[rgba[2] doubleValue],[rgba[3] doubleValue]};
+                [[FUManager shareManager] setMakeupItemLipstick:lip];
+            }else{
+                [[FUManager shareManager] setMakeupItemIntensity:sModel.value * modle.value param:sModel.namaValueStr];
+                NSImage *namaImage = [NSImage imageNamed:sModel.namaImgStr];
+                if (!namaImage) {
+                    continue;
+                }
+                [[FUManager shareManager] setMakeupItemParamImage:namaImage param:sModel.namaTypeStr];
+            }
+        }
+        
     }else{
-        [_mStyleCollectionView deselectAll:nil];
-        [_mStyleCollectionView reloadData];
+        [_mMakeupCollectionView deselectAll:nil];
+        [_mMakeupCollectionView reloadData];
         //原图不显示滑条
         if (indexPath.item == 0) {
             _mFilterSlider.hidden = YES;
@@ -313,6 +352,20 @@
 
 }
 
+#pragma  mark -  工具函数
+
+-(NSArray *)jsonToLipRgbaArrayResName:(NSString *)resName{
+    NSString *path=[[NSBundle mainBundle] pathForResource:resName ofType:@"json"];
+    NSData *data=[[NSData alloc] initWithContentsOfFile:path];
+    //解析成字典
+    NSDictionary *dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSArray *rgba = [dic objectForKey:@"rgba"];
+    
+    if (rgba.count != 4) {
+        NSLog(@"颜色json不合法");
+    }
+    return rgba;
+}
 
 
 @end

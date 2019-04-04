@@ -20,9 +20,6 @@
     self.view.layer.backgroundColor = FUConstManager.colorForBackground_gray.CGColor;
     // Do view setup here.
     
-    int a = abs(-1);
-    
-    
 }
 
 @end

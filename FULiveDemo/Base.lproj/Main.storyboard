@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -686,7 +685,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="FULiveDemo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="FULiveDemo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -1193,7 +1192,7 @@ RenderTime：111ms
                                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="104" translatesAutoresizingMaskIntoConstraints="NO" id="eCm-BI-i4H">
                                         <rect key="frame" x="312" y="0.0" width="104" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="bevel" title="风格" bezelStyle="regularSquare" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="5rV-Q9-IGv">
+                                        <buttonCell key="cell" type="bevel" title="质感美妆" bezelStyle="regularSquare" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="5rV-Q9-IGv">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system" size="16"/>
                                         </buttonCell>
@@ -1228,7 +1227,7 @@ RenderTime：111ms
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                 <tableColumns>
-                                                                    <tableColumn identifier="" width="361" minWidth="40" maxWidth="1000" id="K6Y-6m-cCH">
+                                                                    <tableColumn width="361" minWidth="40" maxWidth="1000" id="K6Y-6m-cCH">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1322,7 +1321,7 @@ RenderTime：111ms
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                 <tableColumns>
-                                                                    <tableColumn identifier="" width="361" minWidth="40" maxWidth="1000" id="emw-A1-cfc">
+                                                                    <tableColumn width="361" minWidth="40" maxWidth="1000" id="emw-A1-cfc">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1407,7 +1406,7 @@ RenderTime：111ms
                                                     <rect key="frame" x="0.0" y="200" width="364" height="229"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="WSi-Gx-5k7">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <collectionView selectable="YES" allowsEmptySelection="NO" id="bSb-7F-Frb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
@@ -1467,7 +1466,7 @@ RenderTime：111ms
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="风格" identifier="" id="5wS-mu-dlU">
+                                    <tabViewItem label="质感美妆" identifier="" id="5wS-mu-dlU">
                                         <view key="view" id="fst-Rc-sre">
                                             <rect key="frame" x="0.0" y="0.0" width="364" height="429"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1476,7 +1475,7 @@ RenderTime：111ms
                                                     <rect key="frame" x="0.0" y="200" width="364" height="229"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="YPc-k0-jpy">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <collectionView selectable="YES" allowsEmptySelection="NO" id="VvD-Ug-KWg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
@@ -1556,6 +1555,9 @@ RenderTime：111ms
                         <outlet property="mFilterSlider" destination="zZT-K3-Vmn" id="jNW-Kz-uOb"/>
                         <outlet property="mFilterTef" destination="flO-eZ-wyq" id="rRf-bE-vZn"/>
                         <outlet property="mItemBarView" destination="Ofy-cu-BP7" id="YFS-l3-tg4"/>
+                        <outlet property="mMakeupCollectionView" destination="VvD-Ug-KWg" id="jJM-df-bKT"/>
+                        <outlet property="mMakeupSlider" destination="CVd-eh-hmq" id="nMO-Wg-Gkz"/>
+                        <outlet property="mMakeupTxf" destination="UZc-Na-UaR" id="emJ-PF-Enp"/>
                         <outlet property="mSkinTableView" destination="GFK-TW-3bI" id="l0K-Ii-EUd"/>
                         <outlet property="mStyleCollectionView" destination="VvD-Ug-KWg" id="v0G-pn-LBh"/>
                         <outlet property="mStyleSlider" destination="CVd-eh-hmq" id="aeP-cK-dnx"/>

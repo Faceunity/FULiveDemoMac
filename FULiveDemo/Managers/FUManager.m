@@ -10,10 +10,20 @@
 #import "FURenderer.h"
 #import "authpack.h"
 #import <sys/utsname.h>
+#import "FURenderer+header.h"
+
 
 @interface FUManager ()
 {
     //MARK: Faceunity
+    
+    /*
+     0.美颜
+     1.普通道具
+     2.考锯齿
+     3.美妆
+     */
+    
     int items[4];
     int frameID;
     
@@ -77,6 +87,7 @@ static FUManager *shareManager = NULL;
     /**加载美颜道具*/
     [self loadFilter];
     
+    [self loadMakeup];
     /**加载普通道具*/
     [self loadItem:nil];
     
@@ -135,6 +146,13 @@ static FUManager *shareManager = NULL;
     }
 }
 
+-(void)loadMakeup{
+    NSString *makeBundlePath = [[NSBundle mainBundle] pathForResource:@"light_makeup.bundle" ofType:nil];
+    self -> items[3] = [FURenderer itemWithContentsOfFile:makeBundlePath];
+    
+  //  [self setMakeupItemParamImage:[NSImage imageNamed:@"mu_eyebrow_19"] param:@"tex_brow"];
+}
+
 /**
  加载普通道具
  - 先创建再释放可以有效缓解切换道具卡顿问题
@@ -159,9 +177,18 @@ static FUManager *shareManager = NULL;
         
         // 人像驱动 设置 3DFlipH
         BOOL isPortraitDrive = [itemName hasPrefix:@"picasso_e"];
+        BOOL isAnimoji = [itemName hasSuffix:@"_Animoji"];
         if (isPortraitDrive) {
             [FURenderer itemSetParam:itemHandle withName:@"is3DFlipH" value:@(0)];
             [FURenderer itemSetParam:itemHandle withName:@"isFlipExpr" value:@(0)];
+
+        }
+        if (isAnimoji) {
+            [FURenderer itemSetParam:itemHandle withName:@"{\"thing\":\"<global>\",\"param\":\"follow\"}" value:@(1)];
+            [FURenderer itemSetParam:itemHandle withName:@"is3DFlipH" value:@(0)];
+            [FURenderer itemSetParam:itemHandle withName:@"isFlipExpr" value:@(0)];
+            [FURenderer itemSetParam:itemHandle withName:@"isFlipTrack" value:@(0)];
+            [FURenderer itemSetParam:itemHandle withName:@"isFlipLight" value:@(0)];
         }
         
         if ([itemName isEqualToString:@"luhantongkuan_ztt_fu"]) {
@@ -193,10 +220,10 @@ static FUManager *shareManager = NULL;
     /**销毁老的道具句柄*/
     if (items[2] != 0) {
         NSLog(@"faceunity: destroy item");
-        [FURenderer destroyItem:items[3]];
+        [FURenderer destroyItem:items[2]];
     }
     
-    /**将刚刚创建的句柄存放在items[3]中*/
+    /**将刚刚创建的句柄存放在items[2]中*/
     items[2] = itemHandle;
 }
 
@@ -234,6 +261,7 @@ static FUManager *shareManager = NULL;
     [FURenderer itemSetParam:items[1] withName:@"loc_x_flip" value:@(1)];
     [FURenderer itemSetParam:items[1] withName:@"loc_y_flip" value:@(1)];
 }
+
 
 - (void)musicFilterSetMusicTimeValue:(id)value {
     
@@ -285,6 +313,72 @@ static FUManager *shareManager = NULL;
     }
 }
 
+#pragma mark -  美妆
+/*
+ tex_brow 眉毛
+ tex_eye 眼影
+ tex_pupil 美瞳
+ tex_eyeLash 睫毛
+ tex_lip 口红
+ tex_highlight 口红高光
+ //jiemao
+ //meimao
+ tex_eyeLiner 眼线
+ tex_blusher腮红
+ */
+-(void)setMakeupItemParamImage:(NSImage *)image param:(NSString *)paramStr{
+        if (!image) {
+            NSLog(@"美妆图片为空");
+            return;
+        }
+       [[FUManager shareManager] setMakeupItemIntensity:1 param:@"is_makeup_on"];
+      NSData *imageData = [image TIFFRepresentation];
+      NSBitmapImageRep *rep = [NSBitmapImageRep imageRepWithData:imageData];
+      NSSize size = NSMakeSize([rep pixelsWide], [rep pixelsHigh]);
+    unsigned char *aaaa = (unsigned char *)[imageData bytes]; //[self convertSourceImageToBitmapRGBA:image];
+
+      [[FURenderer shareRenderer] setUpCurrentContext];
+//      fuItemSetParamd(items[3], "reverse_alpha", 0.0);
+      int ret = fuCreateTexForItem(items[3], (char *)[paramStr UTF8String], aaaa, size.width, size.height);
+      [[FURenderer shareRenderer] setBackCurrentContext];
+    NSLog(@"美妆设置---Parma（%@）  ret : %d",paramStr,ret);
+}
+
+
+/*
+ is_makeup_on: 1, //美妆开关
+ makeup_intensity:1.0, //美妆程度 //下面是每个妆容单独的参数，intensity设置为0即为关闭这种妆效 makeup_intensity_lip:1.0, //kouhong makeup_intensity_pupil:1.0, //meitong
+ makeup_intensity_eye:1.0,
+ makeup_intensity_eyeLiner:1.0,
+ makeup_intensity_eyelash:1.0,
+ makeup_intensity_eyeBrow:1.0,
+ makeup_intensity_blusher:1.0, //saihong
+ makeup_lip_color:[0,0,0,0] //长度为4的数组，rgba颜色值
+ makeup_lip_mask:0.0 //嘴唇优化效果开关，1.0为开 0为关
+ */
+-(void)setMakeupItemIntensity:(float )value param:(NSString *)paramStr{
+    if (!paramStr && paramStr) {
+        NSLog(@"参数为nil");
+    }
+    if (items[3]) {
+        int res = fuItemSetParamd(items[3], (char *)[paramStr UTF8String], value);
+        if (!res) NSLog(@"美妆设置失败---Parma（%@）---value(%lf)",paramStr,value);
+            
+        }else{
+            NSLog(@"美妆设置--bundle(nil)");
+    }
+}
+
+-(void)setMakeupItemLipstick:(double *)lipData{
+    //nama
+
+    [[FURenderer shareRenderer] setUpCurrentContext];
+//    fuItemSetParamd(items[3], "reverse_alpha", 1.0);
+    fuItemSetParamdv(items[3], "makeup_lip_color", lipData, 4);
+    [[FURenderer shareRenderer] setBackCurrentContext];
+}
+
+
 /**判断是否检测到人脸*/
 - (BOOL)isTracking
 {
@@ -321,5 +415,90 @@ static FUManager *shareManager = NULL;
     return [version containsString:@"lite"];
 }
 
+
+
+
+#pragma  mark -  工具
+
+
+-(unsigned char *)convertSourceImageToBitmapRGBA:(NSImage *)image{
+    //由NSImage创建CGImageRef
+    struct CGImageSource* source = CGImageSourceCreateWithData((__bridge CFDataRef)[image TIFFRepresentation], NULL);
+    NSDictionary* options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             (id)kCFBooleanFalse, (id)kCGImageSourceShouldCache,
+                             (id)kCFBooleanTrue, (id)kCGImageSourceShouldAllowFloat,
+                             nil];
+    CGImageRef imageRef =  CGImageSourceCreateImageAtIndex(source, 0, (CFDictionaryRef)options);
+    
+    //由CGImageRef创建CGContextRef
+    CGContextRef context = [self newBitmapRGBA8ContextFromImage:imageRef];
+    if (!context) {
+        NSLog(@"picProcessing::convertSourceImageToBitmapRGBA:failed to create a context!");
+        return nil;
+    }
+    
+    //获取CGImageRef的宽高，并将CGImageRef画到CGContextRef中，以获取rawdata
+    float imageWidth = CGImageGetWidth(imageRef);
+    float imageHeight = CGImageGetHeight(imageRef);
+    float bytesPerRow = CGBitmapContextGetBytesPerRow(context);
+    CGRect imgRect = CGRectMake(0, 0, imageWidth, imageHeight);
+    CGContextDrawImage(context, imgRect, imageRef);
+    
+    //获取CGContextRef中的rawdata的指针
+    unsigned char * bitmapData = CGBitmapContextGetData(context);
+    
+    return bitmapData;
+}
+
+-(CGContextRef)newBitmapRGBA8ContextFromImage:(CGImageRef)image
+{
+    CGContextRef context = NULL;
+    CGColorSpaceRef colorSpace;
+    uint32_t *bitmapData;
+    
+    size_t bitsPerPixel = 32;
+    size_t bitsPerComponent = 8;
+    size_t bytesPerPixel = bitsPerPixel / bitsPerComponent;
+    
+    size_t width = CGImageGetWidth(image);
+    size_t height = CGImageGetHeight(image);
+    
+    size_t bytesperRow = width * bytesPerPixel;
+    size_t bufferLength = bytesperRow * height;
+    
+    colorSpace = CGColorSpaceCreateDeviceRGB();
+    
+    if(!colorSpace) {
+        NSLog(@"Error allocating color space RGB\n");
+        return NULL;
+    }
+    
+    // Allocate memory for image data
+    bitmapData = (uint32_t *)malloc(bufferLength);
+    
+    if(!bitmapData) {
+        NSLog(@"Error allocating memory for bitmap\n");
+        CGColorSpaceRelease(colorSpace);
+        return NULL;
+    }
+    
+    //Create bitmap context
+    
+    context = CGBitmapContextCreate(bitmapData,
+                                    width,
+                                    height,
+                                    bitsPerComponent,
+                                    bytesperRow,
+                                    colorSpace,
+                                    kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);    // RGBA
+    if(!context) {
+        free(bitmapData);
+        NSLog(@"picProcessing::newBitmapRGBA8ContextFromImage:Bitmap context not created");
+    }
+    
+    CGColorSpaceRelease(colorSpace);
+    
+    return context;
+}
 
 @end

@@ -120,7 +120,13 @@
     _mMaskTxf.stringValue = model.titleStr;
 }
 
-
+-(void)setMakeupModel:(FUMakeupModle *)makeupModel{
+    _makeupModel = makeupModel;
+    
+    _mImageView.image = [NSImage imageNamed:makeupModel.imageStr];
+    _mTitleTxf.stringValue = makeupModel.titleStr;
+    _mMaskTxf.stringValue = makeupModel.titleStr;
+}
 
 
 @end

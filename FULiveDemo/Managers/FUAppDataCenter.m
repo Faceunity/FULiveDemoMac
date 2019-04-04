@@ -10,6 +10,7 @@
 #import "FUManager.h"
 
 
+
 @implementation FUAppDataCenter
 
 static FUAppDataCenter *shareManager = NULL;
@@ -29,7 +30,7 @@ static FUAppDataCenter *shareManager = NULL;
         /* 初始化数据 */
         [self initializationSkinData];//美肤
         [self initializationBeautyData];//美型
-        [self initializationStyleData]; //风格
+        [self initializationMakeupData]; //质感美妆
         [self initializationFilterData]; //滤镜
         [self initializationPropItemData];//道具贴图
         
@@ -90,24 +91,69 @@ static FUAppDataCenter *shareManager = NULL;
     
 }
 
--(void)initializationStyleData{
-    NSMutableArray <FUFilterModel *>*mutArray = [NSMutableArray array];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"Origin" imgStr:@"list_image_origin"  sdkStr:@"filter_name" styleStr:@"Origin" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"Delta" imgStr:@"list_image_delta" sdkStr:@"filter_name" styleStr:@"Delta" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"Slowlived" imgStr:@"list_image_slowlived" sdkStr:@"filter_name" styleStr:@"Slowlived" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"Tokyo" imgStr:@"list_image_tokyo" sdkStr:@"filter_name" styleStr:@"Tokyo" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"Warm" imgStr:@"list_image_warm" sdkStr:@"filter_name" styleStr:@"Warm" valueSdkStr:@"filter_level" value:1.0]];
+-(void)initializationMakeupData{
+    
+    /* 卸妆 */
+    NSArray *makeups0 =@[[FUSingleMakeupModel GetModelClassNamaTypeStr:@"makeup_lip_color" imgStr:@"" namaValueStr:@"makeup_intensity_lip" value:0.0],
+                        [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_blusher" imgStr:@"" namaValueStr:@"makeup_intensity_blusher" value:0.0],
+                        [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_brow" imgStr:@"" namaValueStr:@"makeup_intensity_eyeBrow" value:0.0],
+                        [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eye" imgStr:@"" namaValueStr:@"makeup_intensity_eye" value:0.0],
+                        [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLiner" imgStr:@"" namaValueStr:@"makeup_intensity_eyeLiner" value:0.0],
+                        [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLash" imgStr:@"" namaValueStr:@"makeup_intensity_eyelash" value:0.0],
+                        [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_pupil" imgStr:@"" namaValueStr:@"makeup_intensity_pupil" value:0.0]];
+    
+    NSArray *makeups1 =@[[FUSingleMakeupModel GetModelClassNamaTypeStr:@"makeup_lip_color" imgStr:@"mu_lip_01" namaValueStr:@"makeup_intensity_lip" value:0.9],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_blusher" imgStr:@"mu_blush_01" namaValueStr:@"makeup_intensity_blusher" value:0.9],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_brow" imgStr:@"mu_eyebrow_01" namaValueStr:@"makeup_intensity_eyeBrow" value:1.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eye" imgStr:@"mu_eyeshadow_01" namaValueStr:@"makeup_intensity_eye" value:0.9],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLiner" imgStr:@"" namaValueStr:@"makeup_intensity_eyeLiner" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLash" imgStr:@"" namaValueStr:@"makeup_intensity_eyelash" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_pupil" imgStr:@"" namaValueStr:@"makeup_intensity_pupil" value:0.0]];
+    
+    NSArray *makeups2 =@[[FUSingleMakeupModel GetModelClassNamaTypeStr:@"makeup_lip_color" imgStr:@"mu_lip_21" namaValueStr:@"makeup_intensity_lip" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_blusher" imgStr:@"mu_blush_23" namaValueStr:@"makeup_intensity_blusher" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_brow" imgStr:@"mu_eyebrow_19" namaValueStr:@"makeup_intensity_eyeBrow" value:1.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eye" imgStr:@"mu_eyeshadow_21" namaValueStr:@"makeup_intensity_eye" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLiner" imgStr:@"" namaValueStr:@"makeup_intensity_eyeLiner" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLash" imgStr:@"" namaValueStr:@"makeup_intensity_eyelash" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_pupil" imgStr:@"" namaValueStr:@"makeup_intensity_pupil" value:0.0]];
+    
+    NSArray *makeups3 =@[[FUSingleMakeupModel GetModelClassNamaTypeStr:@"makeup_lip_color" imgStr:@"mu_lip_18" namaValueStr:@"makeup_intensity_lip" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_blusher" imgStr:@"mu_blush_20" namaValueStr:@"makeup_intensity_blusher" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_brow" imgStr:@"mu_eyebrow_16" namaValueStr:@"makeup_intensity_eyeBrow" value:1.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eye" imgStr:@"mu_eyeshadow_18" namaValueStr:@"makeup_intensity_eye" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLiner" imgStr:@"" namaValueStr:@"makeup_intensity_eyeLiner" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLash" imgStr:@"" namaValueStr:@"makeup_intensity_eyelash" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_pupil" imgStr:@"" namaValueStr:@"makeup_intensity_pupil" value:0.0]];
+    
+    NSArray *makeups4 =@[[FUSingleMakeupModel GetModelClassNamaTypeStr:@"makeup_lip_color" imgStr:@"mu_lip_20" namaValueStr:@"makeup_intensity_lip" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_blusher" imgStr:@"mu_blush_22" namaValueStr:@"makeup_intensity_blusher" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_brow" imgStr:@"mu_eyebrow_18" namaValueStr:@"makeup_intensity_eyeBrow" value:1.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eye" imgStr:@"mu_eyeshadow_20" namaValueStr:@"makeup_intensity_eye" value:0.7],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLiner" imgStr:@"" namaValueStr:@"makeup_intensity_eyeLiner" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_eyeLash" imgStr:@"" namaValueStr:@"makeup_intensity_eyelash" value:0.0],
+                         [FUSingleMakeupModel GetModelClassNamaTypeStr:@"tex_pupil" imgStr:@"" namaValueStr:@"makeup_intensity_pupil" value:0.0]];
+    
+    /* 桃花 */
+    NSMutableArray <FUMakeupModle *>*mutArray = [NSMutableArray array];
+    [mutArray addObject:[FUMakeupModle GetModelClassTitle:@"卸妆" imgStr:@"list_icon_cancel_nor" filter:@"" filterValue:0.0 value:0.0 singleMakeups:makeups0]];
+    [mutArray addObject:[FUMakeupModle GetModelClassTitle:@"桃花" imgStr:@"list_image_peachblossom" filter:@"fennen3" filterValue:1.0 value:1.0 singleMakeups:makeups1]];
+    [mutArray addObject:[FUMakeupModle GetModelClassTitle:@"西柚" imgStr:@"list_image_grapefruit" filter:@"lengsediao4" filterValue:0.7 value:1.0 singleMakeups:makeups2]];
+    [mutArray addObject:[FUMakeupModle GetModelClassTitle:@"男友" imgStr:@"list_image_boyfriend" filter:@"xiaoqingxin3" filterValue:0.9 value:1.0 singleMakeups:makeups3]];
+    [mutArray addObject:[FUMakeupModle GetModelClassTitle:@"清透" imgStr:@"list_image_clear" filter:@"xiaoqingxin6" filterValue:0.8 value:1.0 singleMakeups:makeups4]];
 
-    self.styleModelArray = mutArray;
+
+    self.makeupModelArray = mutArray;
 }
 
 -(void)initializationFilterData{
     NSMutableArray <FUFilterModel *>*mutArray = [NSMutableArray array];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"原图" imgStr:@"list_image_Originalmap" sdkStr:@"filter_name" styleStr:@"origin" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"淡雅" imgStr:@"list_image_danya" sdkStr:@"filter_name" styleStr:@"danya" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"粉嫩" imgStr:@"list_image_fennen" sdkStr:@"filter_name" styleStr:@"fennen" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"清晰" imgStr:@"list_image_qingxin" sdkStr:@"filter_name" styleStr:@"qingxin" valueSdkStr:@"filter_level" value:1.0]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"红润" imgStr:@"list_image_hongrun" sdkStr:@"filter_name" styleStr:@"hongrun" valueSdkStr:@"filter_level" value:1.0]];
+    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"原图" imgStr:@"list_image_origin" sdkStr:@"filter_name" styleStr:@"origin" valueSdkStr:@"filter_level" value:0.0]];
+    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"白亮" imgStr:@"list_image_bailiang" sdkStr:@"filter_name" styleStr:@"bailiang1" valueSdkStr:@"filter_level" value:0.7]];
+    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"粉嫩" imgStr:@"list_image_fennen" sdkStr:@"filter_name" styleStr:@"fennen1" valueSdkStr:@"filter_level" value:0.7]];
+    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"冷色调" imgStr:@"list_image_lengsediao" sdkStr:@"filter_name" styleStr:@"lengsediao1" valueSdkStr:@"filter_level" value:0.7]];
+    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"暖色调" imgStr:@"list_image_nuansediao" sdkStr:@"filter_name" styleStr:@"nuansediao1" valueSdkStr:@"filter_level" value:0.7]];
+        [mutArray addObject:[FUFilterModel GetModelClassTitle:@"小清晰" imgStr:@"list_image_xiaoqingxin" sdkStr:@"filter_name" styleStr:@"xiaoqingxin1" valueSdkStr:@"filter_level" value:0.7]];
     
     self.filterModelArray = mutArray;
 }
@@ -125,7 +171,7 @@ static FUAppDataCenter *shareManager = NULL;
                          [FUPropSubItemModel GetClassSubImageStr:@"kulutou_Animoji" sdkStr:@"kulutou_Animoji"]];
                         
                          
-    FUPropItemModel *model0 = [FUPropItemModel GetClassTitle:@"Animoji" hoverImageStr:@"list_icon_annimoji_hover" norImageStr:@"list_icon_annimoji_nor" subItems:subItems0 type:FULiveModelTypeAnimoji maxFace:1];
+    FUPropItemModel *model0 = [FUPropItemModel GetClassTitle:@"Animoji" hoverImageStr:@"list_icon_annimoji_hover" norImageStr:@"list_icon_annimoji_nor" subItems:subItems0 type:FULiveModelTypeAnimoji maxFace:4];
     //道具贴纸
     NSArray <FUPropSubItemModel *>*subItems1 = @[[FUPropSubItemModel GetClassSubImageStr:@"fengya_ztt_fu" sdkStr:@"fengya_ztt_fu"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"hudie_lm_fu" sdkStr:@"hudie_lm_fu"],
@@ -178,19 +224,19 @@ static FUAppDataCenter *shareManager = NULL;
     FUPropItemModel *model5 = [FUPropItemModel GetClassTitle:@"音乐滤镜" hoverImageStr:@"list_icon_Musicfilter_hover" norImageStr:@"list_icon_Musicfilter_nor" subItems:subItems5 type:FULiveModelTypeMusicFilter maxFace:4];
     
     //背景分割
-    NSArray <FUPropSubItemModel *>*subItems6 = @[[FUPropSubItemModel GetClassSubImageStr:@"chiji_lm_fu" sdkStr:@"chiji_lm_fu"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"ice_lm_fu" sdkStr:@"ice_lm_fu"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"jingongmen_zh_fu" sdkStr:@"jingongmen_zh_fu"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"gufeng_zh_fu" sdkStr:@"gufeng_zh_fu"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"men_ztt_fu" sdkStr:@"men_ztt_fu"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"hez_ztt_fu" sdkStr:@"hez_ztt_fu" hint:@"张嘴试试"]];
+    NSArray <FUPropSubItemModel *>*subItems6 = @[[FUPropSubItemModel GetClassSubImageStr:@"hez_ztt_fu" sdkStr:@"hez_ztt_fu" hint:@"张嘴试试"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"gufeng_zh_fu" sdkStr:@"gufeng_zh_fu"],
+//                                                 [FUPropSubItemModel GetClassSubImageStr:@"men_ztt_fu" sdkStr:@"men_ztt_fu"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"xiandai_ztt_fu" sdkStr:@"xiandai_ztt_fu"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"sea_lm_fu" sdkStr:@"sea_lm_fu"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"ice_lm_fu" sdkStr:@"ice_lm_fu"]];
     FUPropItemModel *model6 = [FUPropItemModel GetClassTitle:@"背景分割" hoverImageStr:@"list_icon_Bgsegmentation_hover" norImageStr:@"list_icon_Bgsegmentation_nor" subItems:subItems6 type:FULiveModelTypeBGSegmentation maxFace:1];
     
     //手势识别
     NSArray <FUPropSubItemModel *>*subItems7 = @[[FUPropSubItemModel GetClassSubImageStr:@"fu_lm_koreaheart" sdkStr:@"fu_lm_koreaheart" hint:@"单手手指比心"],
 //                                               [FUPropSubItemModel GetClassSubImageStr:@"fu_zh_baoquan" sdkStr:@"fu_zh_baoquan" hint:@"双手抱拳"],
 //                                               [FUPropSubItemModel GetClassSubImageStr:@"fu_zh_hezxiong" sdkStr:@"fu_zh_hezxiong" hint:@"双手合十"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"fu_ztt_live520" sdkStr:@"fu_ztt_live520" hint:@"双手比心"],
+//                                               [FUPropSubItemModel GetClassSubImageStr:@"fu_ztt_live520" sdkStr:@"fu_ztt_live520" hint:@"双手比心"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_cute" sdkStr:@"ssd_thread_cute" hint:@"双拳靠近脸颊卖萌"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_six" sdkStr:@"ssd_thread_six" hint:@"比个六"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_thumb" sdkStr:@"ssd_thread_thumb" hint:@"竖个拇指"]];

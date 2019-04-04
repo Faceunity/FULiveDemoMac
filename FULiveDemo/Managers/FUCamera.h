@@ -28,8 +28,6 @@
 
 /**
  切换摄像机设备
-
- @param selIndex 摄像机数组索引
  */
 - (void)changeCameraPositionWithStr:(NSString *)deviceStr;
 

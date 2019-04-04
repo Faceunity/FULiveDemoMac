@@ -4,16 +4,32 @@ FULiveDemo 是集成了 Faceunity 面部跟踪、美颜、Animoji、道具贴纸
 
 注：第一运行Demo会报缺少证书的 error ,如果您已拥有我司颁发的证书，将证书替换到工程中重新运行即可。如您还没有我司颁发的证书，可以查看[这里](#导入证书)获取证书
 
-## SDK v5.8.0 更新
+## SDK v6.0.0 更新
 
-更新内容
+**更新内容**
 
-- 支持ETC2压缩纹理，减少内存占用，提高绘制性能
-- 优化美妆唇部效果，更加贴合唇形
-- 新增支持多人物理动效
-- 新增两款艺术滤镜
-- 海报换脸功能优化，支持表情融合
-- 海报换脸性能优化
+- 优化人脸检测，提高检测率，提高性能。
+
+- 新增质感美颜功能（注：道具支持SDK v6.0.0以上版本）。
+
+- 人脸融合(海报换脸)效果优化（注：道具支持 SDK v6.0.0以上版本）。
+
+- 背景分割分割精度优化（注：此版本背景分割、手势识别道具只支持 SDK v6.0.0以上版本）。
+
+- 舌头跟踪trackface逻辑支持，Getfaceinfo支持。
+
+- 新增Avatar捏脸功能，需FUEditor 6.0.0以上版本。
+
+- 美颜滤镜优化（注：原有滤镜整合，重命名归类及效果新增， 道具支持SDK v5.5.0以上版本）。
+
+- 修复mebedtls符号冲突问题。
+
+- 注：美发、Animoji道具支持FUEditor v5.6.0以上制作版本，其余道具在任意SDK皆可兼容
+
+更新文档
+- [美颜道具参数说明_完整版](./docs/美颜道具参数说明_完整版.pdf)
+- [美妆bundle参数说明](./docs/美妆bundle参数说明.pdf)
+- [质感美颜参数说明](./docs/质感美颜参数说明.pdf)
 
 ## 软件需求
 
@@ -29,16 +45,16 @@ FULiveDemo 是集成了 Faceunity 面部跟踪、美颜、Animoji、道具贴纸
 
 ### 一、通过cocoapods集成
 
-含有深度学习的版本：
+全功能版本：
 
 ```
-pod 'Nama-macOS', '5.8.0' #注意此版本目前为dev版
+pod 'Nama-macOS', '6.0.0' #注意此版本目前为dev版
 ```
 
-不含机器学习以及物理引擎的版本（lite版）：
+不含物理引擎的版本（lite版）：
 
 ```
-pod 'Nama-macOS-lite', '5.8.0' #注意此版本目前为dev版
+pod 'Nama-macOS-lite', '6.0.0' #注意此版本目前为dev版
 ```
 
 接下来执行：
@@ -55,9 +71,9 @@ pod repo update 或 pod setup
 
 ### 二、通过 github 下载集成
 
-含有深度学习的版本：[FaceUnity-SDK-Mac-v5.8.0-dev.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v5.8.0-dev.zip)
+全功能版本：[FaceUnity-SDK-Mac-v6.0.0-dev.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.0.0-dev.zip)
 ​	
-不含机器学习以及物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v5.8.0-dev-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v5.8.0-dev-lite.zip)
+不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v6.0.0-dev-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.0.0-dev-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 

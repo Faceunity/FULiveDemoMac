@@ -345,6 +345,11 @@ static NSString * subIndentify = @"subItem";
         
         [[FUManager  shareManager] loadItem:[FUAppDataCenter shareManager].propItemModelArray[_selItemIndex].subItems[indexPath.item].subSdkStr];
              [[FUMusicPlayer sharePlayer] stop];//停止音乐
+        
+        if ([FUAppDataCenter shareManager].propItemModelArray[_selItemIndex].propType == FULiveModelTypeAnimoji) {//Annimoji道具
+//            [[FUManager  shareManager] setAnimojiSleeveHead];
+        }
+        
         if ([FUAppDataCenter shareManager].propItemModelArray[_selItemIndex].propType == FULiveModelTypeMusicFilter) {
             [[FUMusicPlayer sharePlayer] playMusic:@"douyin.mp3"];
         }
@@ -402,7 +407,7 @@ static  NSTimeInterval oldTime = 0;
         float h = CVPixelBufferGetHeight(pixelBuffer);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.mVerbTF.stringValue = [NSString stringWithFormat:@"FPS:  %d\nResolution:%0.f*%0.f\nReaderTime: %0.fms",diaplayRate,w,h,diaplayRenderTime * 1000 / diaplayRate];
+            self.mVerbTF.stringValue = [NSString stringWithFormat:@"FPS:  %d\nResolution:%0.f*%0.f\nRenderTime: %0.fms",diaplayRate,w,h,diaplayRenderTime * 1000 / diaplayRate];
         });
         totalRenderTime = 0;
         rate = 0;

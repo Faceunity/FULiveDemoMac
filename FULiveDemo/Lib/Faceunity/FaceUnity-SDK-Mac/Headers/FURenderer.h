@@ -37,11 +37,12 @@ typedef enum {
      - 使用该接口进行初始化的话，需要在代码中配置 EAGLContext 环境，并且保证我们的接口是在同一个 EAGLContext 下调用的
  
  @param data v3.bundle 对应的二进制数据地址
+ @param dataSize v3.bundle 数据的字节数
  @param ardata 该参数已舍弃，传 NULL 即可
  @param package 密钥数组，必须配置好密钥，SDK 才能正常工作
  @param size 密钥数组大小
  */
-- (void)setupWithData:(void *)data ardata:(void *)ardata authPackage:(void *)package authSize:(int)size;
+- (void)setupWithData:(void *)data dataSize:(int)dataSize ardata:(void *)ardata authPackage:(void *)package authSize:(int)size;
 
 /**
  初始化接口2：
@@ -49,12 +50,13 @@ typedef enum {
      - 与 初始化接口1 相比此接口新增 shouldCreate 参数，如果传入YES我们将在内部创建并持有一个 EAGLContext，无需外部再创建 EAGLContext 环境。
  
  @param data v3.bundle 对应的二进制数据地址
+ @param dataSize v3.bundle 数据的字节数
  @param ardata 该参数已废弃，传 NULL 即可
  @param package 密钥数组，必须配置好密钥，SDK 才能正常工作
  @param size 密钥数组大小
  @param shouldCreate 如果设置为 YES，我们会在内部创建并持有一个 EAGLContext，此时必须使用OC层接口
  */
-- (void)setupWithData:(void *)data ardata:(void *)ardata authPackage:(void *)package authSize:(int)size shouldCreateContext:(BOOL)shouldCreate;
+- (void)setupWithData:(void *)data dataSize:(int)dataSize ardata:(void *)ardata authPackage:(void *)package authSize:(int)size shouldCreateContext:(BOOL)shouldCreate;
 
 /**
  初始化接口3：
@@ -372,6 +374,8 @@ typedef enum {
  */
 + (int)trackFace:(int)inputFormat inputData:(void*)inputData width:(int)width height:(int)height;
 
++ (int)trackFaceWithTongue:(int)inputFormat inputData:(void*)inputData width:(int)width height:(int)height;
+
 /**
  获取人脸信息：
      - 在程序中需要先运行过视频处理接口( 视频处理接口8 除外)或 人脸信息跟踪接口 后才能使用该接口来获取人脸信息；
@@ -496,6 +500,8 @@ typedef enum {
 + (void)setDefaultRotationMode:(float)mode;
 
 + (void)setAsyncTrackFaceEnable:(int)enable;
+
++ (void)setTongueTrackingEnable:(int)enable;
  
 + (int)loadTongueModel:(void*)model size:(int)size;
 @end

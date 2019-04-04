@@ -21,6 +21,8 @@
 /**加载美颜道具*/
 - (void)loadFilter ;
 
+-(void)loadMakeup;
+
 /**销毁全部道具*/
 - (void)destoryAllItems;
 
@@ -29,6 +31,9 @@
 
 /**抗锯齿*/
 - (void)loadAnimojiFaxxBundle ;
+
+/* animoji套头设置 */
+-(void)setAnimojiSleeveHead;
 
 - (void)destoryAnimojiFaxxBundle ;
 
@@ -41,6 +46,37 @@
  reture : 0 - 失败 ； 1 - 成功
  */
 -(int)changeParamsStr:(NSString *)sdkStr index:(int)index value:(id)value;
+
+
+#pragma mark -  美妆
+/*
+ tex_brow 眉毛
+ tex_eye 眼影
+ tex_pupil 美瞳
+ tex_eyeLash 睫毛
+ tex_lip 口红
+ tex_highlight 口红高光
+ //jiemao
+ //meimao
+ tex_eyeLiner 眼线
+ tex_blusher腮红
+ */
+-(void)setMakeupItemParamImage:(NSImage *)image param:(NSString *)paramStr;
+
+/*
+ is_makeup_on: 1, //美妆开关
+ makeup_intensity:1.0, //美妆程度 //下面是每个妆容单独的参数，intensity设置为0即为关闭这种妆效 makeup_intensity_lip:1.0, //kouhong makeup_intensity_pupil:1.0, //meitong
+ makeup_intensity_eye:1.0,
+ makeup_intensity_eyeLiner:1.0,
+ makeup_intensity_eyelash:1.0,
+ makeup_intensity_eyeBrow:1.0,
+ makeup_intensity_blusher:1.0, //saihong
+ makeup_lip_color:[0,0,0,0] //长度为4的数组，rgba颜色值
+ makeup_lip_mask:0.0 //嘴唇优化效果开关，1.0为开 0为关
+ */
+-(void)setMakeupItemIntensity:(float )value param:(NSString *)paramStr;
+
+-(void)setMakeupItemLipstick:(double *)lipData;
 
 
 /**将道具绘制到pixelBuffer*/
