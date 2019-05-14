@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner">
+            <connections>
+                <outlet property="mFuBtn3" destination="DDe-8W-cXu" id="RgT-Jh-9pE"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="SRX-9y-hYJ" customClass="FUSkinStyle3RowView">
+            <rect key="frame" x="0.0" y="0.0" width="430" height="81"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wHV-Pz-ChC">
+                    <rect key="frame" x="20" y="19" width="62" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="IGK-U0-rm1"/>
+                        <constraint firstAttribute="width" constant="62" id="QR5-hR-daS"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="yuguan" id="YMo-Og-FUQ"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="01K-Ey-SrV">
+                    <rect key="frame" x="14" y="5" width="74" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="9YI-QJ-53S"/>
+                        <constraint firstAttribute="height" constant="14" id="eVM-3p-j2z"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="1111" id="nyn-NX-rUY">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" red="0.36078431370000003" green="0.37647058820000001" blue="0.4431372549" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ZYV-yF-qTl">
+                    <rect key="frame" x="99" y="20" width="317" height="61"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Euc-eK-DVN" customClass="FUButton">
+                            <rect key="frame" x="0.0" y="13" width="54" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="54" id="XqJ-3p-yvd"/>
+                                <constraint firstAttribute="height" constant="36" id="gpk-4l-4pi"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btn1Click:" target="SRX-9y-hYJ" id="YaY-0p-5te"/>
+                            </connections>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="Zze-Oe-ZAF" customClass="FUButton">
+                            <rect key="frame" x="62" y="13" width="54" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="HjU-Cq-0o4"/>
+                                <constraint firstAttribute="width" constant="54" id="MTO-GL-fkW"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btn2Click:" target="SRX-9y-hYJ" id="XmP-sy-2jo"/>
+                            </connections>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="DDe-8W-cXu" customClass="FUButton">
+                            <rect key="frame" x="124" y="13" width="54" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="54" id="KK3-AL-z3B"/>
+                                <constraint firstAttribute="height" constant="36" id="fYf-oD-Jkh"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btn3Click:" target="SRX-9y-hYJ" id="lyW-zs-2ig"/>
+                            </connections>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="ePm-pf-seQ" customClass="FUButton">
+                            <rect key="frame" x="186" y="13" width="54" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="fxW-V7-pYk"/>
+                                <constraint firstAttribute="width" constant="54" id="vPx-j8-oBX"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btn4Click:" target="SRX-9y-hYJ" id="KbV-Cj-C0p"/>
+                            </connections>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="5zY-Ea-T3v" customClass="FUButton">
+                            <rect key="frame" x="248" y="13" width="54" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="N4W-ef-qzx"/>
+                                <constraint firstAttribute="width" constant="54" id="eFg-T7-Zml"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="btn5Click:" target="SRX-9y-hYJ" id="q4b-Co-kcZ"/>
+                            </connections>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Zze-Oe-ZAF" firstAttribute="centerY" secondItem="ZYV-yF-qTl" secondAttribute="centerY" id="Btb-np-9lA"/>
+                        <constraint firstAttribute="height" constant="61" id="KNS-5M-MTy"/>
+                        <constraint firstItem="Euc-eK-DVN" firstAttribute="centerY" secondItem="ZYV-yF-qTl" secondAttribute="centerY" id="RVY-u3-6n0"/>
+                        <constraint firstItem="DDe-8W-cXu" firstAttribute="centerY" secondItem="ZYV-yF-qTl" secondAttribute="centerY" id="Rbi-4O-5o4"/>
+                        <constraint firstItem="ePm-pf-seQ" firstAttribute="centerY" secondItem="ZYV-yF-qTl" secondAttribute="centerY" id="S70-sG-RDq"/>
+                        <constraint firstItem="Zze-Oe-ZAF" firstAttribute="leading" secondItem="Euc-eK-DVN" secondAttribute="trailing" constant="8" id="a3f-5n-3Og"/>
+                        <constraint firstItem="Euc-eK-DVN" firstAttribute="leading" secondItem="ZYV-yF-qTl" secondAttribute="leading" id="fwF-OD-2xw"/>
+                        <constraint firstItem="ePm-pf-seQ" firstAttribute="leading" secondItem="DDe-8W-cXu" secondAttribute="trailing" constant="8" id="gUZ-Ga-55l"/>
+                        <constraint firstItem="5zY-Ea-T3v" firstAttribute="leading" secondItem="ePm-pf-seQ" secondAttribute="trailing" constant="8" id="n5O-0p-nhi"/>
+                        <constraint firstItem="DDe-8W-cXu" firstAttribute="leading" secondItem="Zze-Oe-ZAF" secondAttribute="trailing" constant="8" id="neE-GN-pYo"/>
+                        <constraint firstItem="5zY-Ea-T3v" firstAttribute="centerY" secondItem="ZYV-yF-qTl" secondAttribute="centerY" id="wp3-6h-TfD"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ZYV-yF-qTl" firstAttribute="centerY" secondItem="wHV-Pz-ChC" secondAttribute="centerY" id="3Zw-6L-cD5"/>
+                <constraint firstItem="01K-Ey-SrV" firstAttribute="top" secondItem="wHV-Pz-ChC" secondAttribute="bottom" id="BOW-Se-jql"/>
+                <constraint firstItem="wHV-Pz-ChC" firstAttribute="leading" secondItem="SRX-9y-hYJ" secondAttribute="leading" constant="20" id="GuO-OY-3EA"/>
+                <constraint firstAttribute="trailing" secondItem="ZYV-yF-qTl" secondAttribute="trailing" constant="14" id="PMj-pm-cBH"/>
+                <constraint firstItem="01K-Ey-SrV" firstAttribute="centerX" secondItem="wHV-Pz-ChC" secondAttribute="centerX" id="Qsf-4d-NX5"/>
+                <constraint firstItem="wHV-Pz-ChC" firstAttribute="top" secondItem="SRX-9y-hYJ" secondAttribute="top" id="jDR-cV-bJ8"/>
+                <constraint firstItem="ZYV-yF-qTl" firstAttribute="leading" secondItem="wHV-Pz-ChC" secondAttribute="trailing" constant="17" id="tdV-xb-KPq"/>
+            </constraints>
+            <connections>
+                <outlet property="btnSupView" destination="ZYV-yF-qTl" id="WJw-kp-lZ5"/>
+                <outlet property="mFuBtn1" destination="Euc-eK-DVN" id="myX-Rq-Fy0"/>
+                <outlet property="mFuBtn2" destination="Zze-Oe-ZAF" id="YMS-l7-pEr"/>
+                <outlet property="mFuBtn3" destination="DDe-8W-cXu" id="Ki1-sO-4Fn"/>
+                <outlet property="mFuBtn4" destination="ePm-pf-seQ" id="YFv-lz-fPe"/>
+                <outlet property="mFuBtn5" destination="5zY-Ea-T3v" id="rgL-Ed-KKx"/>
+                <outlet property="mImageView" destination="wHV-Pz-ChC" id="0gs-Dd-pQK"/>
+                <outlet property="mTitleLabel" destination="01K-Ey-SrV" id="3C1-s7-AMG"/>
+            </connections>
+            <point key="canvasLocation" x="70" y="77.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="yuguan" width="200" height="200"/>
+    </resources>
+</document>

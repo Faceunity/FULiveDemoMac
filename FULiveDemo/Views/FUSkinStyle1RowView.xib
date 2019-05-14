@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="ivZ-0X-Fgx" customClass="FUSkinStyle1RowView">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uqW-YJ-Brz">
+                    <rect key="frame" x="20" y="22" width="62" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="62" id="585-q5-Gtc"/>
+                        <constraint firstAttribute="height" constant="62" id="Kqh-Y1-RFv"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="NIz-0u-Lpj"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N51-8L-vWT">
+                    <rect key="frame" x="14" y="8" width="74" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="RNL-aa-cy8"/>
+                        <constraint firstAttribute="width" constant="70" id="uCW-73-PQU"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="美颜" id="tCd-i6-xcd">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" red="0.36078431372549019" green="0.37647058823529411" blue="0.44313725490196076" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g63-6H-Uoq">
+                    <rect key="frame" x="102" y="36" width="256" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="252" id="5fT-1x-s4C"/>
+                        <constraint firstAttribute="height" constant="30" id="7yY-Qu-bxs"/>
+                    </constraints>
+                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="83" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="xkQ-PX-TWF" customClass="FUSliderCell"/>
+                    <connections>
+                        <action selector="sliderDidChange:" target="ivZ-0X-Fgx" id="LhE-j3-xKt"/>
+                    </connections>
+                </slider>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="66P-vR-ypM">
+                    <rect key="frame" x="366" y="42" width="30" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Q0z-U0-fvH"/>
+                        <constraint firstAttribute="height" constant="22" id="Qxg-oh-ysj"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="50" drawsBackground="YES" id="6SL-Mr-czh">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" red="0.36078431372549019" green="0.37647058823529411" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <action selector="inputValueDidChange:" target="ivZ-0X-Fgx" id="N9p-oj-NTs"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="66P-vR-ypM" secondAttribute="trailing" constant="20" id="4Dy-qz-vUg"/>
+                <constraint firstItem="N51-8L-vWT" firstAttribute="top" secondItem="uqW-YJ-Brz" secondAttribute="bottom" id="Ngs-zc-1RB"/>
+                <constraint firstItem="uqW-YJ-Brz" firstAttribute="leading" secondItem="ivZ-0X-Fgx" secondAttribute="leading" constant="20" id="Szo-Sv-Zr3"/>
+                <constraint firstItem="uqW-YJ-Brz" firstAttribute="top" secondItem="ivZ-0X-Fgx" secondAttribute="top" id="nXs-Na-KAB"/>
+                <constraint firstItem="N51-8L-vWT" firstAttribute="centerX" secondItem="uqW-YJ-Brz" secondAttribute="centerX" id="xul-I8-KZV"/>
+                <constraint firstItem="g63-6H-Uoq" firstAttribute="leading" secondItem="uqW-YJ-Brz" secondAttribute="trailing" constant="22" id="yOX-f3-oAY"/>
+                <constraint firstItem="66P-vR-ypM" firstAttribute="centerY" secondItem="uqW-YJ-Brz" secondAttribute="centerY" id="yYg-LW-Ixd"/>
+                <constraint firstItem="g63-6H-Uoq" firstAttribute="centerY" secondItem="uqW-YJ-Brz" secondAttribute="centerY" id="zkS-b5-Nmd"/>
+            </constraints>
+            <connections>
+                <outlet property="mImageView" destination="uqW-YJ-Brz" id="lte-7C-o1E"/>
+                <outlet property="mSlider" destination="g63-6H-Uoq" id="E6W-vz-JG3"/>
+                <outlet property="mTextField" destination="66P-vR-ypM" id="CQJ-Ge-qeT"/>
+                <outlet property="mTitleLabel" destination="N51-8L-vWT" id="hoY-5u-UiC"/>
+            </connections>
+            <point key="canvasLocation" x="75" y="73.5"/>
+        </customView>
+    </objects>
+</document>

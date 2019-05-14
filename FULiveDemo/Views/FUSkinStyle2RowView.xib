@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="IZl-W2-mBm" customClass="FUSkinStyle2RowView">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="83"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u20-ZW-eGH">
+                    <rect key="frame" x="20" y="21" width="62" height="62"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="62" id="wIU-x6-P0x"/>
+                        <constraint firstAttribute="width" constant="62" id="xk3-rm-JuM"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="yuguan" id="5wH-dM-BhE"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ylF-Pb-7Wx">
+                    <rect key="frame" x="14" y="7" width="74" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="Ebr-B2-88R"/>
+                        <constraint firstAttribute="height" constant="14" id="oJS-pw-QOP"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="1111" id="1NO-Kw-pbP">
+                        <font key="font" metaFont="cellTitle"/>
+                        <color key="textColor" red="0.36078431372549019" green="0.37647058823529411" blue="0.44313725490196076" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="X5Q-NS-bLj">
+                    <rect key="frame" x="99" y="22" width="258" height="61"/>
+                    <subviews>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="xZN-OI-ugv" customClass="FUButton">
+                            <rect key="frame" x="0.0" y="13" width="118" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="9md-sS-KNB"/>
+                                <constraint firstAttribute="width" constant="118" id="F9T-WS-gyf"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="border" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="button1Click:" target="IZl-W2-mBm" id="dli-8T-3LC"/>
+                            </connections>
+                        </customView>
+                        <customView translatesAutoresizingMaskIntoConstraints="NO" id="1rK-xe-VBu" customClass="FUButton">
+                            <rect key="frame" x="140" y="13" width="118" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="LTj-38-ZSV"/>
+                                <constraint firstAttribute="width" constant="118" id="PB6-sH-1C7"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                    <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="textString" value="美颜"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="border" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="button2Click:" target="IZl-W2-mBm" id="Soj-U9-Hp8"/>
+                            </connections>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="EiO-h0-R4P"/>
+                        <constraint firstAttribute="width" constant="258" id="d1g-og-5WZ"/>
+                        <constraint firstItem="xZN-OI-ugv" firstAttribute="centerY" secondItem="X5Q-NS-bLj" secondAttribute="centerY" id="ebD-OH-13O"/>
+                        <constraint firstItem="1rK-xe-VBu" firstAttribute="centerY" secondItem="X5Q-NS-bLj" secondAttribute="centerY" id="g7r-g8-qqq"/>
+                        <constraint firstAttribute="trailing" secondItem="1rK-xe-VBu" secondAttribute="trailing" id="s6L-4r-grM"/>
+                        <constraint firstItem="xZN-OI-ugv" firstAttribute="leading" secondItem="X5Q-NS-bLj" secondAttribute="leading" id="uoQ-1E-cPF"/>
+                    </constraints>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="u20-ZW-eGH" firstAttribute="top" secondItem="IZl-W2-mBm" secondAttribute="top" id="8ln-eZ-jdo"/>
+                <constraint firstItem="X5Q-NS-bLj" firstAttribute="centerY" secondItem="u20-ZW-eGH" secondAttribute="centerY" id="FeA-eN-iTD"/>
+                <constraint firstItem="u20-ZW-eGH" firstAttribute="leading" secondItem="IZl-W2-mBm" secondAttribute="leading" constant="20" id="K9h-y0-3NT"/>
+                <constraint firstItem="X5Q-NS-bLj" firstAttribute="leading" secondItem="u20-ZW-eGH" secondAttribute="trailing" constant="17" id="NVK-8x-thI"/>
+                <constraint firstItem="ylF-Pb-7Wx" firstAttribute="centerX" secondItem="u20-ZW-eGH" secondAttribute="centerX" id="OZ5-6O-mwe"/>
+                <constraint firstItem="ylF-Pb-7Wx" firstAttribute="top" secondItem="u20-ZW-eGH" secondAttribute="bottom" id="ZaD-Iy-JGV"/>
+            </constraints>
+            <connections>
+                <outlet property="mFuBtn1" destination="xZN-OI-ugv" id="1AP-K6-VjP"/>
+                <outlet property="mFuBtn2" destination="1rK-xe-VBu" id="3lo-Dc-71b"/>
+                <outlet property="mImageView" destination="u20-ZW-eGH" id="o6n-T1-VpJ"/>
+                <outlet property="mTitleLabel" destination="ylF-Pb-7Wx" id="xOE-dx-MnN"/>
+            </connections>
+            <point key="canvasLocation" x="63" y="68.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="yuguan" width="128" height="128"/>
+    </resources>
+</document>

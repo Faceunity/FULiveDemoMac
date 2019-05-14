@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FUTipPopViewController">
+            <connections>
+                <outlet property="titleTextField" destination="8ox-te-z2H" id="5LA-la-sMk"/>
+                <outlet property="view" destination="TQ7-hj-FXl" id="eyE-TY-i2a"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="TQ7-hj-FXl">
+            <rect key="frame" x="0.0" y="0.0" width="248" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8ox-te-z2H">
+                    <rect key="frame" x="8" y="6" width="231" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="227" id="DMH-Ib-6cA"/>
+                        <constraint firstAttribute="height" constant="56" id="PPn-iN-f6L"/>
+                    </constraints>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="勾选后会开启虚拟摄像头功能，详情可参见帮助文档内的相关内容说明" id="gh3-0j-09h">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" red="0.36078431372549019" green="0.37647058823529411" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="8ox-te-z2H" firstAttribute="top" secondItem="TQ7-hj-FXl" secondAttribute="top" constant="15" id="mIi-F7-YcJ"/>
+                <constraint firstItem="8ox-te-z2H" firstAttribute="leading" secondItem="TQ7-hj-FXl" secondAttribute="leading" constant="10" id="uuV-0a-YbY"/>
+            </constraints>
+            <point key="canvasLocation" x="-19" y="79.5"/>
+        </customView>
+    </objects>
+</document>
