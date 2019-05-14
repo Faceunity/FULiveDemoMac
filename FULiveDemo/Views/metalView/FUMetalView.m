@@ -171,7 +171,7 @@ static const float kImagePlaneVertexData[16] = {
     // Draw each submesh of our mesh
     [renderEncoder drawPrimitives:MTLPrimitiveTypeTriangleStrip vertexStart:0 vertexCount:4];
     
-//    [renderEncoder popDebugGroup];
+    [renderEncoder popDebugGroup];
 }
 
 - (void)updateCapturedImageTexturesWithFrame:(CVPixelBufferRef)pixelBuffer {
