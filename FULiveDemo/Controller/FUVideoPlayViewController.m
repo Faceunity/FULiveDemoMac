@@ -7,7 +7,7 @@
 //
 
 #import "FUVideoPlayViewController.h"
-#import "FUMetalView.h"
+#import "FUOpenGLView.h"
 #import "FUCamera.h"
 #import "FURenderer.h"
 #import "FUButton.h"
@@ -25,7 +25,7 @@ static NSString * subIndentify = @"subItem";
 
 @interface FUVideoPlayViewController ()<FUCameraDelegate,NSCollectionViewDataSource,NSCollectionViewDelegate>
 /* 播放视图 */
-@property (weak) IBOutlet FUMetalView *mMetalView;
+@property (weak) IBOutlet FUOpenGLView *mOpenGLView;
 /* 视频采集 */
 @property (nonatomic, strong) FUCamera *mCamera;
 /* 参数说明背景View */
@@ -378,8 +378,8 @@ static  NSTimeInterval oldTime = 0;
     [[FUManager shareManager] renderItemsToPixelBuffer:pixelBuffer];
     totalRenderTime += [[NSDate date] timeIntervalSince1970] - startTime;
     CVPixelBufferRetain(pixelBuffer);
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [self.mMetalView displayPixelBuffer:pixelBuffer];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mOpenGLView displayPixelBuffer:pixelBuffer];
         CVPixelBufferRelease(pixelBuffer);
     });
 

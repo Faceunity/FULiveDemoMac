@@ -872,7 +872,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="914" height="667"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="SKY-bV-itf" customClass="FUMetalView">
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="SKY-bV-itf" customClass="FUOpenGLView">
                                 <rect key="frame" x="10" y="154" width="894" height="503"/>
                                 <subviews>
                                     <customView alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Vdr-bX-kwK">
@@ -1130,7 +1130,7 @@ RenderTime：111ms
                         <outlet property="mLayoutConstraintSubBarBottomValue" destination="Jsw-Nm-5Ye" id="3iy-9s-bW8"/>
                         <outlet property="mLayoutConstraintW" destination="jJ2-0K-n18" id="a7k-eE-qpQ"/>
                         <outlet property="mLeftBtn" destination="anI-ID-Tm4" id="Lk8-Dt-ioN"/>
-                        <outlet property="mMetalView" destination="SKY-bV-itf" id="key-tV-eSU"/>
+                        <outlet property="mOpenGLView" destination="SKY-bV-itf" id="atb-Ir-MFN"/>
                         <outlet property="mOpenVerbBtn" destination="ZOp-UU-xYx" id="Ruz-ns-ZBP"/>
                         <outlet property="mRightBtn" destination="oXs-0C-fWT" id="GpV-7f-7Gz"/>
                         <outlet property="mSubBarSupView" destination="Vdr-bX-kwK" id="ICg-xo-w7B"/>
@@ -1406,7 +1406,7 @@ RenderTime：111ms
                                                     <rect key="frame" x="0.0" y="200" width="364" height="229"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="WSi-Gx-5k7">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <collectionView selectable="YES" allowsEmptySelection="NO" id="bSb-7F-Frb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
@@ -1475,7 +1475,7 @@ RenderTime：111ms
                                                     <rect key="frame" x="0.0" y="200" width="364" height="229"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="YPc-k0-jpy">
                                                         <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <collectionView selectable="YES" allowsEmptySelection="NO" id="VvD-Ug-KWg">
                                                                 <rect key="frame" x="0.0" y="0.0" width="364" height="229"/>
