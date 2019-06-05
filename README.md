@@ -8,6 +8,6 @@ FULiveDemoMac 是 Mac 平台上，集成相芯人脸跟踪及视频特效开发�
 
 相关文档位于本项目docs目录，包括:
 
-1. [Mac_Nama_Demo_运行文档.md](https://github.com/Faceunity/FULiveDemoMac/blob/dev/docs/FUNama%20SDK%20v4.6%20%E6%9B%B4%E6%96%B0%E6%96%87%E6%A1%A3.md)，介绍如何运行demo。  
-2. [Mac_Nama_SDK_集成指导文档.md](https://github.com/Faceunity/FULiveDemoMac/blob/dev/docs/Mac_Nama_SDK_集成指导文档.md)，介绍如何在宿主APP中集成Nama SDK。   
-3. [Mac_Nama_OC_API_参考文档.md](https://github.com/Faceunity/FULiveDemoMac/blob/dev/docs/Mac_Nama_OC_API_参考文档.md)，Nama SDK OC接口定义。  
+1. [Mac_Nama_Demo_运行文档.md](./docs/Mac_Nama_Demo_运行文档.md)，介绍如何运行demo。  
+2. [Mac_Nama_SDK_集成指导文档.md](./docs/Mac_Nama_SDK_集成指导文档.md)，介绍如何在宿主APP中集成Nama SDK。   
+3. [Mac_Nama_OC_API_参考文档.md](./docs/Mac_Nama_OC_API_参考文档.md)，Nama SDK OC接口定义。  
