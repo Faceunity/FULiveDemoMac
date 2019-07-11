@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/sunmu/Desktop/FUDEMO/FULiveDemo_MAC/FULiveDemo.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

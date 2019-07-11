@@ -193,8 +193,7 @@ static FUAppDataCenter *shareManager = NULL;
                                                [FUPropSubItemModel GetClassSubImageStr:@"baozi" sdkStr:@"baozi"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"tiger" sdkStr:@"tiger"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"xiongmao" sdkStr:@"xiongmao"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"armesh" sdkStr:@"armesh"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"armesh_ex" sdkStr:@"armesh_ex" hint:@"高精度AR面具模式"]];
+                                               [FUPropSubItemModel GetClassSubImageStr:@"armesh" sdkStr:@"armesh"]];
     FUPropItemModel *model2 = [FUPropItemModel GetClassTitle:@"AR面具" hoverImageStr:@"list_icon_AR_hover" norImageStr:@"list_icon_AR_nor" subItems:subItems2 type:FULiveModelTypeARMarsk maxFace:4];
     
     //换脸
