@@ -162,6 +162,7 @@ static FUAppDataCenter *shareManager = NULL;
 -(void)initializationPropItemData{
     //Animoji
     NSArray <FUPropSubItemModel *>*subItems0 = @[
+                         [FUPropSubItemModel GetClassSubImageStr:@"qgirl_Animoji" sdkStr:@"qgirl_Animoji"],
                          [FUPropSubItemModel GetClassSubImageStr:@"baimao_Animoji" sdkStr:@"baimao_Animoji"],
                          [FUPropSubItemModel GetClassSubImageStr:@"douniuquan_Animoji" sdkStr:@"douniuquan_Animoji"],
                          [FUPropSubItemModel GetClassSubImageStr:@"frog_Animoji" sdkStr:@"frog_Animoji"],

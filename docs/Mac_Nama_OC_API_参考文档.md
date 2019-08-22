@@ -1,22 +1,16 @@
 # Nama Objective-C API 参考文档
 级别：Public   
-更新日期：2019-07-08   
+更新日期：2019-08-14   
 
 ------
 
 **最新更新内容：**
 
-2019-07-08 v1.0 Nama v6.2.0：
+2019-08-14 v1.0 Nama v6.3.0：
 
-接口无更新
+- 新增fuSetFaceTrackParam函数，用于设置人脸跟踪参数。
 
-
-
-2019.05.27 v1.0 Nama v6.1.0： 
-
-\- 新增fuSetupLocal函数，支持离线鉴权。  
-
-\- 新增fuDestroyLibData函数，支持tracker内存释放。 
+- 新增setupLocalWithV3Path:offLinePath:authPackage: authSize: shouldCreateContext:函数，用于离线鉴权
 
 ------
 ### 目录：
