@@ -1,22 +1,17 @@
 # Mac Nama SDK 集成指导文档  
 级别：Public  
-更新日期：2019-07-08  
+更新日期：2019-08-14  
 
 ------
-**FaceUnity Nama SDK v6.2.0 (2019.07.08)**
+**FaceUnity Nama SDK v6.3.0 (2019.08.14)**
 
 更新内容
 
-- 优化人脸检测，提高正脸大角度检测率。
-- 优化背景分割，提高准确度。
-- 优化手势识别，提供15种手势；手势模型支持独立运行，见FUCreator文档。
-- 优化人脸美妆，提高准确度，支持更丰富的效果。
-- 优化人脸跟踪模块边缘人脸抖动问题。  
-- 修复多人脸舌头跟踪相互影响问题。 
-- 修复avatar模式下fxaa抗锯齿失效问题。
-- 废弃高精度模型 armesh_ex.bundle，以及对应的接口 fuLoadExtendedARData。
-- 废弃人脸表情动画模型 anim_model.bundle, 以及对应的接口 fuLoadAnimModel。
-  注：废弃的数据以及接口，可能引起编译不通过，移除代码即可。
+- 优化人脸美妆功能，提高性能，降低功耗。
+
+- 新增fuSetFaceTrackParam接口，用于设置人脸表情跟踪参数。 
+
+- 新增人脸美颜精细磨皮效果。
 
 ------
 ## 目录：
@@ -69,13 +64,13 @@ Xcode 8或更高版本
 全功能版本：
 
 ```
-pod 'Nama-macOS', '6.2.0' 
+pod 'Nama-macOS', '6.3.0' 
 ```
 
 不含物理引擎的版本（lite版）：
 
 ```
-pod 'Nama-macOS-lite', '6.2.0' 
+pod 'Nama-macOS-lite', '6.3.0' 
 ```
 
 接下来执行：
@@ -92,9 +87,9 @@ pod repo update 或 pod setup
 
 #### 3.2.1 通过 github 下载集成
 
-全功能版本：[FaceUnity-SDK-Mac-v6.2.0.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.2.0.zip)
+全功能版本：[FaceUnity-SDK-Mac-v6.3.0.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.3.0.zip)
 
-不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v6.2.0-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.2.0-lite.zip)
+不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v6.3.0-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.3.0-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 
@@ -452,12 +447,14 @@ __face_shape参数详解__
 
    可以使用参数
      `eye_enlarging`:  默认0.5,  //大眼程度范围0.0-1.0
+
      `cheek_thinning`:  默认0.0,   //瘦脸程度范围0.0-1.0
 
 2. `face_shape`:  为4时，为精细变形，添加了鼻子额头嘴巴下巴的调整
    可以使用参数
 
     `eye_enlarging`:  默认0.5,           //大眼程度范围0.0-1.0
+
     `cheek_thinning`:	默认0.0,  		//瘦脸程度范围0.0-1.0
 
     `cheek_v`:	默认0.0,  		//v脸程度范围0.0-1.0
@@ -467,8 +464,11 @@ __face_shape参数详解__
     `cheek_small`:   默认0.0,          //小脸程度范围0.0-1.0
 
      `intensity_nose`:  默认0.0,           //瘦鼻程度范围0.0-1.0
+
      `intensity_forehead`:  默认0.5,   //额头调整程度范围0.0-1.0
+
      `intensity_mouth`: 默认0.5,         //嘴巴调整程度范围0.0-1.0
+
      `intensity_chin`:  默认0.5,          //下巴调整程度范围0.0-1.0
 
    设置参数的例子代码如下：
@@ -477,7 +477,7 @@ __face_shape参数详解__
 /* 整体程度 */
 [FURenderer itemSetParam:items[1] withName:@"face_shape_level" value:@(1.0)];
 /* 大眼 */
-[FURenderer itemSetParam:items[1] withName:@"eye_enlarging" value: value:@(1.0)]
+[FURenderer itemSetParam:items[1] withName:@"eye_enlarging" value:@(1.0)]
 ```
 
 ------
@@ -489,8 +489,6 @@ __face_shape参数详解__
 线上例子中 heart_v2.bundle 为爱心手势演示道具。将其作为道具加载进行绘制即可启用手势识别功能。手势识别道具可以和普通道具及美颜共存，类似美颜将手势道具句柄保存在items句柄数组即可。
 
 自定义手势道具的流程和2D道具制作一致，具体打包的细节可以联系我司技术支持。
-
-注：新版手势道具中部分道具需要使用非lite版SDK才能正常使用
 
 __使用方法__
 

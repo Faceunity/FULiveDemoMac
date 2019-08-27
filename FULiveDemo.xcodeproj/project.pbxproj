@@ -176,6 +176,8 @@
 		E3C825492224E2F300494DE4 /* xiandai_ztt_fu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3C825472224E2F300494DE4 /* xiandai_ztt_fu.bundle */; };
 		E3C8254C2224E37800494DE4 /* sea_lm_fu.png in Resources */ = {isa = PBXBuildFile; fileRef = E3C8254A2224E37800494DE4 /* sea_lm_fu.png */; };
 		E3C8254D2224E37800494DE4 /* sea_lm_fu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3C8254B2224E37800494DE4 /* sea_lm_fu.bundle */; };
+		E3DCB388230D252B0030A3E0 /* qgirl_Animoji.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3DCB386230D252A0030A3E0 /* qgirl_Animoji.bundle */; };
+		E3DCB389230D252B0030A3E0 /* qgirl_Animoji.png in Resources */ = {isa = PBXBuildFile; fileRef = E3DCB387230D252B0030A3E0 /* qgirl_Animoji.png */; };
 		E3DD5C972109D67A004986C8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DD5C962109D67A004986C8 /* AppDelegate.m */; };
 		E3DD5C9C2109D67B004986C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3DD5C9B2109D67B004986C8 /* Assets.xcassets */; };
 		E3DD5C9F2109D67B004986C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3DD5C9D2109D67B004986C8 /* Main.storyboard */; };
@@ -516,6 +518,8 @@
 		E3C825472224E2F300494DE4 /* xiandai_ztt_fu.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = xiandai_ztt_fu.bundle; sourceTree = "<group>"; };
 		E3C8254A2224E37800494DE4 /* sea_lm_fu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sea_lm_fu.png; sourceTree = "<group>"; };
 		E3C8254B2224E37800494DE4 /* sea_lm_fu.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = sea_lm_fu.bundle; sourceTree = "<group>"; };
+		E3DCB386230D252A0030A3E0 /* qgirl_Animoji.bundle */ = {isa = PBXFileReference; lastKnownFileType = file; path = qgirl_Animoji.bundle; sourceTree = "<group>"; };
+		E3DCB387230D252B0030A3E0 /* qgirl_Animoji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qgirl_Animoji.png; sourceTree = "<group>"; };
 		E3DD5C922109D67A004986C8 /* FULiveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FULiveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3DD5C952109D67A004986C8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3DD5C962109D67A004986C8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1120,6 +1124,8 @@
 		E3F2F59E2121530600A6BC02 /* Animoji */ = {
 			isa = PBXGroup;
 			children = (
+				E3DCB386230D252A0030A3E0 /* qgirl_Animoji.bundle */,
+				E3DCB387230D252B0030A3E0 /* qgirl_Animoji.png */,
 				E37B0B872182B73200066133 /* baimao_Animoji.bundle */,
 				E37B0B8B2182B73200066133 /* baimao_Animoji.png */,
 				E37B0B922182B73300066133 /* douniuquan_Animoji.bundle */,
@@ -1377,6 +1383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3366E042251FB0E005333E7 /* mu_eyeshadow_11.png in Resources */,
+				E3DCB388230D252B0030A3E0 /* qgirl_Animoji.bundle in Resources */,
 				E3C5F7F4211068BA009A8CC3 /* FUSkinStyle3RowView.xib in Resources */,
 				E3366E092251FB0E005333E7 /* mu_eyeshadow_16.png in Resources */,
 				E3366E0F2251FB0E005333E7 /* mu_eyeshadow_22.png in Resources */,
@@ -1504,6 +1511,7 @@
 				E3366E242251FB0E005333E7 /* mu_eyepupil_05.png in Resources */,
 				E3F2F6562121530600A6BC02 /* mask_matianyu.png in Resources */,
 				E3F2F6452121530600A6BC02 /* ssd_thread_cute.bundle in Resources */,
+				E3DCB389230D252B0030A3E0 /* qgirl_Animoji.png in Resources */,
 				E37B0BA22182BAFB00066133 /* tongue.bundle in Resources */,
 				E3F2F6512121530600A6BC02 /* mask_liudehua.bundle in Resources */,
 				E3F2F6442121530600A6BC02 /* fu_ztt_live520.png in Resources */,
