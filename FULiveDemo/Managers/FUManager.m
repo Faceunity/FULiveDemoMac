@@ -24,7 +24,7 @@
      3.美妆
      */
     
-    int items[4];
+    int items[FUNamaHandleTotal];
     int frameID;
     
     NSDictionary *hintDic;
@@ -123,6 +123,15 @@ static FUManager *shareManager = NULL;
     
 }
 
+- (void)destoryItemAboutType:(FUNamaHandleType)type{
+        /**后销毁老道具句柄*/
+        if (items[type] != 0) {
+            NSLog(@"faceunity: destroy item");
+            [FURenderer destroyItem:items[type]];
+            items[type] = 0;
+    }
+}
+
 #pragma -Faceunity Load Data
 
 /**加载美颜道具*/
@@ -218,6 +227,20 @@ static FUManager *shareManager = NULL;
     items[2] = itemHandle;
 }
 
+- (void)loadBundleWithName:(NSString *)name aboutType:(FUNamaHandleType)type{
+    if (items[type] != 0) {
+        NSLog(@"faceunity: destroy item");
+        [FURenderer destroyItem:items[type]];
+        items[type] = 0;
+    }
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"bundle"];
+    items[type] = [FURenderer itemWithContentsOfFile:filePath];
+}
+
+-(int)getHandleAboutType:(FUNamaHandleType)type{
+    return items[type];
+}
+
 
 - (int)changeParamsStr:(NSString *)sdkStr index:(int)index value:(id)value{
     if (!sdkStr || [sdkStr isEqualToString:@""] || index >= sizeof(items)/sizeof(items[0]) ) {
@@ -225,10 +248,46 @@ static FUManager *shareManager = NULL;
         return 0;
     }
     int r = [FURenderer itemSetParam:items[index] withName:sdkStr value:value];
+    NSLog(@"设置----%@,----%f",sdkStr,[value floatValue]);
     if (r != 1) {
         NSLog(@"(%@)(%f)(return - %d)(item - %d) - sdk 设置失败",sdkStr,[value floatValue],r,items[index]);
     }
     return r;
+}
+
+-(int)changeParamsStr:(NSString *)sdkStr index:(int)index valueArr:(NSArray *)valueArr{
+    if (!sdkStr || !valueArr) {
+        NSLog(@"-------设置参数有误----%@",valueArr);
+        return 0;
+    }
+    
+    int length = (int)valueArr.count;
+    
+    double *value = (double *)malloc(length * sizeof(double));
+    for (int i =0; i < length; i ++) {
+        value[i] = [valueArr[i] doubleValue];
+    }
+    int r = [FURenderer itemSetParamdv:items[index] withName:sdkStr value:value length:length];
+    free(value);
+    return r;
+}
+
+-(int)changeParamsStr:(NSString *)sdkStr index:(int)index image:(NSImage *)image{
+    if (!image) {
+        NSLog(@"美妆图片为空");
+        return 0;
+    }
+//    
+    NSData *imageData = [image TIFFRepresentation];
+    NSBitmapImageRep *rep = [NSBitmapImageRep imageRepWithData:imageData];
+    NSSize size = NSMakeSize([rep pixelsWide], [rep pixelsHigh]);
+    unsigned char *aaaa = (unsigned char *)[imageData bytes];
+    
+    [[FURenderer shareRenderer] setUpCurrentContext];
+    int ret = fuCreateTexForItem(items[index], (char *)[sdkStr UTF8String], aaaa, size.width, size.height);
+    [[FURenderer shareRenderer] setBackCurrentContext];
+    NSLog(@"美妆设置---Parma（%@）  ret : %d",sdkStr,ret);
+    return ret;
 }
 
 

@@ -133,8 +133,10 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
     [paragraphStyle setAlignment:self.alignment];
+    
     if (nil != paragraphStyle) {
         [attrString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0,[attrString length])];
+        [attrString addAttribute:NSForegroundColorAttributeName value:_tileColor range:NSMakeRange(0,[attrString length])];
     }
     
     [attrString endEditing];

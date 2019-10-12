@@ -1,17 +1,20 @@
 # Mac Nama SDK 集成指导文档  
 级别：Public  
-更新日期：2019-08-14  
+更新日期：2019-09-27  
 
 ------
-**FaceUnity Nama SDK v6.3.0 (2019.08.14)**
+**FaceUnity Nama SDK v6.4.0 (2019.09.25)**
 
 更新内容
 
-- 优化人脸美妆功能，提高性能，降低功耗。
-
-- 新增fuSetFaceTrackParam接口，用于设置人脸表情跟踪参数。 
-
-- 新增人脸美颜精细磨皮效果。
+- 新增美体瘦身功能，支持瘦身、长腿、美臀、细腰、肩部调整，一键美体。
+- 优化美颜功能中精细磨皮，性能以及效果提升，提升皮肤细腻程度，更好保留边缘细节。
+- 优化美发功能，边缘稳定性及性能提升。
+- 优化美妆功能，性能提升，CPU占有率降低，Android中低端机表现明显。
+- 优化手势识别功能，性能提升，CPU占有率降低，在Android机型表现明显。
+- 修复人脸检测多人脸偶现crash问题。
+- 修复捏脸功能中模型截断问题。
+- 关闭美颜道具打印冗余log。
 
 ------
 ## 目录：
@@ -64,13 +67,13 @@ Xcode 8或更高版本
 全功能版本：
 
 ```
-pod 'Nama-macOS', '6.3.0' 
+pod 'Nama-macOS', '6.4.0' 
 ```
 
 不含物理引擎的版本（lite版）：
 
 ```
-pod 'Nama-macOS-lite', '6.3.0' 
+pod 'Nama-macOS-lite', '6.4.0' 
 ```
 
 接下来执行：
@@ -87,9 +90,9 @@ pod repo update 或 pod setup
 
 #### 3.2.1 通过 github 下载集成
 
-全功能版本：[FaceUnity-SDK-Mac-v6.3.0.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.3.0.zip)
+全功能版本：[FaceUnity-SDK-Mac-v6.4.0.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.4.0.zip)
 
-不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v6.3.0-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.3.0-lite.zip)
+不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v6.4.0-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.4.0-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 
@@ -608,6 +611,8 @@ int ret0 = fuLoadTongueModel((void *)tongueData.bytes, (int)tongueData.length) ;
 
 ### 4.9 美发功能
 
+[美发参数说明](美发道具功能文档.md)
+
 加载美发道具 `itemName`，并保存到句柄数组items
 
 ```objective-c
@@ -627,58 +632,11 @@ int itemHandle = [FURenderer itemWithContentsOfFile:path];
  [FURenderer itemSetParam:items[1] withName:@"Strength" value: @(strength)]; 
 ```
 
-### 4.10 质感美颜功能
+### 4.10 美妆功能
 
-Nama SDK 从 6.0.0 开始支持质感美颜功能。
+Nama SDK 从 6.0.0 开始支持美妆功能。
 
-质感美颜方案是一套更为精致高效的美颜解决方案，包含磨皮、美型、滤镜、美妆4大模块，提供60+套丰富素材库，支持客户任意切换风格与效果变化。
-
-__使用方法__
-
-1.加载美妆light_makeup.bundle
-
-```objective-c
--(void)loadMakeup{
-    NSString *makeBundlePath = [[NSBundle mainBundle] pathForResource:@"light_makeup.bundle" ofType:nil];
-    self -> items[3] = [FURenderer itemWithContentsOfFile:makeBundlePath];
-}
-```
-
-2.口红色值设置,`lipData`双精度rgba数组 列子：`double lipData[4] = {0,0,0,0}`;
-
-```objective-c
--(void)setMakeupItemLipstick:(double *)lipData{
-    [[FURenderer shareRenderer] setUpCurrentContext];
-//    fuItemSetParamd(items[3], "reverse_alpha", 1.0);
-    fuItemSetParamdv(items[3], "makeup_lip_color", lipData, 4);
-    [[FURenderer shareRenderer] setBackCurrentContext];
-}
-```
-
-3.设置五官妆容,`image`：妆容图片，`paramStr`: 妆容对应的参数值（可以理解为指定位置的参数）
-
-```objective-c
-/* 获取图片rgba 数据 */     
-[[FUManager shareManager] setMakeupItemIntensity:1 param:@"is_makeup_on"];      
-NSData *imageData = [image TIFFRepresentation];
-NSBitmapImageRep *rep = [NSBitmapImageRep imageRepWithData:imageData];
-NSSize size = NSMakeSize([rep pixelsWide], [rep pixelsHigh]);
-unsigned char *imageDta = (unsigned char *)[imageData bytes]; 
-
-/* 将对于图片数据传入人脸指定位置 */
-[[FURenderer shareRenderer] setUpCurrentContext];
-//      fuItemSetParamd(items[3], "reverse_alpha", 0.0);
-int ret = fuCreateTexForItem(items[3], (char *)[paramStr UTF8String], imageDta, size.width, size.height);
-[[FURenderer shareRenderer] setBackCurrentContext];
-```
-
-4.设置程度值,`paramStr`: 妆容对应位置程度的参数值 ，`value`为(0~1)
-
-```objective-c
-int res = fuItemSetParamd(items[3], (char *)[paramStr UTF8String],
-```
-
-使用细节请参考[质感美颜参数说明](美妆道具功能文档.md)，同时参考 FULiveDemoMac 中的示例代码。
+使用细节请参考[美妆道具参数说明](美妆道具功能文档.md)，同时参考 FULiveDemoMac 中的示例代码。
 
 ------
 

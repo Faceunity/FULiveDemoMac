@@ -10,6 +10,7 @@
 #import "FUSkinStyle1RowView.h"
 #import "FUSkinStyle2RowView.h"
 #import "FUSkinStyle3RowView.h"
+#import "FUSkinStyle4RowView.h"
 #import "FUAppDataCenter.h"
 @interface FUSkinTableView()<NSTableViewDataSource,NSTableViewDelegate>
 @end
@@ -18,6 +19,7 @@
 
 static NSString * indentify1 = @"SkinStyle1RowView";
 static NSString * indentify2 = @"SkinStyle2RowView";
+static NSString * indentify3 = @"SkinStyle4RowView";
 
 -(instancetype)initWithCoder:(NSCoder *)coder{
     if (self = [super initWithCoder:coder]) {
@@ -25,6 +27,9 @@ static NSString * indentify2 = @"SkinStyle2RowView";
         [self registerNib:itemOneNib forIdentifier:indentify1];
         NSNib *itemOneNib2 = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle2RowView" bundle:nil];
         [self registerNib:itemOneNib2 forIdentifier:indentify2];
+        
+        NSNib *itemOneNib3 = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle4RowView" bundle:nil];
+        [self registerNib:itemOneNib3 forIdentifier:indentify3];
         
         self.rowSizeStyle = NSTableViewRowSizeStyleCustom;
         self.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
@@ -43,8 +48,12 @@ static NSString * indentify2 = @"SkinStyle2RowView";
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     
-    if (row == 0 || row == 1) {
+    if (row == 0) {
         FUSkinStyle2RowView *view = [tableView makeViewWithIdentifier:indentify2 owner:self];
+        view.model = [FUAppDataCenter shareManager].skinModelArray[row];
+        return view;
+    }else if (row == 1){
+        FUSkinStyle4RowView *view = [tableView makeViewWithIdentifier:indentify3 owner:self];
         view.model = [FUAppDataCenter shareManager].skinModelArray[row];
         return view;
     }else{
@@ -61,7 +70,7 @@ static NSString * indentify2 = @"SkinStyle2RowView";
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
-    return 84;
+    return 92;
 }
 
 

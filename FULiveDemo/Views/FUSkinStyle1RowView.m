@@ -96,7 +96,6 @@
     
     /* 修改参数 */
     [[FUManager shareManager] changeParamsStr:_model.currentValue.sdkStr index:0 value:@(_model.currentValue.value)];
-    
 }
 
 - (IBAction)inputValueDidChange:(NSTextField *)sender {

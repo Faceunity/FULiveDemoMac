@@ -72,6 +72,6 @@ static NSString * indentify2 = @"SkinStyle3RowView";
 }
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row{
-    return 84;
+    return 92;
 }
 @end

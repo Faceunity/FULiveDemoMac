@@ -73,21 +73,19 @@
     self.view.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
     self.view.layer.cornerRadius = 5.0f;
     
-    [self.mBeautyTabView setWantsLayer:YES];
-    self.mBeautyTabView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
+    self.mBeautyTableView.backgroundColor = FUConstManager.colorForBackground_card;
+    self.mSkinTableView.backgroundColor = FUConstManager.colorForBackground_card;
+//    self.mFilterCollectionView.backgroundColor = FUConstManager.colorForBackground_card;
+    [_mFilterCollectionView enclosingScrollView].backgroundColor = FUConstManager.colorForBackground_card;
+    NSArray *colors = @[FUConstManager.colorForBackground_card];
+    _mFilterCollectionView.backgroundColors = colors;
     
     [self.mFilterCollectionView setWantsLayer:YES];
     self.mFilterCollectionView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
     
     [self.mMakeupCollectionView setWantsLayer:YES];
     self.mMakeupCollectionView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
-    
-    [self.mSkinTableView setWantsLayer:YES];
-    self.mSkinTableView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
-    
-    [self.mBeautyTableView setWantsLayer:YES];
-    self.mBeautyTableView.layer.backgroundColor = FUConstManager.colorForBackground_card.CGColor;
-    
+        
     [self.mItemBarView setWantsLayer:YES];
     self.mItemBarView.layer.backgroundColor = FUConstManager.colorForBackground_page.CGColor;
     

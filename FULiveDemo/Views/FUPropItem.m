@@ -9,9 +9,7 @@
 #import "FUPropItem.h"
 
 @interface FUPropItem ()
-
-@property (weak) IBOutlet NSTextField *mCollapseTxf;
-@property (weak) IBOutlet NSTextField *mTitleTxf;
+@property (weak) IBOutlet NSImageView *mCollapseImage;
 /* item Icon */
 @property (weak) IBOutlet NSImageView *mImageView;
 /* item标题 */
@@ -32,8 +30,7 @@
 
 -(void)awakeFromNib{
     [super awakeFromNib];
-    [_mCollapseTxf setWantsLayer:YES];
-    _mCollapseTxf.layer.cornerRadius = _mCollapseTxf.bounds.size.width / 2;
+
 }
 
 
@@ -86,8 +83,8 @@
 #pragma  mark ----  重写函数  -----
 -(void)setSelected:(BOOL)selected{
     [super setSelected:selected];
-    _mCollapseTxf.hidden = !selected;
-    _mTitleTxf.hidden = !selected;
+    _mCollapseImage.hidden = !selected;
+
     self.mItemTxf.textColor = selected?FUConstManager.colorForBackground_sel:FUConstManager.colorForBackground_text0;
 }
 
@@ -104,8 +101,6 @@
     _model = model;
     _mImageView.image = [NSImage imageNamed:model.norImageStr];
     _mItemTxf.stringValue = model.title;
-    
-    
 }
 
 

@@ -67,6 +67,9 @@ NSString *const FUPointsFrgShaderString = SHADER_STRING
  
  void main()
 {
+//    if (-smoothstep(0.48, 0.5, length(gl_PointCoord - vec2(0.5))) + 1.0 == 0.0) {
+//        discard;
+//    }
     gl_FragColor = vec4(1.0,0.0,0.0,1.0);
 }
  
@@ -80,7 +83,7 @@ NSString *const FUPointsVtxShaderString = SHADER_STRING
 {
     gl_Position = position;
     
-    gl_PointSize = 10.0;
+//    gl_PointSize = 50.0;
 }
  );
 
@@ -260,7 +263,21 @@ enum
     [self displayImageData:imageData withSize:CGSizeMake(w, h) withPoints:NULL count:0];
 }
 
-- (void)displayImageData:(void *)imageData withSize:(CGSize)size withPoints:(int16_t *)points count:(int)count {
+
+- (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer withLandmarks:(float *)landmarks count:(int)count MAX:(BOOL)max{
+   
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    void *imageData = CVPixelBufferGetBaseAddress(pixelBuffer);
+    float w = CVPixelBufferGetBytesPerRow(pixelBuffer)/4;
+    float h = CVPixelBufferGetHeight(pixelBuffer);
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    
+    [self displayImageData:imageData withSize:CGSizeMake(w, h) withPoints:landmarks count:count];
+}
+
+
+
+- (void)displayImageData:(void *)imageData withSize:(CGSize)size withPoints:(float *)points count:(int)count {
 
     frameWidth = (int)size.width;
     frameHeight = (int)size.height;
@@ -359,7 +376,7 @@ enum
     vertices[7] =   h;
 }
 
-- (void)prepareToDrawPoint:(int16_t *)points count:(int)count
+- (void)prepareToDrawPoint:(float *)points count:(int)count
 {
     if (!pointProgram) {
         [self loadPointsShaders];
@@ -373,17 +390,22 @@ enum
     {
         //转化坐标
         
-        float x = i*1.0/count*frameWidth;
-        float y = points[i]*1.0/65534;
-        if (y+0.0000001 >= 0.5) {
-            y = 1;
-        }
-        //转化坐标
-        tmpPoints[2 * i] = (float)((2 * x / frameWidth - 1));
-        tmpPoints[2 * i + 1] = y;
+//        float x = i*1.0/count*frameWidth;
+//        float y = points[i]*1.0/65534;
+//        if (y+0.0000001 >= 0.5) {
+//            y = 1;
+//        }
+//        //转化坐标
+//        tmpPoints[2 * i] = (float)((2 * x / frameWidth - 1));
+//        tmpPoints[2 * i + 1] = y;
+        
+        tmpPoints[2 * i] = -(float)(2 * points[2 * i] / frameWidth - 1);
+        tmpPoints[2 * i + 1] = (float)(1 - 2 * points[2 * i + 1] / frameHeight);
     }
     
+    
     glEnableVertexAttribArray(GLKVertexAttribPosition);
+    glPointSize(5);
     glVertexAttribPointer(GLKVertexAttribPosition, 2, GL_FLOAT, GL_FALSE, 0, (GLfloat *)tmpPoints);
     
     BOOL canLockFocus = YES;
@@ -398,7 +420,8 @@ enum
     
     if (canLockFocus)
     {
-        glDrawArrays(GL_LINES, 0, count);
+//        glDrawArrays(GL_LINES, 0, count * 2);
+        glDrawArrays(GL_POINTS, 0, count);
         [self unlockFocus];
     }
    

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FUPropItem">
             <connections>
-                <outlet property="mCollapseTxf" destination="Zqb-Ce-8K0" id="oEO-jq-qEX"/>
+                <outlet property="mCollapseImage" destination="abu-ck-a4G" id="ZTf-Ir-JaV"/>
                 <outlet property="mImageView" destination="LNQ-lu-99F" id="Cav-CB-XHW"/>
                 <outlet property="mItemTxf" destination="FfI-bK-Iv0" id="bR1-y3-mkY"/>
-                <outlet property="mTitleTxf" destination="3KF-OV-TcE" id="3ae-OU-Sq0"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="ANj-PG-RN6"/>
             </connections>
         </customObject>
@@ -40,47 +39,28 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zqb-Ce-8K0">
-                    <rect key="frame" x="43" y="72" width="62" height="62"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="62" id="YFo-Oq-1La"/>
-                        <constraint firstAttribute="height" constant="62" id="z7z-Y6-UnF"/>
-                    </constraints>
-                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="rs5-4N-caY">
-                        <font key="font" metaFont="system" size="14"/>
-                        <color key="textColor" red="0.9882352941176471" green="0.99215686274509807" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                        <color key="backgroundColor" red="0.46666666666666667" green="0.52941176470588236" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
-                    </textFieldCell>
-                </textField>
-                <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3KF-OV-TcE">
-                    <rect key="frame" x="60" y="87" width="29" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="jsJ-g9-0Jn"/>
-                        <constraint firstAttribute="height" constant="32" id="mXg-k3-CfQ"/>
-                    </constraints>
-                    <textFieldCell key="cell" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="点击收起" id="AdY-sY-Xcv">
-                        <font key="font" metaFont="cellTitle"/>
-                        <color key="textColor" red="0.9882352941176471" green="0.99215686274509807" blue="1" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abu-ck-a4G">
+                    <rect key="frame" x="44" y="72" width="62" height="62"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="list_icon_propmap_collapse" id="ZXo-4r-MbX"/>
+                </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="Zqb-Ce-8K0" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="9BE-dS-VQa"/>
+                <constraint firstItem="abu-ck-a4G" firstAttribute="height" secondItem="LNQ-lu-99F" secondAttribute="height" id="6q9-bL-7cW"/>
                 <constraint firstItem="LNQ-lu-99F" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Ajb-Bl-VGG"/>
+                <constraint firstItem="abu-ck-a4G" firstAttribute="width" secondItem="LNQ-lu-99F" secondAttribute="width" id="GLe-d5-7Kn"/>
+                <constraint firstItem="abu-ck-a4G" firstAttribute="centerY" secondItem="LNQ-lu-99F" secondAttribute="centerY" id="P1z-Gg-vDu"/>
                 <constraint firstAttribute="trailing" secondItem="FfI-bK-Iv0" secondAttribute="trailing" id="POh-rZ-zYv"/>
                 <constraint firstItem="FfI-bK-Iv0" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Qws-nN-zFW"/>
                 <constraint firstItem="LNQ-lu-99F" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Znz-Mh-8w2"/>
+                <constraint firstItem="abu-ck-a4G" firstAttribute="centerX" secondItem="LNQ-lu-99F" secondAttribute="centerX" id="afE-OO-B3d"/>
                 <constraint firstItem="FfI-bK-Iv0" firstAttribute="top" secondItem="LNQ-lu-99F" secondAttribute="bottom" id="kG4-fR-ImE"/>
-                <constraint firstItem="3KF-OV-TcE" firstAttribute="centerY" secondItem="Zqb-Ce-8K0" secondAttribute="centerY" id="oTG-4I-bvk"/>
-                <constraint firstItem="Zqb-Ce-8K0" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="rK6-Uz-d2W"/>
-                <constraint firstItem="3KF-OV-TcE" firstAttribute="centerX" secondItem="Zqb-Ce-8K0" secondAttribute="centerX" id="vFT-oA-dIq"/>
             </constraints>
             <point key="canvasLocation" x="6.5" y="125"/>
         </customView>
         <collectionViewItem id="aOC-gE-LhM" customClass="FUPropItem"/>
     </objects>
     <resources>
+        <image name="list_icon_propmap_collapse" width="62" height="62"/>
         <image name="mask_matianyu" width="150" height="150"/>
     </resources>
 </document>

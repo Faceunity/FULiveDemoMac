@@ -61,6 +61,8 @@
     _mFuBtn1.backgroundColor = FUConstManager.colorForBackground_card;
     _mFuBtn2.textColor = [NSColor whiteColor];
     _mFuBtn1.textColor = FUConstManager.colorForBackground_btnNo;
+    /* 磨皮默认类型设置为0 */
+    [[FUManager shareManager] changeParamsStr:@"blur_type" index:0 value:@(0)];
  
     if(!_model) return;
     if ( _model.type == FUBeautyModelTypeSwitch){//开关类型
