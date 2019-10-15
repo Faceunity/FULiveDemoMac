@@ -88,6 +88,7 @@
     NSRange strRange = {0,[str length]};
     [str addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:strRange];
     [str addAttribute:NSFontAttributeName value:[NSFont systemFontOfSize:16] range:strRange];
+    [str addAttribute:NSForegroundColorAttributeName value:FUConstManager.colorForBackground_text0 range:strRange];
     [_mOpenDocBtn setAttributedTitle:str];
     
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];

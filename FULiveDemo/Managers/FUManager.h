@@ -9,6 +9,21 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+/*
+ items 保存加载到Nama中bundle的操作句柄集
+ 为方便演示阅读，这里将
+ */
+
+typedef NS_ENUM(NSUInteger, FUNamaHandleType) {
+    FUNamaHandleTypeBeauty = 0,   /* items[0] ------ 放置 美颜道具句柄 */
+    FUNamaHandleTypeItem = 1,     /* items[1] ------ 放置 普通道具句柄（包含很多，如：贴纸，aoimoji...若不单一存在，可放句柄集其他位置） */
+    FUNamaHandleTypeFxaa = 2,     /* items[2] ------ fxaa抗锯齿道具句柄 */
+    FUNamaHandleTypeMakeupLight = 3,    /* items[3] ------ 质感美颜 */
+    FUNamaHandleTypeMakeup = 4,     /* items[4] ------ 美妆道具句柄 */
+    FUNamaHandleTypeMakeupType = 5,  /* items[5] ------ 美妆类型 ---- 由类型bundle 控制*/
+    FUNamaHandleTotal = 6
+};
+
 @interface FUManager : NSObject
 // 是否性能优先
 @property (nonatomic, assign) BOOL performance ;
@@ -32,10 +47,20 @@
 /**抗锯齿*/
 - (void)loadAnimojiFaxxBundle ;
 
+/* 加载bundle 到指定items位置 */
+- (void)loadBundleWithName:(NSString *)name aboutType:(FUNamaHandleType)type;
+
+/*
+ 销毁指定道具
+ */
+- (void)destoryItemAboutType:(FUNamaHandleType)type;
+
 /* animoji套头设置 */
 -(void)setAnimojiSleeveHead;
 
 - (void)destoryAnimojiFaxxBundle ;
+/* 获取handle */
+- (int)getHandleAboutType:(FUNamaHandleType)type;
 
 /**
  修改sdk参数
@@ -47,8 +72,10 @@
  */
 -(int)changeParamsStr:(NSString *)sdkStr index:(int)index value:(id)value;
 
+-(int)changeParamsStr:(NSString *)sdkStr index:(int)index valueArr:(NSArray *)valueArr;
 
-#pragma mark -  美妆
+-(int)changeParamsStr:(NSString *)sdkStr index:(int)index image:(NSImage *)image;
+#pragma mark -  美妆i
 /*
  tex_brow 眉毛
  tex_eye 眼影

@@ -23,6 +23,13 @@
 
 @implementation FUMakeupModle
 
++ (NSDictionary *)objectClassInArray{
+ 
+    return @{
+             @"makeups" : @"FUSingleMakeupModel"
+             };
+}
+
 + (FUMakeupModle *)GetModelClassTitle:(NSString *)titleStr imgStr:(NSString *)Img filter:(NSString *)filter filterValue:(float)filterValue value:(float)value singleMakeups:(NSArray <FUSingleMakeupModel *>*)makeups{
     FUMakeupModle *model = [[FUMakeupModle alloc] init];
     model.titleStr = titleStr;
@@ -34,5 +41,7 @@
     
     return  model;
 }
+
+
 
 @end

@@ -10,7 +10,9 @@
 
 @interface FUOpenGLView : NSOpenGLView
 
-- (void)displayImageData:(void *)imageData withSize:(CGSize)size withPoints:(int16_t *)points count:(int)count;
+- (void)displayImageData:(void *)imageData withSize:(CGSize)size withPoints:(float *)points count:(int)count;
 
 - (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer;
+
+- (void)displayPixelBuffer:(CVPixelBufferRef)pixelBuffer withLandmarks:(float *)landmarks count:(int)count MAX:(BOOL)max;
 @end

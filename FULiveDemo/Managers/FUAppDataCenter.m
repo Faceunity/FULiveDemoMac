@@ -8,8 +8,16 @@
 
 #import "FUAppDataCenter.h"
 #import "FUManager.h"
+#import "MJExtension.h"
 
-
+@interface FUAppDataCenter()
+/* 美妆UI */
+@property (retain) NSArray <FUPropItemModel *> *makeupArray;
+/* 美妆data */
+@property (retain) NSArray <FUMakeupModle *> *makeupDataArray;
+/* 不普通道具 */
+@property (retain) NSArray <FUPropItemModel *> *normalArray;
+@end
 
 @implementation FUAppDataCenter
 
@@ -30,10 +38,12 @@ static FUAppDataCenter *shareManager = NULL;
         /* 初始化数据 */
         [self initializationSkinData];//美肤
         [self initializationBeautyData];//美型
-        [self initializationMakeupData]; //质感美妆
+        [self initializationLightMakeupData]; //质感美妆
         [self initializationFilterData]; //滤镜
         [self initializationPropItemData];//道具贴图
+        [self initializationMakeupData];
         
+        _propItemModelArray = _normalArray;
     }
     return self;
 }
@@ -46,7 +56,7 @@ static FUAppDataCenter *shareManager = NULL;
     /* 精准美肤 */
     [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"精准美肤" openImgStr:@"list_icon_skinbeauty_open" closeImgStr:@"list_icon_skinbeauty_Close" type:FUBeautyModelTypeSwitch sdkStr:@"skin_detect" defaultValue:1 rect:rect1 strArray:@[@"开启",@"关闭"]]];
     /* 美肤模式 */
-    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美肤模式" openImgStr:@"list_icon_BeautyMode_open" closeImgStr:@"list_icon_BeautyMode_Close" type:FUBeautyModelTypeSelect sdkStr:@"heavy_blur" defaultValue:0 rect:rect1 strArray:@[@"清晰磨皮",@"朦胧磨皮"]]];
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美肤模式" openImgStr:@"list_icon_BeautyMode_open" closeImgStr:@"list_icon_BeautyMode_Close" type:FUBeautyModelTypeSelect sdkStr:@"blur_type" defaultValue:2 rect:rect1 strArray:@[@"精细磨皮",@"清晰磨皮",@"朦胧磨皮"]]];
     /* 磨皮 */
     [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"磨皮" openImgStr:@"list_icon_Grindingskin_open" closeImgStr:@"list_icon_Grindingskin_Close" type:FUBeautyModelTypeRange sdkStr:@"blur_level" defaultValue:4.2 rect:rect2 strArray:nil]];
     /* 美白 */
@@ -91,7 +101,7 @@ static FUAppDataCenter *shareManager = NULL;
     
 }
 
--(void)initializationMakeupData{
+-(void)initializationLightMakeupData{
     
     /* 卸妆 */
     NSArray *makeups0 =@[[FUSingleMakeupModel GetModelClassNamaTypeStr:@"makeup_lip_color" imgStr:@"" namaValueStr:@"makeup_intensity_lip" value:0.0],
@@ -238,8 +248,10 @@ static FUAppDataCenter *shareManager = NULL;
 //                                               [FUPropSubItemModel GetClassSubImageStr:@"fu_zh_hezxiong" sdkStr:@"fu_zh_hezxiong" hint:@"双手合十"],
 //                                               [FUPropSubItemModel GetClassSubImageStr:@"fu_ztt_live520" sdkStr:@"fu_ztt_live520" hint:@"双手比心"],
                                                [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_cute" sdkStr:@"ssd_thread_cute" hint:@"双拳靠近脸颊卖萌"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_six" sdkStr:@"ssd_thread_six" hint:@"比个六"],
-                                               [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_thumb" sdkStr:@"ssd_thread_thumb" hint:@"竖个拇指"]];
+                                               [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_six" sdkStr:@"ssd_thread_six" hint:@"比个六"]
+//                                                 ,
+//                                               [FUPropSubItemModel GetClassSubImageStr:@"ssd_thread_thumb" sdkStr:@"ssd_thread_thumb" hint:@"竖个拇指"]
+                                                 ];
     FUPropItemModel *model7 = [FUPropItemModel GetClassTitle:@"手势识别" hoverImageStr:@"list_icon_gesturerecognition_hover" norImageStr:@"list_icon_gesturerecognition_nor" subItems:subItems7 type:FULiveModelTypeGestureRecognition maxFace:4];
     
     //哈哈镜
@@ -257,10 +269,39 @@ static FUAppDataCenter *shareManager = NULL;
     FUPropItemModel *model9 = [FUPropItemModel GetClassTitle:@"人像驱动" hoverImageStr:@"list_icon_Portraitdrive_hover" norImageStr:@"list_icon_Portraitdrive_nor" subItems:subItems9 type:FULiveModelTypePortraitDrive maxFace:1];
     
     
-    _propItemModelArray = @[model0,model1,model2,model3,model4,model5,model6,model7,model8,model9];
-    
-    
+    _normalArray = @[model0,model1,model2,model3,model4,model5,model6,model7,model8,model9];
 }
+
+-(void)initializationMakeupData{
+    
+    
+    NSString *wholePath=[[NSBundle mainBundle] pathForResource:@"makeup_whole" ofType:@"json"];
+    NSData *wholeData=[[NSData alloc] initWithContentsOfFile:wholePath];
+    NSDictionary *wholeDic=[NSJSONSerialization JSONObjectWithData:wholeData options:NSJSONReadingMutableContainers error:nil];
+    [FUMakeupModle mj_setupObjectClassInArray:^NSDictionary *{
+        return  @{
+          @"makeups" : @"FUSingleMakeupModel"
+          };
+    }];
+    self.makeupDataArray = [FUMakeupModle mj_objectArrayWithKeyValuesArray:wholeDic[@"data"]];
+    
+    NSArray <FUPropSubItemModel *>*subItems0 = @[[FUPropSubItemModel GetClassSubImageStr:@"demo_combination_sexy" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_sweet" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_neighbor_girl" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_occident" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_charming" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_flower" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_tough_guy" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_moon" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_coral" sdkStr:@""],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_lady" sdkStr:@""]];
+    FUPropItemModel *model = [FUPropItemModel GetClassTitle:@"美妆" hoverImageStr:@"list_icon_makeup_hover" norImageStr:@"list_icon_makeup_nor" subItems:subItems0 type:FULiveModelTypePortraitDrive maxFace:1];
+    
+    
+    _makeupArray = @[model];
+}
+
+
 
 
 #pragma  mark ----  public接口  -----
@@ -278,6 +319,71 @@ static FUAppDataCenter *shareManager = NULL;
     }
 
 }
+
+-(void)changePropData:(FUPropItemType)type{
+    if (type == FUPropItemTypeMakeup) {
+        _propItemModelArray = _makeupArray;
+    }
+    
+    if (type == FUPropItemTypeNormal) {
+        _propItemModelArray = _normalArray;
+    }
+}
+
+
+-(void)setMakeupWithDataIndex:(int)index{
+    if (![[FUManager shareManager] getHandleAboutType:FUNamaHandleTypeMakeup] || ![[FUManager shareManager] getHandleAboutType:FUNamaHandleTypeMakeupType]) {
+        [[FUManager shareManager] loadBundleWithName:@"new_face_tracker" aboutType:FUNamaHandleTypeMakeupType];
+        [[FUManager shareManager] loadBundleWithName:@"face_makeup" aboutType:FUNamaHandleTypeMakeup];
+        [[FUManager shareManager] setMakeupItemIntensity:1 param:@"is_makeup_on"];
+    }
+    
+    if (index < 0 || index >= _makeupDataArray.count) {
+        NSLog(@"选装index error");
+        return;
+    }
+    FUMakeupModle *modle = _makeupDataArray[index];
+    for (int i = 0; i < modle.makeups.count; i ++) {
+        FUSingleMakeupModel *sModel = modle.makeups[i];
+        [self setSelSubItem:sModel];
+        [[FUManager shareManager] changeParamsStr:sModel.namaValueStr index:FUNamaHandleTypeMakeup value:@(modle.value * sModel.value)];
+    }
+}
+
+-(void)setSelSubItem:(FUSingleMakeupModel *)modle{
+    /* 妆容素材图 */
+    [[FUManager  shareManager] changeParamsStr:modle.namaTypeStr index:FUNamaHandleTypeMakeup image:[NSImage imageNamed:modle.namaImgStr]];
+    if(modle.makeType == FUMakeupModelTypeEye){//眼影
+        [[FUManager  shareManager] changeParamsStr:@"tex_eye2" index:FUNamaHandleTypeMakeup image:[NSImage imageNamed:modle.tex_eye2]];
+        [[FUManager  shareManager] changeParamsStr:@"tex_eye2" index:FUNamaHandleTypeMakeup image:[NSImage imageNamed:modle.tex_eye3]];
+    }
+    
+    /* 妆容颜色 */
+    if (modle.colorStrV.count) {
+        if (modle.makeType == FUMakeupModelTypeLip && modle.is_two_color) {
+            [[FUManager shareManager] changeParamsStr:modle.colorStr2 index:FUNamaHandleTypeMakeup valueArr:modle.colorStr2V];
+        }
+         [[FUManager shareManager] changeParamsStr:modle.colorStr index:FUNamaHandleTypeMakeup valueArr:modle.colorStrV];
+    }
+    
+    /* 值 */
+    if(modle.makeType == FUMakeupModelTypeBrow){//眉毛形变开启
+        [[FUManager shareManager] changeParamsStr:@"brow_warp" index:FUNamaHandleTypeMakeup value:@(modle.brow_warp)];
+        [[FUManager shareManager] changeParamsStr:@"brow_warp_type" index:FUNamaHandleTypeMakeup value:@(modle.brow_warp_type)];
+        
+    }else if(modle.makeType == FUMakeupModelTypeLip){
+        [[FUManager shareManager] changeParamsStr:@"lip_type" index:FUNamaHandleTypeMakeup value:@(modle.lip_type)];
+        [[FUManager shareManager] changeParamsStr:@"is_two_color" index:FUNamaHandleTypeMakeup value:@(modle.is_two_color)];
+    }
+      [[FUManager shareManager] changeParamsStr:modle.namaValueStr index:FUNamaHandleTypeMakeup value:@(modle.value)];
+    
+    /* 有可选色 */
+//    if (modle.colors.count) {
+//        /* 选中一个颜色 */
+//        [[FUManager shareManager] changeParamsStr:modle.colorStr index:FUNamaHandleTypeMakeup valueArr:modle.colors[modle.defaultColorIndex]];;
+//    }
+    
+}
 #pragma  mark ----  private  -----
 
 /**
@@ -289,6 +395,7 @@ static FUAppDataCenter *shareManager = NULL;
     for (FUBeautyModel *model in array) {
         if (model.type == FUBeautyModelTypeSwitch) {
             [[FUManager shareManager] changeParamsStr:model.currentValue.sdkStr index:0 value:@(model.currentValue.on)];
+            [[FUManager shareManager] changeParamsStr:@"blur_type" index:0 value:@(0)];
         }else if (model.type == FUBeautyModelTypeRange){
             [[FUManager shareManager] changeParamsStr:model.currentValue.sdkStr index:0 value:@(model.currentValue.value)];
         }else{
