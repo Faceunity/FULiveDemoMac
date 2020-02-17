@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
-
+#import "FURenderer.h"
 /*
  items 保存加载到Nama中bundle的操作句柄集
  为方便演示阅读，这里将
@@ -20,8 +20,7 @@ typedef NS_ENUM(NSUInteger, FUNamaHandleType) {
     FUNamaHandleTypeFxaa = 2,     /* items[2] ------ fxaa抗锯齿道具句柄 */
     FUNamaHandleTypeMakeupLight = 3,    /* items[3] ------ 质感美颜 */
     FUNamaHandleTypeMakeup = 4,     /* items[4] ------ 美妆道具句柄 */
-    FUNamaHandleTypeMakeupType = 5,  /* items[5] ------ 美妆类型 ---- 由类型bundle 控制*/
-    FUNamaHandleTotal = 6
+    FUNamaHandleTotal = 5
 };
 
 @interface FUManager : NSObject
