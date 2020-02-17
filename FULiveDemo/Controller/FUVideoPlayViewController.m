@@ -289,7 +289,7 @@ struct FUPropSelIndexPath {
     [[FUAppDataCenter shareManager] changePropData:FUPropItemTypeNormal];
     //更新宽度
     _mLayoutConstraintW.constant = [self updateSubCollectionWidth:[FUAppDataCenter shareManager].propItemModelArray[_propSel.bottomIndex].subItems];
-    _mLayoutConstraintBottonW.constant = 894;
+    _mLayoutConstraintBottonW.constant = 800;
     [_mItemCollectionView reloadData];
     [_mSubItemCollectionView reloadData];
     
@@ -542,7 +542,6 @@ struct FUPropSelIndexPath {
             [[FUManager shareManager] setMaxFaces:4];
             [[FUAppDataCenter shareManager] setMakeupWithDataIndex:(int)indexPath.item];
             [FUAppDataCenter shareManager].makeupSelIndex = (int)indexPath.item;
-            _mHintTextField.stringValue = [FUAppDataCenter shareManager].makeupDataArray[indexPath.item].name;
 
             return;
         }
@@ -559,7 +558,6 @@ struct FUPropSelIndexPath {
 
 -(void)loadPorpItem:(NSString *)porpStr{
     /* 美妆类型 bundle  会让人脸识别新的2D算法，新算法只做美妆，所以切换回贴图，必须先销毁这个bundle*/
-    [[FUManager shareManager] destoryItemAboutType:FUNamaHandleTypeMakeupType];
     [[FUManager shareManager] destoryItemAboutType:FUNamaHandleTypeMakeup];
     
     [[FUManager  shareManager] loadItem:porpStr];

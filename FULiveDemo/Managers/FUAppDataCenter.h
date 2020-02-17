@@ -24,10 +24,6 @@ typedef NS_ENUM(NSUInteger, FUPropItemType) {
 @property (retain) NSMutableArray <FUBeautyModel *> *beautyModelCustomArray;
 /* 默认 女神 网红 自然 */
 @property (retain) NSMutableArray <FUBeautyModel *> *beautyModeldefaultArray;
-/* 质感美颜（小美妆） */
-@property (retain) NSMutableArray <FUMakeupModle *> *makeupModelArray;
-/* 美妆data */
-@property (retain,readonly) NSArray <FUMakeupModle *> *makeupDataArray;
 /* 滤镜 */
 @property (retain) NSMutableArray <FUFilterModel *> *filterModelArray;
 /* 道具贴图 */
