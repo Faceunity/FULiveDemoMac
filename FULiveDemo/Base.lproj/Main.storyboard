@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -880,7 +880,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="936" height="90"/>
                                         <subviews>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="anI-ID-Tm4">
-                                                <rect key="frame" x="144" y="33" width="24" height="24"/>
+                                                <rect key="frame" x="194" y="33" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="6lJ-kj-8Le"/>
                                                     <constraint firstAttribute="height" constant="24" id="NWb-0Z-PO8"/>
@@ -894,7 +894,7 @@
                                                 </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="oXs-0C-fWT">
-                                                <rect key="frame" x="768" y="33" width="24" height="24"/>
+                                                <rect key="frame" x="718" y="33" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="BwX-sn-2oh"/>
                                                     <constraint firstAttribute="height" constant="24" id="faT-ju-3Bs"/>
@@ -908,13 +908,13 @@
                                                 </connections>
                                             </button>
                                             <scrollView autoresizesSubviews="NO" wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" verticalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="FXE-A6-KWi">
-                                                <rect key="frame" x="168" y="5" width="600" height="80"/>
+                                                <rect key="frame" x="218" y="5" width="500" height="80"/>
                                                 <clipView key="contentView" copiesOnScroll="NO" id="kYW-pC-Lgm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="500" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <collectionView selectable="YES" allowsEmptySelection="NO" id="tAM-Iq-Vai" customClass="FUSubItemCollectionView">
-                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="500" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                             <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" scrollDirection="horizontal" id="K3T-Jg-cre">
                                                                 <size key="itemSize" width="50" height="50"/>
@@ -926,10 +926,10 @@
                                                 </clipView>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="OAM-qr-JBC"/>
-                                                    <constraint firstAttribute="width" constant="600" id="jJ2-0K-n18"/>
+                                                    <constraint firstAttribute="width" constant="500" id="jJ2-0K-n18"/>
                                                 </constraints>
                                                 <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="WDP-Zg-5df">
-                                                    <rect key="frame" x="0.0" y="64" width="600" height="16"/>
+                                                    <rect key="frame" x="0.0" y="64" width="500" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="16B-cb-uPk">

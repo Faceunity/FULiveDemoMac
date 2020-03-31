@@ -257,7 +257,7 @@ struct FUPropSelIndexPath {
 
 //下一页
 - (IBAction)goPageBtnClick:(id)sender {
-    [_mSubItemCollectionView.enclosingScrollView.contentView scrollToPoint:NSMakePoint(810, 0)];
+    [_mSubItemCollectionView.enclosingScrollView.contentView scrollToPoint:NSMakePoint(_mLayoutConstraintW.constant, 0)];
     [_mSubItemCollectionView.enclosingScrollView reflectScrolledClipView:[_mSubItemCollectionView.enclosingScrollView contentView]];
     _mSubItemCollectionView.enclosingScrollView.horizontalScroller.hidden = YES;
     _mRightBtn.hidden = YES;
@@ -377,12 +377,12 @@ struct FUPropSelIndexPath {
  */
 -(float)updateSubCollectionWidth:(NSArray <FUPropSubItemModel *> *)array{
     float width = 0;
-    if (array.count <= 9) {//最大9个
+    if (array.count <= 8) {//最大9个
         _mLeftBtn.hidden = YES;
         _mRightBtn.hidden = YES;
         width = [FUAppDataCenter shareManager].propItemModelArray[_propSel.bottomIndex].subItems.count * (itemW + 10) - 10;//10:item间隔
     }else{
-        width = 9 * (itemW + 10) - 10;
+        width = 8 * (itemW + 10) - 10;
         _mLeftBtn.hidden = YES;
         _mRightBtn.hidden = NO;
     }
@@ -542,6 +542,9 @@ struct FUPropSelIndexPath {
             [[FUManager shareManager] setMaxFaces:4];
             [[FUAppDataCenter shareManager] setMakeupWithDataIndex:(int)indexPath.item];
             [FUAppDataCenter shareManager].makeupSelIndex = (int)indexPath.item;
+            if ([FUAppDataCenter shareManager].propItemModelArray[_propSel.bottomIndex].subItems[indexPath.item].hintStr){
+                _mHintTextField.stringValue = [FUAppDataCenter shareManager].propItemModelArray[_propSel.bottomIndex].subItems[indexPath.item].hintStr;
+            }
 
             return;
         }

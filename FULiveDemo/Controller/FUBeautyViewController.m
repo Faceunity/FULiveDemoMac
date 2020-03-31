@@ -50,14 +50,17 @@
     _mFilterCollectionView.delegate = self;
     _mFilterCollectionView.dataSource = self;
     
+    _selectFilterIndex = 2;
+    
     //初始状态
-    NSUInteger indexes[2] = {0,0};
+    NSUInteger indexes[2] = {0,2};
     NSIndexPath *indexPath = [[NSIndexPath alloc] initWithIndexes:indexes length:sizeof(indexes)/sizeof(NSUInteger)];
     [self.mFilterCollectionView selectItemsAtIndexPaths:[NSSet setWithObject:indexPath] scrollPosition:NSCollectionViewScrollPositionNone];
   //  [self.mStyleCollectionView selectItemsAtIndexPaths:[NSSet setWithObject:indexPath] scrollPosition:NSCollectionViewScrollPositionNone];
     _mFilterSlider.intValue = [FUAppDataCenter shareManager].filterModelArray[indexPath.item].value * 100;
     _mFilterTef.stringValue = [NSString stringWithFormat:@"%d",_mFilterSlider.intValue];
-    
+    _mFilterSlider.hidden = NO;
+    _mFilterTef.hidden = NO;
 }
 
 
@@ -224,7 +227,6 @@
     
     FUFilterViewItem *item = [collectionView makeItemWithIdentifier:@"FUFilterViewItem" forIndexPath:indexPath];
     item.model = [FUAppDataCenter shareManager].filterModelArray[indexPath.item];
-    
     return item;
 }
 - (NSSize)collectionView:(NSCollectionView *)collectionView

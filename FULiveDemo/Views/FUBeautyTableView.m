@@ -22,10 +22,11 @@ static NSString * indentify2 = @"SkinStyle3RowView";
 
 -(instancetype)initWithCoder:(NSCoder *)coder{
     if (self = [super initWithCoder:coder]) {
-        NSNib *itemOneNib = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle1RowView" bundle:nil];
-        [self registerNib:itemOneNib forIdentifier:indentify1];
-        NSNib *itemOneNib2 = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle3RowView" bundle:nil];
-        [self registerNib:itemOneNib2 forIdentifier:indentify2];
+        /* 重用异常 macOS 10.15.1 所以取消重用了*/
+//        NSNib *itemOneNib = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle1RowView" bundle:nil];
+//        [self registerNib:itemOneNib forIdentifier:indentify1];
+//        NSNib *itemOneNib2 = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle3RowView" bundle:nil];
+//        [self registerNib:itemOneNib2 forIdentifier:indentify2];
         
         self.rowSizeStyle = NSTableViewRowSizeStyleCustom;
         self.selectionHighlightStyle = NSTableViewSelectionHighlightStyleNone;
@@ -46,7 +47,17 @@ static NSString * indentify2 = @"SkinStyle3RowView";
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{
     
     if (row == 0) {
-        FUSkinStyle3RowView *view = [tableView makeViewWithIdentifier:indentify2 owner:self];
+        FUSkinStyle3RowView *view = nil;
+        NSNib *xib = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle3RowView" bundle:nil];
+        NSArray *viewsArray = [[NSArray alloc] init];
+        [xib instantiateWithOwner:nil topLevelObjects:&viewsArray];
+        for (int i = 0; i < viewsArray.count; i++) {
+            if ([viewsArray[i] isKindOfClass:[FUSkinStyle3RowView class]]) {
+                view = (FUSkinStyle3RowView *)viewsArray[i];
+                break;
+               }
+        }
+//        FUSkinStyle3RowView *view = [tableView makeViewWithIdentifier:indentify2 owner:self];
         view.model = _dataArray[row];
         @WeakObj(self);
         view.didClickBlock = ^(int index) {
@@ -58,13 +69,23 @@ static NSString * indentify2 = @"SkinStyle3RowView";
             [self reloadData];
         };
         return view;
+            
     }else{
-        FUSkinStyle1RowView *view = [tableView makeViewWithIdentifier:indentify1 owner:self];
+        FUSkinStyle1RowView *view = nil;
+        NSNib *xib = [[NSNib alloc] initWithNibNamed:@"FUSkinStyle1RowView" bundle:nil];
+        NSArray *viewsArray = [[NSArray alloc] init];
+        [xib instantiateWithOwner:nil topLevelObjects:&viewsArray];
+        for (int i = 0; i < viewsArray.count; i++) {
+            if ([viewsArray[i] isKindOfClass:[FUSkinStyle1RowView class]]) {
+                view = (FUSkinStyle1RowView *)viewsArray[i];
+                break;
+            }
+        }
+//        FUSkinStyle1RowView *view = [tableView makeViewWithIdentifier:indentify1 owner:self];
         view.model = _dataArray[row];
         return view;
     }
-    
-}
+ }
 
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row{

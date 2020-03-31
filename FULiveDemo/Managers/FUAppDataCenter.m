@@ -57,14 +57,17 @@ static FUAppDataCenter *shareManager = NULL;
     /* 磨皮 */
     [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"磨皮" openImgStr:@"list_icon_Grindingskin_open" closeImgStr:@"list_icon_Grindingskin_Close" type:FUBeautyModelTypeRange sdkStr:@"blur_level" defaultValue:4.2 rect:rect2 strArray:nil]];
     /* 美白 */
-    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美白" openImgStr:@"list_icon_Skinwhitening_open" closeImgStr:@"list_icon_Skinwhitening_Close" type:FUBeautyModelTypeRange sdkStr:@"color_level" defaultValue:0.5 rect:rect1 strArray:nil]];
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美白" openImgStr:@"list_icon_Skinwhitening_open" closeImgStr:@"list_icon_Skinwhitening_Close" type:FUBeautyModelTypeRange sdkStr:@"color_level" defaultValue:0.3 rect:rect1 strArray:nil]];
     /* 红润 */
-    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"红润" openImgStr:@"list_icon_Ruddy_open" closeImgStr:@"list_icon_Ruddy_Close" type:FUBeautyModelTypeRange sdkStr:@"red_level" defaultValue:0.5 rect:rect1 strArray:nil]];
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"红润" openImgStr:@"list_icon_Ruddy_open" closeImgStr:@"list_icon_Ruddy_Close" type:FUBeautyModelTypeRange sdkStr:@"red_level" defaultValue:0.3 rect:rect1 strArray:nil]];
     /* 亮眼 */
-    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"亮眼" openImgStr:@"list_icon_Brighteye_open" closeImgStr:@"list_icon_Brighteye_Close" type:FUBeautyModelTypeRange sdkStr:@"eye_bright" defaultValue:0.7 rect:rect1 strArray:nil]];
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"亮眼" openImgStr:@"list_icon_Brighteye_open" closeImgStr:@"list_icon_Brighteye_Close" type:FUBeautyModelTypeRange sdkStr:@"eye_bright" defaultValue:0.0 rect:rect1 strArray:nil]];
     /* 美牙 */
-    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美牙" openImgStr:@"list_iconBeautifulteeth_open" closeImgStr:@"list_iconBeautifulteeth_Close" type:FUBeautyModelTypeRange sdkStr:@"tooth_whiten" defaultValue:0.7 rect:rect1 strArray:nil]];
-    
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"美牙" openImgStr:@"list_iconBeautifulteeth_open" closeImgStr:@"list_iconBeautifulteeth_Close" type:FUBeautyModelTypeRange sdkStr:@"tooth_whiten" defaultValue:0.0 rect:rect1 strArray:nil]];
+    /* 去黑眼圈 */
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"去黑眼圈" openImgStr:@"list_icon_dark_circles_open" closeImgStr:@"list_icon_dark_circles_close" type:FUBeautyModelTypeRange sdkStr:@"remove_pouch_strength" defaultValue:0.0 rect:rect1 strArray:nil]];
+    /* 去法令纹 */
+    [mutArray addObject:[FUBeautyModel GetModelClassTitle:@"去法令纹" openImgStr:@"list_icon_wrinkle_open" closeImgStr:@"list_icon_wrinkle_close" type:FUBeautyModelTypeRange sdkStr:@"remove_nasolabial_folds_strength" defaultValue:0.0 rect:rect1 strArray:nil]];
     self.skinModelArray = mutArray;
 }
 
@@ -79,14 +82,13 @@ static FUAppDataCenter *shareManager = NULL;
     [mutArray1 addObject:model];
     [mutArray2 addObject:model];//共享第一模型内存
     // 瘦脸 */
-    [mutArray2 addObject:[FUBeautyModel GetModelClassTitle:@"瘦脸" openImgStr:@"list_icon_Thinface_open" closeImgStr:@"list_icon_Thinface_Close" type:FUBeautyModelTypeRange sdkStr:@"cheek_thinning" defaultValue:0.4 rect:rect1 strArray:nil]];
+    [mutArray2 addObject:[FUBeautyModel GetModelClassTitle:@"瘦脸" openImgStr:@"list_icon_Thinface_open" closeImgStr:@"list_icon_Thinface_Close" type:FUBeautyModelTypeRange sdkStr:@"cheek_thinning" defaultValue:0.0 rect:rect1 strArray:nil]];
     /* 大眼 */
-    [mutArray2 addObject:[FUBeautyModel GetModelClassTitle:@"大眼" openImgStr:@"list_icon_Bigeye_open" closeImgStr:@"list_icon_Bigeye_Close" type:FUBeautyModelTypeRange sdkStr:@"eye_enlarging" defaultValue:0.4 rect:rect1 strArray:nil]];
+    [mutArray2 addObject:[FUBeautyModel GetModelClassTitle:@"大眼" openImgStr:@"list_icon_Bigeye_open" closeImgStr:@"list_icon_Bigeye_Close" type:FUBeautyModelTypeRange sdkStr:@"eye_enlarging" defaultValue:0.0 rect:rect1 strArray:nil]];
     
-    
-    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"瘦脸" openImgStr:@"list_icon_Thinface_open" closeImgStr:@"list_icon_Thinface_Close" type:FUBeautyModelTypeRange sdkStr:@"cheek_thinning" defaultValue:0.4 rect:rect1 strArray:nil]];
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"瘦脸" openImgStr:@"list_icon_Thinface_open" closeImgStr:@"list_icon_Thinface_Close" type:FUBeautyModelTypeRange sdkStr:@"cheek_thinning" defaultValue:0.0 rect:rect1 strArray:nil]];
     /* V脸 */
-    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"V脸" openImgStr:@"list_icon_v_open" closeImgStr:@"list_icon_v_close" type:FUBeautyModelTypeRange sdkStr:@"cheek_v" defaultValue:0.4 rect:rect1 strArray:nil]];
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"V脸" openImgStr:@"list_icon_v_open" closeImgStr:@"list_icon_v_close" type:FUBeautyModelTypeRange sdkStr:@"cheek_v" defaultValue:0.5 rect:rect1 strArray:nil]];
     /* 窄脸 */
     [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"窄脸" openImgStr:@"list_icon_narrow_face_open" closeImgStr:@"list_icon_narrow_face_close" type:FUBeautyModelTypeRange sdkStr:@"cheek_narrow" defaultValue:0 rect:rect1 strArray:nil]];
     /* 小脸 */
@@ -102,6 +104,20 @@ static FUAppDataCenter *shareManager = NULL;
     /* 嘴型 */
     [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"嘴型" openImgStr:@"list_icon_Mouthtype_open" closeImgStr:@"list_icon_Mouthtype_Close" type:FUBeautyModelTypeRange sdkStr:@"intensity_mouth" defaultValue:0.4 rect:rect2 strArray:nil]];
     
+    /* 开眼角 */
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"开眼角" openImgStr:@"list_icon_open_eyes_open" closeImgStr:@"list_icon_open_eyes_close" type:FUBeautyModelTypeRange sdkStr:@"intensity_canthus" defaultValue:0.0 rect:rect1 strArray:nil]];
+    /* 眼距 */
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"眼距" openImgStr:@"list_icon_eye_distance_open" closeImgStr:@"list_icon_eye_distance_close" type:FUBeautyModelTypeRange sdkStr:@"intensity_eye_space" defaultValue:0.5 rect:rect2 strArray:nil]];
+    /* 眼睛角度 */
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"眼睛角度" openImgStr:@"list_icon_eye_angle_open" closeImgStr:@"list_icon_eye_angle_close" type:FUBeautyModelTypeRange sdkStr:@"intensity_eye_rotate" defaultValue:0.5 rect:rect2 strArray:nil]];
+    /* 长鼻 */
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"长鼻" openImgStr:@"list_icon_proboscis_open" closeImgStr:@"list_icon_proboscis_close" type:FUBeautyModelTypeRange sdkStr:@"intensity_long_nose" defaultValue:0.5 rect:rect2 strArray:nil]];
+    /* 缩人中 */
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"缩人中" openImgStr:@"list_icon_shrinking_open" closeImgStr:@"list_icon_shrinking_close" type:FUBeautyModelTypeRange sdkStr:@"intensity_philtrum" defaultValue:0.5 rect:rect2 strArray:nil]];
+    /* 微笑嘴角 */
+    [mutArray1 addObject:[FUBeautyModel GetModelClassTitle:@"微笑嘴角" openImgStr:@"list_icon_smile_mouth_open" closeImgStr:@"list_icon_smile_mouth_close" type:FUBeautyModelTypeRange sdkStr:@"intensity_smile" defaultValue:0.0 rect:rect1 strArray:nil]];
+    
+    
     self.beautyModelCustomArray = mutArray1;
     self.beautyModeldefaultArray = mutArray2;
     
@@ -112,7 +128,7 @@ static FUAppDataCenter *shareManager = NULL;
     NSMutableArray <FUFilterModel *>*mutArray = [NSMutableArray array];
     [mutArray addObject:[FUFilterModel GetModelClassTitle:@"原图" imgStr:@"list_image_origin" sdkStr:@"filter_name" styleStr:@"origin" valueSdkStr:@"filter_level" value:0.0]];
     [mutArray addObject:[FUFilterModel GetModelClassTitle:@"白亮" imgStr:@"list_image_bailiang" sdkStr:@"filter_name" styleStr:@"bailiang1" valueSdkStr:@"filter_level" value:0.7]];
-    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"粉嫩" imgStr:@"list_image_fennen" sdkStr:@"filter_name" styleStr:@"fennen1" valueSdkStr:@"filter_level" value:0.7]];
+    [mutArray addObject:[FUFilterModel GetModelClassTitle:@"粉嫩" imgStr:@"list_image_fennen" sdkStr:@"filter_name" styleStr:@"fennen1" valueSdkStr:@"filter_level" value:0.4]];
     [mutArray addObject:[FUFilterModel GetModelClassTitle:@"冷色调" imgStr:@"list_image_lengsediao" sdkStr:@"filter_name" styleStr:@"lengsediao1" valueSdkStr:@"filter_level" value:0.7]];
     [mutArray addObject:[FUFilterModel GetModelClassTitle:@"暖色调" imgStr:@"list_image_nuansediao" sdkStr:@"filter_name" styleStr:@"nuansediao1" valueSdkStr:@"filter_level" value:0.7]];
         [mutArray addObject:[FUFilterModel GetModelClassTitle:@"小清晰" imgStr:@"list_image_xiaoqingxin" sdkStr:@"filter_name" styleStr:@"xiaoqingxin1" valueSdkStr:@"filter_level" value:0.7]];
@@ -226,16 +242,19 @@ static FUAppDataCenter *shareManager = NULL;
 
 -(void)initializationMakeupData{
     
-    NSArray <FUPropSubItemModel *>*subItems0 = @[[FUPropSubItemModel GetClassSubImageStr:@"demo_combination_sexy" sdkStr:@"01_xinggan"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_sweet" sdkStr:@"02_tianmei"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_neighbor_girl" sdkStr:@"03_linjia"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_occident" sdkStr:@"04_oumei"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_charming" sdkStr:@"05_wumei"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_flower" sdkStr:@"zhuti01"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_tough_guy" sdkStr:@"zhuti05"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_moon" sdkStr:@"zhuti02"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_coral" sdkStr:@"zhuti04"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"demo_combination_lady" sdkStr:@"zhuti03"]];
+    NSArray <FUPropSubItemModel *>*subItems0 = @[[FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_neighbor_girl" sdkStr:@"linjia" hint:@"邻家"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_warm_winter" sdkStr:@"nuandong" hint:@"暖冬"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_red_maple" sdkStr:@"hongfeng" hint:@"红枫"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_rose" sdkStr:@"rose" hint:@"Rose"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_girl" sdkStr:@"shaonv" hint:@"少女"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_purple_rhyme" sdkStr:@"ziyun" hint:@"紫韵"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_bored_cat" sdkStr:@"yanshimao" hint:@"厌世猫"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_mermaid" sdkStr:@"renyu" hint:@"人鱼"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_early_autumn" sdkStr:@"chuqiu" hint:@"初秋"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_paper_cranes" sdkStr:@"qianzhihe" hint:@"千纸鹤"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_supermodel" sdkStr:@"chaomo" hint:@"超模"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_daisy" sdkStr:@"chuju" hint:@"雏菊"],
+                                                 [FUPropSubItemModel GetClassSubImageStr:@"makeup_icon_combination_harbour_wind" sdkStr:@"gangfeng" hint:@"港风"]];
     FUPropItemModel *model = [FUPropItemModel GetClassTitle:@"美妆" hoverImageStr:@"list_icon_makeup_hover" norImageStr:@"list_icon_makeup_nor" subItems:subItems0 type:FULiveModelTypePortraitDrive maxFace:1];
     
     
@@ -277,8 +296,9 @@ static int oldHandle = 0;
         [[FUManager shareManager] loadBundleWithName:@"face_makeup" aboutType:FUNamaHandleTypeMakeup];
         [[FUManager shareManager] setMakeupItemIntensity:1 param:@"is_makeup_on"];
     }
-    
     int makeupHandle = [[FUManager shareManager] getHandleAboutType:FUNamaHandleTypeMakeup];
+    /* 切换bundle,清空当前bind道具 */
+    [FURenderer itemSetParam:makeupHandle withName:@"is_clear_makeup" value:@(1)];
     NSString *path = [[NSBundle mainBundle] pathForResource:_makeupArray[0].subItems[index].subSdkStr ofType:@"bundle"];
     int subHandle =  [FURenderer itemWithContentsOfFile:path];
     
