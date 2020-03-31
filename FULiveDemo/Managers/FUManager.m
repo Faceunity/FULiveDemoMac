@@ -52,11 +52,9 @@ static FUManager *shareManager = NULL;
 - (instancetype)init
 {
     if (self = [super init]) {
-        
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"v3.bundle" ofType:nil];
         /**这里新增了一个参数shouldCreateContext，设为YES的话，不用在外部设置context操作，我们会在内部创建并持有一个context。
          还有设置为YES,则需要调用FURenderer.h中的接口，不能再调用funama.h中的接口。*/
-        [[FURenderer shareRenderer] setupWithDataPath:path authPackage:&g_auth_package authSize:sizeof(g_auth_package) shouldCreateContext:YES];
+        [[FURenderer shareRenderer] setupWithData:nil dataSize:0 ardata:nil authPackage:&g_auth_package authSize:sizeof(g_auth_package) shouldCreateContext:YES];
         
         NSData *tongueData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tongue.bundle" ofType:nil]];
         int ret2 = fuLoadTongueModel((void *)tongueData.bytes, (int)tongueData.length) ;
@@ -159,10 +157,11 @@ static FUManager *shareManager = NULL;
 - (void)loadFilter{
     if (items[0] == 0) {
         NSString *path = [[NSBundle mainBundle] pathForResource:@"face_beautification.bundle" ofType:nil];
-//        items[0] = [FURenderer itemWithContentsOfFile:path];
-        
+//        items[0] = [FURenderer itemWithContentsOfFile:path];        
         NSData *itemData = [[NSData alloc] initWithContentsOfFile:path];
         self -> items[0] = fuCreateItemFromPackage((void *)itemData.bytes, (int)itemData.length);
+        [FURenderer itemSetParam:items[0] withName:@"filter_name" value:@"fennen1"];
+        [FURenderer itemSetParam:items[0] withName:@"filter_level" value:@(0.4)];
         [FURenderer itemSetParam:items[0] withName:@"is_opengl_es" value:@(0)];//mac端隐藏设置
     }
 }
