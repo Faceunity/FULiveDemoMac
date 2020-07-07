@@ -231,13 +231,13 @@ static FUAppDataCenter *shareManager = NULL;
     FUPropItemModel *model8 = [FUPropItemModel GetClassTitle:@"哈哈镜" hoverImageStr:@"list_icon_Hahamirror_hover" norImageStr:@"list_icon_Hahamirror_nor" subItems:subItems8 type:FULiveModelTypeHahaMirror maxFace:4];
     
     //人像驱动
-    NSArray <FUPropSubItemModel *>*subItems9 = @[[FUPropSubItemModel GetClassSubImageStr:@"picasso_e1" sdkStr:@"picasso_e1"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"picasso_e2" sdkStr:@"picasso_e2"],
-                                                 [FUPropSubItemModel GetClassSubImageStr:@"picasso_e3" sdkStr:@"picasso_e3"]];
-    FUPropItemModel *model9 = [FUPropItemModel GetClassTitle:@"人像驱动" hoverImageStr:@"list_icon_Portraitdrive_hover" norImageStr:@"list_icon_Portraitdrive_nor" subItems:subItems9 type:FULiveModelTypePortraitDrive maxFace:1];
+//    NSArray <FUPropSubItemModel *>*subItems9 = @[[FUPropSubItemModel GetClassSubImageStr:@"picasso_e1" sdkStr:@"picasso_e1"],
+//                                                 [FUPropSubItemModel GetClassSubImageStr:@"picasso_e2" sdkStr:@"picasso_e2"],
+//                                                 [FUPropSubItemModel GetClassSubImageStr:@"picasso_e3" sdkStr:@"picasso_e3"]];
+//    FUPropItemModel *model9 = [FUPropItemModel GetClassTitle:@"人像驱动" hoverImageStr:@"list_icon_Portraitdrive_hover" norImageStr:@"list_icon_Portraitdrive_nor" subItems:subItems9 type:FULiveModelTypePortraitDrive maxFace:1];
     
     
-    _normalArray = @[model0,model1,model2,model4,model5,model6,model7,model8,model9];
+    _normalArray = @[model0,model1,model2,model4,model5,model6,model7,model8];
 }
 
 -(void)initializationMakeupData{

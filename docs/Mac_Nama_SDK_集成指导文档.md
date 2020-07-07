@@ -1,26 +1,33 @@
 # Mac Nama SDK 集成指导文档  
 级别：Public   
-更新日期：2020-03-19   
-SDK版本: 6.7.0  
+更新日期：2020-06-30   
+SDK版本: 7.0.0  
 
 ------
 
-**FaceUnity Nama SDK v6.7.0 (2020-03-19 )**
+- ### 最新更新内容：
 
-1. 美颜效果
-   -新增去黑眼圈、去法令纹功能
-   -优化磨皮效果，新增只磨皮人脸区域接口功能
-   -优化原有美型效果
-2. 优化表情跟踪效果，解决了6.6.0版表情系数表情灵活度问题——FaceProcessor模块优化
-   -解决Animoji表情灵活度问题，基本与原有SDK v6.4.0效果相近
-   -解决优化了表情动图的鼻子跟踪效果问题
-3. 优化美妆效果，人脸点位优化，提高准确性
-   -优化口红点位与效果，解决张嘴、正脸、低抬头、左右转头、抿嘴动作的口红溢色
-   -优化美瞳点位效果，是美瞳效果稳定
-   -腮红效果优化，解决了仰头角度下腮红强拉扯问题
-4. 新增接口支持图像裁剪，解决瘦脸边缘变形问题（边缘变形剪裁）
-5. 新增接口判断初始化完成状态
-6. 移动端Demo优化曝光聚焦效果，效果达到市面上最优效果
+  **2020-06-30 v7.0.0:**
+
+  1. 上线FULiveDemo算法版，新增7大人体及mask类算法功能
+     - 开放人体关键点(全身/半身)接口，可获取实时画面中的人体2D关键点的位置信息
+     - 开放人体骨骼(全身/半身) 接口，可获取实时身体驱动时的3D骨骼信息，并支持手势识别
+     - 开放人像分割接口，可获取实时画面中的人像分割mask信息
+     - 开放头发分割接口，可获取实时画面中的头发分割mask信息
+     - 开放头部分割接口，可获取实时画面中的头部分割mask信息
+     - 开放手势识别接口，可获取实时画面中的手势类别信息，包括14种手势
+     - 开放动作识别接口，可获取实时画面中的动作类别信息，包括15种动作
+  2. 原FULiveDemo更名为“FULiveDemo特效版”，新增多款人体及mask类特效功能，交互更有趣，特效更丰富
+     - 新增搞笑大头特效，提供大头、大头哈哈镜、微笑大头等6款搞笑大头特效
+     - 优化美体功能效果：新增2款美体维度，包括小头、瘦腿；优化美体效果，稳定性提升，画面变形影响降低
+     - 新增全身avatar功能，支持虚拟形象的全身/半身驱动，并支持手势的精准识别
+     - 新增动作识别小游戏，可以获得跳舞机的有趣体验
+     - 原背景分割模块更名为“人像分割”，优化了人像分割的效果，并新增了可以跟随人体的人像分割贴纸3款
+  3. 优化美颜功能性能，尤其是低端机型，单帧耗时降幅在20%-30%
+  4. 优化美颜功能效果，对于口罩遮挡时，亮眼跟随效果更贴合，白牙亮片问题大幅优化
+  5. 优化美妆功能效果，人脸点位优化并扩增为241点，重点提高美瞳、高光、眉毛的准确性和稳定性。
+  6. 新增最大人脸检测距离接口，支持客户自定义设置最大人脸检测距离
+  7. 新增日志查询接口，技术对接更便捷
 
 ------
 ## 目录：
@@ -42,15 +49,10 @@ SDK版本: 6.7.0
 ```
 +Faceunity
   -authpack.h		       	//鉴权文件
-  +Nama.framework				//nama 动态库    
+  +CNamaSDK.framework				//nama 动态库    
   +Resources
-    +AI_modle           //ai 资源
-       -ai_facelandmarks239.bundle  // 人脸nn239 点位
-       -tougue.bundle               // 舌头
-       -ai_bgseg.bundle             // 背景分割能力
-       ...
-    -face_beautification.bundle     //美颜资源
-    -fxaa.bundle                    //抗锯齿
+    +graphics        //渲染道具资源
+    +model           //ai 资源
     
 ```
 
@@ -74,13 +76,13 @@ Xcode 8或更高版本
 全功能版本：
 
 ```
-pod 'Nama-macOS', '6.7.0' 
+pod 'Nama-macOS', '7.0.0' 
 ```
 
 不含物理引擎的版本（lite版）：
 
 ```
-pod 'Nama-macOS-lite', '6.7.0' 
+pod 'Nama-macOS-lite', '7.0.0' 
 ```
 
 接下来执行：
@@ -97,9 +99,9 @@ pod repo update 或 pod setup
 
 #### 3.2.1 通过 github 下载集成
 
-全功能版本：[FaceUnity-SDK-Mac-v6.7.0.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.7.0.zip)
+全功能版本：[FaceUnity-SDK-Mac-v7.0.0.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v7.0.0.zip)
 
-不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v6.7.0-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v6.7.0-lite.zip)
+不含物理引擎的版本（lite版）：[FaceUnity-SDK-Mac-v7.0.0-lite.zip](https://www.faceunity.com/sdk/FaceUnity-SDK-Mac-v7.0.0-lite.zip)
 
 下载完成并解压后将库文件夹拖入到工程中，并勾选上 Copy items if needed，如图：
 
@@ -107,7 +109,7 @@ pod repo update 或 pod setup
 
 ![](imgs/picture1.png)
 
-然后在Build Phases → Link Binary With Libraries 中添加依赖库，这里需要添加 OpenGLES.framework、Accelerate.framework、CoreMedia.framework、AVFoundation.framework、stdc++.tbd 这几个依赖库，如果你使用的是lite版可以不添加 libc+.tbd 依赖，如图：
+然后在Build Phases → Link Binary With Libraries 中添加依赖库，这里需要添加 OpenGLES.framework、Accelerate.framework、CoreMedia.framework、AVFoundation.framework、stdc++.tbd、CoreML 这几个依赖库，如果你使用的是lite版可以不添加 libc+.tbd 依赖，如图：
 
 ------
 
@@ -168,6 +170,26 @@ iOS端发放的证书为包含在authpack.h中的g_auth_package数组，如果�
 这里可写作 sizeof(g_auth_package)
 
 `create` 如果设置为YES，我们会在内部创建并持有一个context，这种情况下工程中必须要使用OC层接口
+
+#### 3.4.2 加载AI道具
+
+#### 3.4.1 初始化SDk
+
+例：加载人体AI模型道具ai_hunman_processor.boundle
+
+1. 加载二级制bundle
+
+```objective-c
+    NSData *ai_human_processor = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_human_processor.bundle" ofType:nil]];
+    
+```
+
+2. 通过 **loadAIModelFromPackage** 设置到SDK
+
+```objective-c
+[FURenderer loadAIModelFromPackage:(void *)ai_human_processor.bytes size:(int)ai_human_processor.length aitype:FUAITYPE_HUMAN_PROCESSOR];
+
+```
 
 ### 3.5 道具创建、销毁、切换
 
