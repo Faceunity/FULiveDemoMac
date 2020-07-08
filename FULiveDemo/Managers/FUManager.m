@@ -9,7 +9,6 @@
 #import "FUManager.h"
 #import "authpack.h"
 #import <sys/utsname.h>
-#import "FURenderer+header.h"
 
 
 @interface FUManager ()
@@ -59,9 +58,8 @@ static FUManager *shareManager = NULL;
         NSData *tongueData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"tongue.bundle" ofType:nil]];
         int ret2 = fuLoadTongueModel((void *)tongueData.bytes, (int)tongueData.length) ;
         NSLog(@"fuLoadTongueModel %@",ret2 == 0 ? @"failure":@"success" );
-        
+
         NSLog(@"sdk-------%@",[FURenderer getVersion]);
-        //
         [self loadAIModle];
     }
     
@@ -69,22 +67,15 @@ static FUManager *shareManager = NULL;
 }
 
 -(void)loadAIModle{
-    NSData *ai_bgseg = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_bgseg.bundle" ofType:nil]];
-    [FURenderer loadAIModelFromPackage:(void *)ai_bgseg.bytes size:(int)ai_bgseg.length aitype:FUAITYPE_BACKGROUNDSEGMENTATION];
-    
-    NSData *ai_facelandmarks75 = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_facelandmarks75.bundle" ofType:nil]];
-    [FURenderer loadAIModelFromPackage:(void *)ai_facelandmarks75.bytes size:(int)ai_facelandmarks75.length aitype:FUAITYPE_FACELANDMARKS75];
-
-    NSData *ai_facelandmarks209 = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_facelandmarks209.bundle" ofType:nil]];
-         [FURenderer loadAIModelFromPackage:(void *)ai_facelandmarks209.bytes size:(int)ai_facelandmarks209.length aitype:FUAITYPE_FACELANDMARKS209];
-    NSData *ai_facelandmarks239 = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_facelandmarks239.bundle" ofType:nil]];
-    [FURenderer loadAIModelFromPackage:(void *)ai_facelandmarks239.bytes size:(int)ai_facelandmarks239.length aitype:FUAITYPE_FACELANDMARKS239];
-    NSData *ai_gesture = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_gesture.bundle" ofType:nil]];
-    [FURenderer loadAIModelFromPackage:(void *)ai_gesture.bytes size:(int)ai_gesture.length aitype:FUAITYPE_HANDGESTURE];
-    NSData *ai_hairseg = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_hairseg.bundle" ofType:nil]];
-    [FURenderer loadAIModelFromPackage:(void *)ai_hairseg.bytes size:(int)ai_hairseg.length aitype:FUAITYPE_HAIRSEGMENTATION];
-    NSData *ai_humanpose = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_humanpose.bundle" ofType:nil]];
-    [FURenderer loadAIModelFromPackage:(void *)ai_humanpose.bytes size:(int)ai_humanpose.length aitype:FUAITYPE_HUMANPOSE2D];
+//    NSData *ai_bgseg = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_bgseg.bundle" ofType:nil]];
+//    [FURenderer loadAIModelFromPackage:(void *)ai_bgseg.bytes size:(int)ai_bgseg.length aitype:FUAITYPE_BACKGROUNDSEGMENTATION];
+//    
+//    NSData *ai_gesture = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_gesture.bundle" ofType:nil]];
+//    [FURenderer loadAIModelFromPackage:(void *)ai_gesture.bytes size:(int)ai_gesture.length aitype:FUAITYPE_HANDGESTURE];
+//    NSData *ai_hairseg = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_hairseg.bundle" ofType:nil]];
+//    [FURenderer loadAIModelFromPackage:(void *)ai_hairseg.bytes size:(int)ai_hairseg.length aitype:FUAITYPE_HAIRSEGMENTATION];
+    NSData *ai_human_processor = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_human_processor.bundle" ofType:nil]];
+    [FURenderer loadAIModelFromPackage:(void *)ai_human_processor.bytes size:(int)ai_human_processor.length aitype:FUAITYPE_HUMAN_PROCESSOR];
 
     NSData *ai_face_processor = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ai_face_processor.bundle" ofType:nil]];
     [FURenderer loadAIModelFromPackage:(void *)ai_face_processor.bytes size:(int)ai_face_processor.length aitype:FUAITYPE_FACEPROCESSOR];
@@ -96,11 +87,11 @@ static FUManager *shareManager = NULL;
 - (void)loadAllItems{    
     /**加载美颜道具*/
     [self loadFilter];
-    
+
     [self loadMakeup];
     /**加载普通道具*/
     [self loadItem:nil];
-    
+
     [self loadAnimojiFaxxBundle];
     
 }
