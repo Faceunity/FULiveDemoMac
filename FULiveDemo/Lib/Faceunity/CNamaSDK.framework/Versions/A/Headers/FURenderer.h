@@ -29,7 +29,7 @@ typedef enum {
   FURotationMode270 = FU_ROTATION_MODE_270,
 } FURotationMode;
 
-@interface FURotatedImage : NSObject
+__attribute__((visibility("default"))) @interface FURotatedImage : NSObject
 
 @property void* mData;
 @property int mWidth;
@@ -40,7 +40,7 @@ typedef enum {
 @end
 ;
 
-@interface FUAvatarInfo : NSObject {
+__attribute__((visibility("default"))) @interface FUAvatarInfo : NSObject {
  @public
   float landmarks[150];
   float identity[75];
@@ -56,7 +56,7 @@ typedef enum {
 
 @end
 
-@interface FURenderer : NSObject
+__attribute__((visibility("default"))) @interface FURenderer : NSObject
 
 /**
  获取 FURenderer 单例
@@ -399,15 +399,23 @@ typedef enum {
 - 与 视频处理接口2 相比新增 customSize 参数，可以自定义输出分辨率
 
 @param pixelBuffer 图像数据，支持的格式为：BGRA、YUV420SP
-@param frameid 当前处理的视频帧序数，每次处理完对其进行加 1 操作，不加 1 将无法驱动道具中的特效动画
+@param frameid 当前处理的视频帧序数，每次处理完对其进行加 1 操作，不加 1
+将无法驱动道具中的特效动画
 @param items 包含多个道具句柄的 int 数组
 @param itemCount 句柄数组中包含的句柄个数
 @param flip 道具镜像使能，如果设置为 YES 可以将道具做镜像操作
 @param customSize 自定义输出的分辨率，目前仅支持BGRA格式
-@param useAlpha 是否带道具透明通道，if  useAlpha = NO,RGBA 数据alpha 会被强制设置为1，其他视频处理接口皆为该模式
+@param useAlpha 是否带道具透明通道，if  useAlpha = NO,RGBA 数据alpha
+会被强制设置为1，其他视频处理接口皆为该模式
 @return 被处理过的的图像数据，返回 nil 视频处理失败
 */
-- (CVPixelBufferRef)renderPixelBuffer:(CVPixelBufferRef)pixelBuffer withFrameId:(int)frameid items:(int*)items itemCount:(int)itemCount flipx:(BOOL)flip customSize:(CGSize)customSize useAlpha:(BOOL)useAlpha;
+- (CVPixelBufferRef)renderPixelBuffer:(CVPixelBufferRef)pixelBuffer
+                          withFrameId:(int)frameid
+                                items:(int*)items
+                            itemCount:(int)itemCount
+                                flipx:(BOOL)flip
+                           customSize:(CGSize)customSize
+                             useAlpha:(BOOL)useAlpha;
 
 - (int)renderItems:(void*)inPtr
           inFormat:(FUFormat)inFormat
@@ -848,6 +856,7 @@ typedef enum {
 
 + (int)loadTongueModel:(void*)model size:(int)size;
 
++ (int)SetLoadQuality:(int)quality;
 /**
  统计接口调用次数
  @param 接口名称
@@ -952,4 +961,6 @@ new tracker
  释放nama资源
  */
 + (void)namaLibDestroy;
+
++ (void)humanProcessorReset;
 @end
